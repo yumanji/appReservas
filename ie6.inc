@@ -1,0 +1,2 @@
+<div class="ie6"><p>Este sitio no es visible con Explorer 6. Por favor actualice su navegador a una version superior.</p>
+<p>Este sitio se ve mejor con <a href="http://www.microsoft.com/spain/windows/internet-explorer/">Explorer 8. Descargar ahora.</a></p></div>
