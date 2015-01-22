@@ -1,0 +1,5 @@
+body  { background: green; padding: 50px; color: #fff; text-align:center }
+.ie6 { display:block   }
+.ie6  a { color: #fff }
+#wrap { display: none }
+#footer { display: none }

@@ -1,0 +1,159 @@
+#caja {
+width: 940px;
+display: none;
+padding:20px;
+border:1px solid #d9d8cb;
+background-color:#FFF; margin-top:1px;  
+}
+#mostrar{
+width: 970px;
+display:block;
+padding:5px;   
+}
+
+a.close { border: 1px solid #d9d8cb; padding-right: 15px; color: #3d453f; font-size: 11px; background:url(../images/fnd2.jpg) repeat-x; text-decoration: none; padding-bottom: 4px; padding-top: 1px}
+a.close  img {   vertical-align: middle  }
+
+.box2 { float: left; width: 310px;  margin-right: 20px  }
+
+#caja2 {
+display: none;
+width: 278px; 
+padding:20px;
+border:1px solid #d9d8cb;
+background-color:#FFF; margin-top:1px
+}
+#mostrar2{
+display:block;
+width: 310px; 
+padding:5px;
+}
+
+.box3 { float: left; width: 310px; margin-right: 20px  }
+#caja3 {
+display: none;
+width: 278px; 
+padding:20px;
+border:1px solid #d9d8cb;
+background-color:#FFF; margin-top:1px
+}
+#mostrar3{
+display:block;
+width: 310px; 
+padding:5px;
+}
+
+.box4 { float: left; width: 310px;   margin-right: 20px  }
+#caja4 {
+display: none;
+width: 300px; 
+padding:10px;
+border:1px solid #d9d8cb;
+background-color:#FFF; margin-top:1px
+}
+#mostrar4{
+display:block;
+width: 310px; 
+padding:5px;
+}
+
+.box5 { float: left; width: 640px;   margin-right: 20px  }
+#caja5 {
+display: none;
+width: 608px; 
+padding:20px;
+border:1px solid #d9d8cb;
+background-color:#FFF; margin-top:1px
+}
+#mostrar5{
+display:block;
+width: 640px; 
+padding:5px; 
+}
+
+.box6 { float: left; width: 310px;   margin-right: 20px  }
+#caja6 {
+display: none;
+width: 278px; 
+padding:20px;
+border:1px solid #d9d8cb;
+background-color:#FFF; margin-top:1px
+}
+#mostrar6{
+display:block;
+width: 310px; 
+padding:5px;
+}
+
+.box_foto { float: left; width: 230px;  margin-right: 20px  }
+#caja_foto {
+display: none;
+width: 220px; 
+padding:10px;
+border:1px solid #d9d8cb;
+background-color:#FFF; margin-top:1px
+}
+#mostrar_foto{
+display:block;
+width: 230px; 
+padding:5px;
+}
+.box_reservas { float: left; width: 350px; margin-right: 20px  }
+#caja_reservas {
+display: none;
+width: 340px; 
+padding:10px;
+border:1px solid #d9d8cb;
+background-color:#FFF; margin-top:1px
+}
+#mostrar_reservas{
+display:block;
+width: 350px; 
+padding:5px;
+}
+.box_pagos { float: left; width: 350px;   margin-right: 20px  }
+#caja_pagos {
+display: none;
+width: 340px; 
+padding:10px;
+border:1px solid #d9d8cb;
+background-color:#FFF; margin-top:1px
+}
+#mostrar_pagos{
+display:block;
+width: 350px; 
+padding:5px;
+}
+
+.box_clima { float: left; width: 310px;  margin-right: 20px  }
+#caja_clima {
+display: none;
+width: 300px; 
+padding:10px;
+border:1px solid #d9d8cb;
+background-color:#FFF; margin-top:1px
+}
+#mostrar_clima{
+display:block;
+width: 310px; 
+padding:5px;
+}
+
+.box_saldo { float: left; width: 310px; margin-right: 20px  }
+#caja_saldo {
+display: none;
+width: 300px; 
+padding:10px;
+border:1px solid #d9d8cb;
+background-color:#FFF; margin-top:1px
+}
+#mostrar_saldo{
+display:block;
+width: 310px; 
+padding:5px;
+}
+
+a.titulo { border: 1px solid #5c8700; color: #FFF; background: url(../images/titulo.jpg) repeat-x #77b000; padding-top: 5px; padding-left: 5px; font-size: 14px; font-weight: bold; text-decoration: none; display:block;   }
+a.titulo  img  { vertical-align: middle; padding-right: 10px; padding-left: 5px  }
+
+.separador { display:block;; height: 20px; text-align: right}

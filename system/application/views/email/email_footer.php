@@ -1,0 +1,1 @@
+<p style="font-family: Verdana, Geneva, sans-serif; font-size: 10px; font-weight: normal; background-color: #2D588B; color: #FFF; text-align: center; padding-top: 5px; padding-bottom: 5px;">Reserva Deportiva S.L. &copy; 2010 - Todos los derechos reservados</p>

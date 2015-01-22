@@ -1,0 +1,113 @@
+@charset "utf-8";
+#informes_search_fields  {
+	color: #2D588B;
+	font-size: 11px;
+}
+
+
+#informes_search_fields fieldset {
+	width: 755px;
+	border-color: #2D588B;
+	padding: 8px 8px;
+	margin: auto auto;
+	/*
+	margin: 0.5em 0 0 0;
+
+	padding:  0.5em 0.5em 0.5em 0.5em;
+	*/
+}
+
+#informes_search_fields td {
+	width: 240px;
+}
+
+#informes_search_fields table {
+	border-collapse:collapse;
+	border: 0px solid #2D588B;
+}
+
+
+#informes_search_fields legend {
+	color: #2D588B;
+}
+
+
+#informes_search_fields label {
+	width: 125px;
+	float: left;
+	text-align: right;
+	margin-top: 5px;
+	font-weight: bold;
+	white-space: nowrap;
+	font-size: 11px;
+	padding-right: 5px;
+}
+
+#informes_search_fields select, #informes_search_fields input {
+	width: 140px;
+	color: #2D588B;
+}
+
+#informes_search_fields #date1, #informes_search_fields #date2 {
+	width: 120px;
+	color: #2D588B;
+}
+
+#informes_search_fields .reportSearchButton {
+	background-repeat: no-repeat;
+	border: none;
+	background-color: #FFFFFF;
+	width: 18px;
+	height: 18px;
+	cursor: pointer;
+}
+
+
+#informes_result  {
+	color: #2D588B;
+	font-size: 11px;
+	text-align: center;
+	padding: 10px 10px;
+	margin: auto auto;
+}
+
+
+#informes_result .titulo {
+	text-align: center;
+	font-size: 18px;
+	padding: 5px 5px;
+	color: #2D588B;
+	font-weight: bold;
+}
+
+#informes_result table {
+	border: thin solid #2D588B;
+	font-size: 12px;
+	padding: 0px 0px;
+	margin: auto auto;
+	text-align: center;
+	width: 600px;
+}
+
+#informes_result .cabecera_informe {
+	border: thin solid #2D588B;
+	text-align: left;
+	font-size: 15px;
+	padding: 5px 5px;
+	background-color: #2D588B;
+	color: #FFFFFF;
+	font-weight: bold;
+}
+
+#informes_result .total {
+	border: thin solid #2D588B;
+	font-size: 15px;
+	padding: 5px 5px;
+	font-weight: bold;
+}
+
+#informes_result td {
+	border: thin solid #2D588B;
+	padding: 3px 3px;
+	font-size: 13px;
+}

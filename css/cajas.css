@@ -1,0 +1,89 @@
+#caja {
+width: 638px;
+display: none;
+padding:20px;
+border:1px solid #d9d8cb;
+background-color:#FFF; margin-top:1px;  
+}
+#mostrar{
+width: 670px;
+display:block;
+padding:5px;   
+}
+
+a.close { border: 1px solid #d9d8cb; padding-right: 15px; color: #3d453f; font-size: 11px; background:url(../images/fnd2.jpg) repeat-x; text-decoration: none; padding-bottom: 4px; padding-top: 1px}
+a.close  img {   vertical-align: middle  }
+
+.box2 { float: left; width: 210px;  margin-right: 20px  }
+#caja2 {
+display: none;
+width: 178px; 
+padding:20px;
+border:1px solid #d9d8cb;
+background-color:#FFF; margin-top:1px
+}
+#mostrar2{
+display:block;
+width: 210px; 
+padding:5px;
+}
+
+.box3 { float: left; width: 210px; margin-right: 20px  }
+#caja3 {
+display: none;
+width: 178px; 
+padding:20px;
+border:1px solid #d9d8cb;
+background-color:#FFF; margin-top:1px
+}
+#mostrar3{
+display:block;
+width: 210px; 
+padding:5px;
+}
+
+.box4 { float: left; width: 210px;   margin-right: 20px  }
+#caja4 {
+display: none;
+width: 178px; 
+padding:20px;
+border:1px solid #d9d8cb;
+background-color:#FFF; margin-top:1px
+}
+#mostrar4{
+display:block;
+width: 210px; 
+padding:5px;
+}
+
+.box5 { float: left; width: 440px;   margin-right: 20px  }
+#caja5 {
+display: none;
+width: 408px; 
+padding:20px;
+border:1px solid #d9d8cb;
+background-color:#FFF; margin-top:1px
+}
+#mostrar5{
+display:block;
+width: 440px; 
+padding:5px; 
+}
+
+.box6 { float: left; width: 210px;   margin-right: 20px  }
+#caja6 {
+display: none;
+width: 178px; 
+padding:20px;
+border:1px solid #d9d8cb;
+background-color:#FFF; margin-top:1px
+}
+#mostrar6{
+display:block;
+width: 210px; 
+padding:5px;
+}
+a.titulo { border: 1px solid #5c8700; color: #FFF; background: url(../images/titulo.jpg) repeat-x #77b000; padding-top: 5px; padding-left: 5px; font-size: 14px; font-weight: bold; text-decoration: none; display:block;   }
+a.titulo  img  { vertical-align: middle; padding-right: 10px; padding-left: 5px  }
+
+.separador { display:block;; height: 20px; text-align: right}

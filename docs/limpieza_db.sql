@@ -1,0 +1,15 @@
+TRUNCATE  `booking`;
+TRUNCATE  `booking_cancelled`;
+TRUNCATE  `booking_players`;
+TRUNCATE  `booking_shared`;
+TRUNCATE  `lessons`;
+TRUNCATE `lessons_assistance`;
+TRUNCATE `lessons_assistants`;
+TRUNCATE `lessons_prices`;
+TRUNCATE `lessons_reports`;
+TRUNCATE `notification`;
+TRUNCATE `notification_mails`;
+TRUNCATE `payments`;
+TRUNCATE `payments_scheduled`;
+TRUNCATE `payments_tpv_extra`;
+TRUNCATE `users_prepaid_movements`;

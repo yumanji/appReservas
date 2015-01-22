@@ -1,0 +1,290 @@
+@charset "utf-8";
+/* *{ behavior: url(iepngfix.htc) } */
+img { border: none}
+
+html, body {height: 100%;}
+
+/* new clearfix */
+.clearfix:after { visibility: hidden; display: block; font-size: 0; content: " "; clear: both; height: 0; }
+* html .clearfix { zoom: 1; } 
+*:first-child+html .clearfix { zoom: 1; } /* IE7 */
+ 
+a { color: #0e69bd }
+body { background:url(../images/head.jpg) repeat-x; font-family: Arial, Helvetica, sans-serif; font-size: 12px; color: #3d453f ; border: 0px; margin: 0px}
+
+
+/* Estructura */
+.cabecera  { width: 990px; margin:0 auto; text-align: left; height:auto;overflow:hidden;    height: 150px; } 
+.cabecera_variable  { margin:0 auto; text-align: left; height:auto;overflow:hidden;    height: 130px; } 
+.cabecera_con_submenu  { width: 990px; margin:0 auto; text-align: left; height:auto;overflow:hidden;    height: 150px; } 
+.lrd { float: right; padding-right: 10px;  padding-left: 80px;  padding-top: 9px; margin-bottom: 10px }
+.wrapper { min-height: 100%; height: auto !important; height: 100%; margin: 0 auto -4em; }
+.push { border-bottom: 20px solid #fff }
+.pie, .push { height: 4em; }
+
+/* Logo cliente */
+ .logo { float: left;  }
+/* Navegación superior */
+.user { padding-right: 50px; padding-top: 10px }
+ul.navtop { background:url(../images/navtop.jpg) repeat-x; height: 35px; color: #fff; font-variant:small-caps; float: right; padding: 20px; font-size: 13px ; margin: 0px; padding-top: 0px; padding-bottom: 0px }
+.navtop li { list-style-type: none; float: left ; padding-left: 10px}
+.navtop a { color: #fff; text-decoration: none}
+.navtop a:hover { text-decoration: underline}
+.navtop img { vertical-align:middle }
+
+/* Menu de navegacion */
+.navega1  { clear:both; display: block;  height: 30px }
+.navega1 ul {  margin: 0px; padding: 0px; float:left }
+.navega1 li { float:left ; list-style-type: none }
+.navega1 a { background:url(../images/nav1.jpg) repeat-x; padding: 4px; border-right: 1px solid #639100; color: #FFF; text-decoration: none; font-weight: bold; font-variant:small-caps;  font-size: 13px; padding-right: 15px; padding-left: 15px }
+.navega1 a:hover { background:url(../images/nav1h.jpg) repeat-x; padding: 4px; border-right: 1px solid #639100; color: #363e38; text-decoration: none; font-weight: bold; font-variant:small-caps;  font-size: 13px; padding-right: 15px; padding-left: 15px }
+img.nimg { float: left; margin-top: -7px;   }
+
+.navega1 a.actual { background:url(../images/nav1h.jpg) repeat-x; padding: 4px; border-right: 1px solid #639100; color: #363e38; text-decoration: none; font-weight: bold; font-variant:small-caps;  font-size: 13px; padding-right: 15px; padding-left: 15px }
+
+.navega2 ul {  margin: 5px; padding: 0px; float:left; margin-left: 20px }
+.navega2  { clear:both; display: block;  }
+.navega2 li { float:left ; list-style-type: none  }
+.navega2 a { border: 1px solid #d9d8cb; background:url(../images/nav2.jpg) repeat-x; color: #363e38; text-decoration: none; font-variant:small-caps;  font-size: 13px; margin-right: 10px; font-weight: bold;  padding-left: 10px; padding-left: 10px; padding-right: 10px    }
+.navega2 a:hover { border: 1px solid #5c8700; background:url(../images/nav2h.jpg) repeat-x; color: #fff; text-decoration: none; font-variant:small-caps;  font-size: 13px; margin-right: 10px; font-weight: bold;  padding-left: 10px; padding-left: 10px; padding-right: 10px    }
+
+.navega2 a.actual { border: 1px solid #5c8700; background:url(../images/nav2h.jpg) repeat-x; color: #fff; text-decoration: none; font-variant:small-caps;  font-size: 13px; margin-right: 10px; font-weight: bold;  padding-left: 10px; padding-left: 10px; padding-right: 10px    }
+
+
+ 
+.ie6 { display: none }
+
+/* buscador*/
+.buscador { float: right; margin: 0px; padding: 0px; margin-top: -10px }
+.buscador  input { float: left; margin-right: 10px }
+.buscar { border: 1px solid #aaaaaa; background:url(../images/campo.jpg) repeat-x; padding-top: 5px; padding-left: 10px; font-size: 12px }
+
+/* rastro de migas*/
+.rastromigas { width: 990px; margin:0 auto; text-align: left; height:auto;  height: 25px;  } /* overflow:hidden;  */
+ul.migas {   margin: 0px; padding: 0px; float: right  }
+.migas li { float:left; list-style-type: none; padding-right: 10px; font-variant:small-caps; ;  font-size: 13px;}
+.migas li a { color: #296bd7 }
+.migas li a:hover { text-decoration: none}
+
+/* contenido 2 columnas */
+.main { width: 990px; margin:0 auto; text-align: left; height:auto;overflow:hidden;      }
+.arbol { float: left;  width: 140px; margin-right: 15px; border: 1px solid red; background: #f7f7f2; border: 1px solid #d9d8cb; padding-left: 10px}
+.cajas { float: right; width: 700px   }
+.fclear{clear:both; overflow:hidden; height:100%}
+
+/* estilos comunes*/
+.titulo2 { font-size: 14px; font-weight: bold }
+.euros { display:block; color: #7cb600; font-size: 30px; font-weight: bold; }
+.verde { color: #7cb600; font-size: 14px; font-weight: bold; }
+.titulop { font-size: 11px; font-weight: 100 !important }
+a.boton { border: 1px solid #202a87; background: url(../images/boton.jpg) repeat-x; padding: 3px; color: #fff; text-decoration: none; font-weight: bold }
+a.boton:hover { text-decoration: underline }
+.boton { border: 1px solid #202a87; background: url(../images/boton.jpg) repeat-x; padding: 3px; color: #fff; text-decoration: none; font-weight: bold; margin-right: 5px; margin-left: 5px }
+
+ul.lista { border: 1px solid #b2b2b2; padding: 1px}
+.lista {  font-size: 11px; margin: 0px; padding: 0px }
+.lista li {  border: 1px solid #b2b2b2; padding: 5px; list-style: none; background:url(../images/bullet.jpg) no-repeat 5px #f7f7f7 ; padding-left:  20px; margin-bottom: 2px }
+
+ 
+.footer {	margin:0 auto; overflow:hidden; clear:both; text-align:center; color: #fff; padding: 10px; background: url(../images/pie.jpg) repeat-x #5660b2;} 
+.footer a { color: #fff }
+
+.nota { background: #f7f7f2; border: 1px solid #d9d8cb; padding: 10px; vertical-align: top }
+td .titulo2 { font-size: 14px; font-weight: bold }
+
+.tablist { margin-top: 10px; margin-bottom: 10px; border-collapse: collapse; border: 1px solid #b2b2b2; padding: 5px}
+.tablist td { background: #f7f7f7; padding: 5px; border-bottom: 1px solid #b2b2b2  }
+.tablist img { margin-right: 5px }
+ 
+ .listado li { list-style-image:url(../images/lista.jpg) ; border-bottom: 1px solid #dfdbbd; padding-top: 10px  }
+ 
+.separador { display:block; text-align: center !important; } 
+
+ 
+ 
+.index_button_bar {
+	padding: 0px;
+	text-align: center;
+	list-style-type: none;
+}
+.index_button {
+	border: 2px solid #6BA2BE;
+	-moz-border-radius-topleft: 6px;
+	-webkit-border-top-left-radius: 6px;
+	border-top-left-radius: 6px;
+	-moz-border-radius-topright: 6px;
+	-webkit-border-top-right-radius: 6px;
+	border-top-right-radius: 6px;
+	-moz-border-radius-bottomleft: 6px;
+	-webkit-border-bottom-left-radius: 6px;
+	border-bottom-left-radius: 6px;
+	-moz-border-radius-bottomright: 6px;
+	-webkit-border-bottom-right-radius: 6px;
+	border-bottom-right-radius: 6px;
+	color: #FFF;
+	background-color: #2d588b;
+	text-align: center;
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 12px;
+	font-weight: normal;
+	width: 275px;
+	padding: 5px;
+	margin: 5px;
+}
+.index_bigbutton {
+	text-align: center;
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 16px;
+	font-weight: bold;
+}
+
+#create-user {
+	background-image: url(../images/add_user.png);
+	width: 128px;
+	height: 128px;
+	border: none;
+	background-color: #2d588b;
+}
+#login-user {
+	background-image: url(../images/registered_user.png);
+	width: 128px;
+	height: 128px;
+	border: none;
+	background-color: #2d588b;
+}
+
+
+#condiciones p, ul, li {
+	text-align: left;
+	font-size: 10px;
+}
+#register-form p {
+	text-align: center;
+	font-size: 10px;
+}
+
+#register-form fieldset {   
+margin: 0 0 0 0;   
+padding: 0;  
+}  
+#register-form legend {   
+margin-left: 0 0;   
+color: #000000;   
+font-weight: bold;  
+}  
+#register-form fieldset ol {   
+/*padding: 1em 1em 0 1em;   */
+list-style: none;  
+}  
+#register-form fieldset li {  
+margin: auto auto; 
+}  
+#register-form fieldset.submit {   
+border-style: none;  
+margin: auto auto; 
+}
+
+#register-form label {
+	float: left;
+	margin-right: 3px;
+	text-align: right;
+	font-weight: bold;
+	color: #2D588B;
+	width: 7em;
+}
+
+
+ 
+ 
+
+#dialog-form fieldset {   
+margin: 0 0 0 0;   
+padding: 0;  
+}  
+#dialog-form legend {   
+margin-left: 0 0;   
+color: #000000;   
+font-weight: bold;  
+}  
+#dialog-form fieldset ol {   
+/*padding: 1em 1em 0 1em;   */
+list-style: none;  
+}  
+#dialog-form fieldset li {  
+margin: auto auto; 
+}  
+#dialog-form fieldset.submit {   
+border-style: none;  
+margin: auto auto; 
+}
+
+#dialog-form label {
+	float: left;
+	margin-right: 3px;
+	text-align: right;
+	font-weight: bold;
+	color: #2D588B;
+	width: 7em;
+}
+
+#dialog-form p {
+	text-align: right;
+	font-size: 10px;
+} 
+ 
+ 
+
+
+ /* Botonera grande de opciones */
+.big_button_bar {
+	text-align: center;
+	padding: 0px 0px;
+	list-style-type: none;
+}
+.big_button {
+	border: 2px solid #6BA2BE;
+	-moz-border-radius-topleft: 6px;
+	-webkit-border-top-left-radius: 6px;
+	border-top-left-radius: 6px;
+	-moz-border-radius-topright: 6px;
+	-webkit-border-top-right-radius: 6px;
+	border-top-right-radius: 6px;
+	-moz-border-radius-bottomleft: 6px;
+	-webkit-border-bottom-left-radius: 6px;
+	border-bottom-left-radius: 6px;
+	-moz-border-radius-bottomright: 6px;
+	-webkit-border-bottom-right-radius: 6px;
+	border-bottom-right-radius: 6px;
+	background-color: #8DB7CD;
+	text-align: center;
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 16px;
+	font-weight: bold;
+	width: 150px;
+	height: 170px;
+	padding: 5px;
+	float: left;
+	margin: 7px;
+}
+.big_button a {
+
+	text-decoration: none;
+	color: #000;
+}
+ /* Botonera grande de opciones */
+ 
+ 
+  /* formulario usuario */
+ .form_user label  { display:block; margin-bottom: 10px; font-weight: bold; font-size: 14px  }
+ .form_user label a { font-size: 12px}
+ .form_user label span {  padding-right: 10px; width: 150px; display:block; float:left; text-align:right  }
+ .form_user td { vertical-align: top}
+ .form_user fieldset { margin-right: 10px; padding-right: 10px; padding-bottom: 10px	 }
+ .form_user legend  { display:block; margin-bottom: 10px; font-weight: bold; font-size: 14px; margin-bottom: 15px  }
+ .form_user fieldset input { margin-left: 10px; margin-right:5px }
+ .form_user label input.error {
+	color: #900;
+	background-color: #FCCCC5;
+	border: 1px solid #F00;
+}
+  .form_user fieldset div{ margin-bottom: 5px; margin-top: 5px }

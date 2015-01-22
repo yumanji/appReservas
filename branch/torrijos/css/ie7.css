@@ -1,0 +1,17 @@
+.lrd { margin-bottom: 5px }
+
+#wrap {display:table;height:100%}
+
+img.nimg { float: left; margin-top: 0px;   }
+
+.navega1 a { display:block}
+
+.navega2 a { display:block}
+
+a.close  { padding-bottom: 0px; display:block; width: 60px}
+
+a.boton  { display:block; width: 70px; padding-right: 5px; text-align: center  }
+
+.buscador { padding-top: 5px }
+
+ul.lista { padding-bottom: 0px}

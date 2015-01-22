@@ -1,0 +1,194 @@
+@charset "utf-8";
+#search_fields  {
+	color: #2D588B;
+	font-size: 11px;
+	list-style: none;
+}
+
+#search_fields ol {
+	list-style: none;
+}
+
+#search_fields fieldset {
+	width: 755px;
+	border-color: #2D588B;
+	padding: 8px 8px;
+	margin: auto auto;
+}
+
+#search_fields legend {
+	color: #2D588B;
+}
+
+#search_fields label {
+	float: left;
+	width: 8em;
+	margin-right: 1em;
+	text-align: right;
+	font-weight: bold;
+	color: #2D588B;
+	font-size: 13px;
+}
+
+#search_fields select {
+	width: 175px;
+	color: #2D588B;
+	font-size: 13px;
+}
+
+#search_fields input {
+	width: 150px;
+	color: #2D588B;
+	font-size: 13px;
+}
+
+#search_fields button {
+	font-size: 13px;
+}
+
+.busquedaPista {
+	/*
+	background-image: url(../images/search.png);
+	background-position: top;
+	background-color: #CCC;
+	background-repeat: no-repeat;
+	border: thin solid #2D588B;
+	padding-top: 25px;
+	*/
+	width: 80px;
+	height: 80px;
+	color: #2D588B;
+	font-size: 9px;
+	font-weight: bold;
+}
+
+
+#search_result {
+	width: 100%;
+}
+
+#search_result p {
+    font-family:Georgia;
+    font-size:13px;
+    color:#2D588B;
+
+}
+
+#availability {
+	font: 11px Helvetica, Sans-Serif;
+	margin-bottom: 5px;
+	width: 750px;
+}
+#availability table {
+	background-color:#dbdbdb;
+	
+}
+
+#availability td {border: 1px solid #666; -moz-border-radius-topleft: 3px; -webkit-border-top-left-radius: 3px; border-top-left-radius: 3px; -moz-border-radius-topright: 3px; -webkit-border-top-right-radius: 3px; border-top-right-radius: 3px; -moz-border-radius-bottomleft: 3px; -webkit-border-bottom-left-radius: 3px; border-bottom-left-radius: 3px; -moz-border-radius-bottomright: 3px; -webkit-border-bottom-right-radius: 3px; border-bottom-right-radius: 3px;}
+#availability .courtname {
+	border: none;
+	font: bold 13px Helvetica, Sans-Serif;
+	text-align: right;
+	padding-right: 3px;
+	width: 140px;
+}
+#availability .full {
+	background-color: #F00;
+	cursor: default;
+	text-align: center;
+	height: 35px;
+}
+#availability .payd {
+	background-color: #F00;
+	cursor: default;
+	text-align: center;
+	height: 35px;
+}
+#availability .reserved {
+	background-color: #F00;
+	cursor: default;
+	text-align: center;
+	height: 35px;
+}
+#availability .disable {
+	background-color: #CCC;
+	color: #000;
+	cursor: default;
+	text-align: center;
+	height: 35px;
+}
+#availability .processing {
+	cursor: pointer;
+	text-align: center;
+	background-color: #EDE557;
+	color: #666666;
+}
+#availability .selected {  background-color: #EDA610; cursor: pointer;text-align: center;}
+#availability .free { background-color: #0F0; cursor: pointer;text-align: center; height: 35px;}
+
+#light {
+
+	font-size: 10px;
+	color: #AAA;
+}
+
+#light_prev {
+
+	font-size: 11px;
+	color: #000;
+}
+
+#coste {
+
+	font-size: 11px;
+	color: #000;
+}
+
+#buttonConfirma {
+	font-size: 12px;
+	width: 150px;
+	vertical-align: middle;
+	height: 30px;
+}
+
+#light_button {
+	vertical-align: middle;
+}
+
+.lightButton {
+	/*
+	background-image: url(../images/search.png);
+	background-position: top;
+	background-color: #CCC;
+	background-repeat: no-repeat;
+	border: thin solid #2D588B;
+	padding-top: 25px;
+	*/
+	background-image: url(../images/luz.png);
+	background-position: top;
+	background-repeat: no-repeat;
+}
+
+#search_payment {
+	color: #2D588B;
+}
+
+#search_payment fieldset {
+	width: 600px;
+	border-color: #2D588B;
+	color: #2D588B;
+	font-size: 11px;
+}
+
+#search_payment legend {
+	color: #2D588B;
+}
+
+#search_payment ul li {
+	color: #2D588B;
+	list-style-type: square;
+}
+
+#confirm_payment {
+	color: #2D588B;
+}

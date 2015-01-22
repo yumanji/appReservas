@@ -1,0 +1,806 @@
+/*
+   Hoja de estilos general de la aplicación
+*/
+@charset "UTF-8";
+    body  {
+			font-family: Georgia;
+			background-color: #2d588b;
+    	margin: 0; /* es recomendable ajustar a cero el margen y el relleno del elemento body para lograr la compatibilidad con la configuración predeterminada de los diversos navegadores */
+    	padding: 0;
+    	text-align: center; /* esto centra el contenedor en los navegadores IE 5*. El texto se ajusta posteriormente con el valor predeterminado de alineación a la izquierda en el selector #container */
+    	color: #000000;
+    }
+    .twoColHybRtHdr #container { 
+    	width: 100%;  /* esto creará un contenedor con el 80% del ancho del navegador */
+		/*height: 600px;*/
+    	background: #FFFFFF;
+    	margin: 0 auto; /* los márgenes automáticos (conjuntamente con un ancho) centran la página */
+    	border: 0px none;
+    	text-align: left; /* esto anula text-align: center en el elemento body. */
+    } 
+    .twoColHybRtHdr #header { 
+    	background: #FFF; 
+    	padding: 0 10px;  /* este relleno coincide con la alineación izquierda de los elementos de los divs que aparecen bajo él. Si se utiliza una imagen en el #header en lugar de texto, es posible que le interese quitar el relleno. */
+    } 
+    .twoColHybRtHdr #header h1 {
+    	margin: 0; /* el ajuste en cero del margen del último elemento del div de #header evita la contracción del margen (un espacio inexplicable entre divs). Si el div tiene un borde alrededor, esto no es necesario, ya que también evita la contracción del margen */
+    	padding: 10px 0; /* el uso de relleno en lugar de margen le permitirá mantener el elemento alejado de los bordes del div */
+    }
+    
+    /* Sugerencias para sidebar1:
+    1. Dado que está trabajando en unidades relativas, es conveniente no utilizar relleno en la barra lateral. Se añadirá al ancho global en el caso de navegadores que cumplen los estándares, creando un ancho real desconocido. 
+    2. Dado que se utilizan las unidades em para el valor de barra lateral, tenga en cuenta que su ancho variará con los diferentes tamaños de texto predeterminados.
+    3. El espacio entre el lado del div y los elementos que contiene puede crearse colocando un margen izquierdo y derecho en dichos elementos, como se observa en la regla ".twoColHybRtHdr #sidebar1 p".
+    */
+    .twoColHybRtHdr #sidebar1 {
+	float: right;
+	/*width: 220px;*/ /* el color de fondo se mostrará a lo largo de todo el contenido de la columna, pero no más allá */
+	padding: 0px; /* el relleno superior e inferior crea un espacio visual dentro de este div  */
+    }
+    .twoColHybRtHdr #sidebar1 h3, .twoColHybRtHdr #sidebar1 p {
+    	margin-left: 2px; /* deben asignarse los márgenes izquierdo y derecho de cada elemento que vaya a colocarse en las columnas laterales */
+    	margin-right: 2px;
+    }
+    
+    /* Sugerencias para mainContent:
+    1. El espacio entre el mainContent y sidebar1 se crea con el margen derecho del div mainContent.  Con independencia de la cantidad de contenido que incluya el div sidebar1, permanecerá el espacio de la columna. Puede quitar el margen derecho si desea que el texto del div #mainContent llene el espacio de #sidebar1 cuando termine el contenido de #sidebar1.
+    2. Tenga en cuenta que es posible que se produzca la caída de un elemento flotante (la caída del área mainContent no flotante debajo de la barra lateral) si se coloca un elemento más ancho que él en el div mainContent. Con un diseño híbrido (ancho global basado en porcentajes con barra lateral basada en ems), puede que no sea posible calcular exactamente el ancho disponible. Si el tamaño del texto del usuario es superior a la media, tendrá un div de barra lateral más ancho y, en consecuencia, menos espacio en el div mainContent. Debe tener en cuenta esta limitación (particularmente si el cliente añade contenido con Contribute.
+    3. En el siguiente comentario condicional de Internet Explorer, la propiedad zoom se utiliza para asignar a mainContent "hasLayout." Esto puede contribuir a evitar diversos problemas específicos de IE.
+    */
+    .twoColHybRtHdr #mainContent {
+      margin: 0 13em 0 0px; /* el valor de margen izquierdo es igual al encabezado y el pie que crea la alineación a lo largo del lado izquierdo del documento. */
+    } 
+    
+    .twoColHybRtHdr #footer {
+			padding: 0 0px; /* este relleno coincide con la alineación izquierda de los elementos de los divs que aparecen por encima de él. */
+			text-align: center;    	/*background:#DDDDDD;*/
+		
+			height: 100%;
+			background-color: #2d588b;
+			color: #FFF;
+    } 
+    .twoColHybRtHdr #footer p {
+    	margin: 0; /* el ajuste en cero de los márgenes del primer elemento del pie evitará que puedan contraerse los márgenes (un espacio entre divs) */
+    	padding: 10px 0; /* el relleno de este elemento creará espacio, de la misma forma que lo haría el margen, sin el problema de la contracción de márgenes */
+			font-family: Tahoma, Geneva, sans-serif;
+			font-size: 11px;
+    }    
+    /* Varias clases diversas para su reutilización */
+    .fltrt { /* esta clase puede utilizarse para que un elemento flote en la parte derecha de la página. El elemento flotante debe preceder al elemento junto al que debe aparecer en la página. */
+    	float: right;
+    	margin-left: 8px;
+    }
+    .fltlft { /* esta clase puede utilizarse para que un elemento flote en la parte izquierda de la página. */
+    	float: left;
+    	margin-right: 8px;
+    }
+    .clearfloat { /* esta clase debe colocarse en un elemento div o break y debe ser el último elemento antes del cierre de un contenedor que incluya completamente a un elemento flotante */
+    	clear:both;
+        height:0;
+        font-size: 1px;
+        line-height: 0px;
+    }
+    --> 
+    <!--[if IE]>
+    /* coloque las reparaciones de css para todas las versiones de IE en este comentario condicional */
+    .twoColHybRtHdr #sidebar1 { padding-top: 30px; }
+    .twoColHybRtHdr #mainContent { zoom: 1; padding-top: 15px; }
+    /* la propiedad zoom propia que se indica más arriba proporciona a IE el hasLayout que puede necesitar para evitar diversos errores */
+    <![endif]-->
+
+
+
+
+h1, h2, h3, p {
+	margin: 5px 0px;
+}
+
+h1 {
+	text-align: center;
+}
+
+
+
+
+#Tabla_01 td{
+	border-spacing:0px 0px;
+	padding: 0;
+	border: 0px 0px;
+}
+/*
+#header {
+	background-color: #FFFFFF;
+	margin-right: auto;
+	margin-left: auto;
+	height: 100px;
+	width: 100%;
+	background-image: url(../images/header_bg.gif);
+	background-repeat: repeat-x;
+}
+*/
+#logo {
+	margin-right: auto;
+	margin-left: auto;
+	height: 100px;
+	position: relative;
+	float: left;
+	width: 502px;
+
+}
+#logo h1 { 
+	text-indent: -9999px; overflow: hidden; margin: 0px;
+}
+#logo h1 a {
+	display: block;
+	border: none;
+	margin: 0px;
+	background-image: url(../images/logo.gif);
+	background-repeat: no-repeat;
+	vertical-align: bottom;
+	height: 100px;
+	width: 502px;
+}
+#header_buttons {
+	margin-right: auto;
+	margin-left: auto;
+	height: 100px;
+	width: 450px;
+	position: absolute;
+	top: 0px;
+  	left: 600px;
+	float: right;
+	background-image: url(../images/header2.gif);
+	background-repeat: no-repeat;
+	text-align: right;
+}
+/*
+.container {
+	width: 100%;
+	height: 100%;
+	background: #FFF;
+	margin: 0 auto; 
+}
+*/
+/*
+#sidebar1 {
+	float: left;
+	width: 192px;
+	background-color: #FFF;
+	padding-bottom: 10px;
+	padding-top: 10px;
+	background-image: url(../images/menu_bar.gif);
+	background-repeat: repeat-y;
+	background-position: 34px 0px;
+	border: none 0px;
+	font-size: 10px;
+	height: 500px;
+
+}
+*/
+
+#main_top_transition {
+	padding-left: 34px;	/* Debe ser el mismo valor que el background-position de la clase sidebar1*/
+}
+
+#accordion {
+	width: 768px;	/* Debe ser el mismo valor que el background-position de la clase sidebar1*/
+}
+
+
+
+	/* Estilo que se aplicará cuando NO haya un menú lateral, en página de inicio, etc.. */
+/*
+#main_index {
+	background-color: #FFFFFF;
+	width: 100%;
+	margin-right: auto;
+	margin-left: auto;
+	border-color: #000;
+	border-width: 2px;
+	float: left;
+}*/
+
+
+
+/*
+#main {
+	background-color: #FFFFFF;
+	width: 768px;
+	margin-right: auto;
+	margin-left: auto;
+	border-color: #000;
+	border-width: 2px;
+	float: left;
+	padding: 5px;
+	position: absolute;
+	top: 130px;
+	left: 180px;
+}
+*/
+#main p{
+    padding:0px;
+    margin:0px;
+    font-family:Georgia;
+    font-size:16px;
+    color:#575858;
+    text-align:justify;
+}
+
+
+
+#main_bottom {
+	background-image: url(../images/container_bottom.gif);
+	background-repeat: repeat-x;
+	width: 100%;
+	height: 27px;
+	position: relative;/* this gives IE6 hasLayout to properly clear */
+	clear: both; /* this clear property forces the .container to understand where the columns end and contain them */
+}
+
+#sidebar1 fieldset {
+	color: #2D588B;
+	font-size: 11px;
+	border: thin solid #2D588B;
+}
+#sidebar1 legend {
+	color: #2D588B;
+}
+#sidebar1 hr {
+	color: #2D588B;
+	width: 75%;
+}
+
+#search_result {
+	width: 100%;
+}
+
+#search_result p {
+    font-family:Georgia;
+    font-size:13px;
+    color:#2D588B;
+
+}
+
+#availability {
+	font: 11px Helvetica, Sans-Serif;
+	margin-bottom: 5px;
+}
+#availability table {
+	background-color:#dbdbdb;
+}
+
+#availability td {border: 1px solid #666; -moz-border-radius-topleft: 3px; -webkit-border-top-left-radius: 3px; border-top-left-radius: 3px; -moz-border-radius-topright: 3px; -webkit-border-top-right-radius: 3px; border-top-right-radius: 3px; -moz-border-radius-bottomleft: 3px; -webkit-border-bottom-left-radius: 3px; border-bottom-left-radius: 3px; -moz-border-radius-bottomright: 3px; -webkit-border-bottom-right-radius: 3px; border-bottom-right-radius: 3px;}
+#availability .courtname {
+	border: none;
+	font: bold 13px Helvetica, Sans-Serif;
+	text-align: right;
+	padding-right: 3px;
+	min-width: 80px;
+}
+#availability .full {
+	background-color: #F00;
+	cursor: default;
+	text-align: center;
+	height: 35px;
+}
+#availability .payd {
+	background-color: #FFF;
+	cursor: default;
+	text-align: center;
+	height: 35px;
+}
+#availability .lesson {
+	background-color: #CCF;
+	cursor: default;
+	text-align: center;
+	height: 35px;
+}
+#availability .shared {
+	background-color: #39C;
+	cursor: default;
+	text-align: center;
+	height: 35px;
+}
+#availability .nocost {
+	background-color: #FF6;
+	cursor: default;
+	text-align: center;
+	height: 35px;
+}
+#availability .reserved {
+	background-color: #F00;
+	cursor: default;
+	text-align: center;
+	height: 35px;
+}
+#availability .disable {
+	background-color: #E5E5E5;
+	color: #999;
+	cursor: default;
+	text-align: center;
+	height: 35px;
+}
+
+#availability .processing {
+	cursor: pointer;
+	text-align: center;
+	background-color: #EDE557;
+	color: #666666;
+}
+#availability .selected {  background-color: #EDA610; cursor: pointer;text-align: center;}
+#availability .free { background-color: #0F0; cursor: pointer;text-align: center; height: 35px;}
+#availability .reto { background-color: #0F0; cursor: pointer;text-align: center; height: 35px;}
+
+.big_button_bar {
+	text-align: center;
+	padding: 0px 0px;
+}
+.big_button {
+	border: 2px solid #6BA2BE;
+	-moz-border-radius-topleft: 6px;
+	-webkit-border-top-left-radius: 6px;
+	border-top-left-radius: 6px;
+	-moz-border-radius-topright: 6px;
+	-webkit-border-top-right-radius: 6px;
+	border-top-right-radius: 6px;
+	-moz-border-radius-bottomleft: 6px;
+	-webkit-border-bottom-left-radius: 6px;
+	border-bottom-left-radius: 6px;
+	-moz-border-radius-bottomright: 6px;
+	-webkit-border-bottom-right-radius: 6px;
+	border-bottom-right-radius: 6px;
+	background-color: #8DB7CD;
+	text-align: center;
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 16px;
+	font-weight: bold;
+	width: 150px;
+	height: 170px;
+	padding: 5px;
+	float: left;
+	margin: 7px;
+}
+.big_button a {
+
+	text-decoration: none;
+	color: #000;
+}
+
+.index_button_bar {
+	padding: 0px;
+	text-align: center;
+}
+.index_button {
+	border: 2px solid #6BA2BE;
+	-moz-border-radius-topleft: 6px;
+	-webkit-border-top-left-radius: 6px;
+	border-top-left-radius: 6px;
+	-moz-border-radius-topright: 6px;
+	-webkit-border-top-right-radius: 6px;
+	border-top-right-radius: 6px;
+	-moz-border-radius-bottomleft: 6px;
+	-webkit-border-bottom-left-radius: 6px;
+	border-bottom-left-radius: 6px;
+	-moz-border-radius-bottomright: 6px;
+	-webkit-border-bottom-right-radius: 6px;
+	border-bottom-right-radius: 6px;
+	color: #FFF;
+	background-color: #2d588b;
+	text-align: center;
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 12px;
+	font-weight: normal;
+	width: 275px;
+	padding: 5px;
+	margin: 5px;
+}
+.index_bigbutton {
+	text-align: center;
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 16px;
+	font-weight: bold;
+}
+
+#create-user {
+	background-image: url(../images/add_user.png);
+	width: 128px;
+	height: 128px;
+	border: none;
+	background-color: #2d588b;
+}
+#login-user {
+	background-image: url(../images/registered_user.png);
+	width: 128px;
+	height: 128px;
+	border: none;
+	background-color: #2d588b;
+}
+
+#buttonSubmit {
+	cursor: pointer;
+}
+
+#dialog-form fieldset {   
+margin: 0 0 0 0;   
+padding: 0;  
+}  
+#dialog-form legend {   
+margin-left: 0 0;   
+color: #000000;   
+font-weight: bold;  
+}  
+#dialog-form fieldset ol {   
+/*padding: 1em 1em 0 1em;   */
+list-style: none;  
+}  
+#dialog-form fieldset li {  
+margin: auto auto; 
+}  
+#dialog-form fieldset.submit {   
+border-style: none;  
+margin: auto auto; 
+}
+
+#dialog-form label {
+	float: left;
+	margin-right: 3px;
+	text-align: right;
+	font-weight: bold;
+	color: #2D588B;
+}
+
+#dialog-form p {
+	text-align: right;
+	font-size: 10px;
+}
+
+
+fieldset {   
+margin: 1.5em 0 0 0;   
+padding: 0;  
+}  
+legend {   
+margin-left: 1em;   
+color: #000000;   
+font-weight: bold;  
+}  
+fieldset ol {   
+padding: 1em 1em 0 1em;   
+list-style: none;  
+}  
+fieldset li {   
+}  
+fieldset.submit {   
+border-style: none;  
+}
+
+label {
+	float: left;
+	margin-right: 1em;
+	text-align: right;
+	font-weight: bold;
+	color: #2D588B;
+}
+
+#register-form p {
+	text-align: right;
+	font-size: 10px;
+}
+
+.busquedaPista {
+	/*
+	background-image: url(../images/search.png);
+	background-position: top;
+	background-color: #CCC;
+	background-repeat: no-repeat;
+	border: thin solid #2D588B;
+	padding-top: 25px;
+	*/
+	width: 80px;
+	height: 80px;
+	color: #2D588B;
+	font-size: 9px;
+	font-weight: bold;
+}
+
+
+#light {
+
+	font-size: 10px;
+	color: #AAA;
+}
+
+#light_prev {
+
+	font-size: 11px;
+	color: #000;
+}
+
+#coste {
+
+	font-size: 11px;
+	color: #000;
+}
+
+#buttonConfirma {
+	font-size: 12px;
+	width: 100px;
+	vertical-align: middle;
+}
+#light_button {
+	vertical-align: middle;
+}
+
+.lightButton {
+	/*
+	background-image: url(../images/search.png);
+	background-position: top;
+	background-color: #CCC;
+	background-repeat: no-repeat;
+	border: thin solid #2D588B;
+	padding-top: 25px;
+	*/
+	background-image: url(../images/luz.png);
+	background-position: top;
+	background-repeat: no-repeat;
+}
+
+#search_payment {
+	color: #2D588B;
+}
+
+#search_payment fieldset {
+	width: 400px;
+	border-color: #2D588B;
+	color: #2D588B;
+}
+
+#search_payment legend {
+	color: #2D588B;
+}
+
+#search_payment ul li {
+	color: #2D588B;
+	list-style-type: square;
+}
+
+#confirm_payment {
+	color: #2D588B;
+}
+
+#filters label {
+	width: 8em;
+	margin-right: 1em;
+	text-align: right;
+	font-weight: bold;
+	color: #2D588B;
+	float: none;
+}
+
+
+
+
+#search_fields  {
+	color: #2D588B;
+	font-size: 11px;
+}
+
+
+#search_fields fieldset {
+	width: 755px;
+	border-color: #2D588B;
+	padding: 8px 8px;
+	margin: auto auto;
+}
+
+
+
+
+#search_fields legend {
+	color: #2D588B;
+}
+
+
+#search_fields label {
+	float: left;
+	width: 8em;
+	margin-right: 1em;
+	text-align: right;
+	font-weight: bold;
+	color: #2D588B;
+	font-size: 13px;
+}
+
+#search_fields select {
+	width: 175px;
+	color: #2D588B;
+	font-size: 13px;
+}
+
+#search_fields input {
+	width: 150px;
+	color: #2D588B;
+	font-size: 13px;
+}
+
+#search_fields button {
+	font-size: 13px;
+}
+
+
+
+
+
+
+
+
+#informes_search_fields  {
+	color: #2D588B;
+	font-size: 11px;
+}
+
+
+#informes_search_fields fieldset {
+	width: 755px;
+	border-color: #2D588B;
+	padding: 8px 8px;
+	margin: auto auto;
+}
+
+#informes_search_fields td {
+	width: 240px;
+}
+
+
+#informes_search_fields legend {
+	color: #2D588B;
+}
+
+
+#informes_search_fields label {
+	width: 95px;
+	float: left;
+	text-align: right;
+	font-weight: bold;
+	white-space: nowrap;
+	font-size: 11px;
+}
+
+#informes_search_fields select, #informes_search_fields input {
+	width: 140px;
+	color: #2D588B;
+}
+
+#informes_search_fields #date1, #informes_search_fields #date2 {
+	width: 120px;
+	color: #2D588B;
+}
+
+#informes_search_fields .reportSearchButton {
+	background-repeat: no-repeat;
+	border: none;
+	background-color: #FFFFFF;
+	width: 18px;
+	height: 18px;
+	cursor: pointer;
+}
+
+
+#informes_result  {
+	color: #2D588B;
+	font-size: 11px;
+	text-align: center;
+	padding: 10px 10px;
+	margin: auto auto;
+}
+
+
+#informes_result .titulo {
+	text-align: center;
+	font-size: 18px;
+	padding: 5px 5px;
+	color: #2D588B;
+	font-weight: bold;
+}
+
+#informes_result table {
+	border: thin solid #2D588B;
+	font-size: 12px;
+	padding: 0px 0px;
+	margin: auto auto;
+	text-align: center;
+	width: 600px;
+}
+
+#informes_result .cabecera {
+	border: thin solid #2D588B;
+	text-align: left;
+	font-size: 15px;
+	padding: 5px 5px;
+	background-color: #2D588B;
+	color: #FFFFFF;
+	font-weight: bold;
+}
+
+#informes_result .total {
+	border: thin solid #2D588B;
+	font-size: 15px;
+	padding: 5px 5px;
+	font-weight: bold;
+}
+
+#informes_result td {
+	border: thin solid #2D588B;
+	padding: 3px 3px;
+	font-size: 13px;
+}
+
+
+
+
+#gestion_search_fields  {
+	color: #449172;
+	font-size: 11px;
+}
+
+
+#gestion_search_fields fieldset {
+	width: 755px;
+	border-color: #A2DFAB;
+	padding: 8px 8px;
+	margin: auto auto;
+}
+
+#gestion_search_fields td {
+	width: 240px;
+}
+
+
+#gestion_search_fields legend {
+	color: #449172;
+}
+
+
+#gestion_search_fields label {
+	width: 95px;
+	float: left;
+	text-align: right;
+	font-weight: bold;
+	white-space: nowrap;
+	font-size: 11px;
+	color: #449172;
+}
+
+#gestion_search_fields select, #gestion_search_fields input {
+	width: 140px;
+	color: #449172;
+}
+
+#gestion_search_fields #date1, #gestion_search_fields #date2 {
+	width: 120px;
+	color: #449172;
+}
+
+#gestion_search_fields .reportSearchButton {
+	background-repeat: no-repeat;
+	border: none;
+	background-color: #FFFFFF;
+	width: 18px;
+	height: 18px;
+	cursor: pointer;
+}
+
+#flexigrid button {
+	background-repeat: no-repeat;
+	border: none;
+	background-color: #FFFFFF;
+	width: 18px;
+	height: 18px;
+	cursor: pointer;
+}
+#contador {
+	float: right;
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: 10px;
+	font-weight: normal;
+}
