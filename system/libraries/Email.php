@@ -75,6 +75,7 @@ class CI_Email {
 	var	$_base_charsets	= array('us-ascii', 'iso-2022-');	// 7-bit charsets (excluding language suffix)
 	var	$_bit_depths	= array('7bit', '8bit');
 	var	$_priorities	= array('1 (Highest)', '2 (High)', '3 (Normal)', '4 (Low)', '5 (Lowest)');
+	var    $starttls          = FALSE; 
 
 
 	/**
@@ -1581,7 +1582,21 @@ class CI_Email {
 			return FALSE;
 		}
 
-		$this->_smtp_connect();
+		//$this->_smtp_connect();
+        if (!$this->_smtp_connect()) {
+            return FALSE;
+        }
+
+        if ($this->starttls) {
+            if (! $this->_send_command('starttls')) {
+                $this->_set_error_message('email_starttls_failed');
+                return FALSE;
+            }
+            stream_socket_enable_crypto($this->_smtp_connect, true, STREAM_CRYPTO_METHOD_TLS_CLIENT);
+            // Re-issue hello to get updated service list (RFC 3207 section 4.2)
+            $this->_send_command('hello');
+        }
+
 		$this->_smtp_authenticate();
 
 		$this->_send_command('from', $this->clean_email($this->_headers['From']));
@@ -1708,6 +1723,12 @@ class CI_Email {
 
 						$resp = 221;
 			break;
+            case 'starttls'    :
+
+                        $this->_send_data('STARTTLS');
+
+                        $resp = 220;
+            break;
 		}
 
 		$reply = $this->_get_smtp_data();
