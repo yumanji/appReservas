@@ -15,18 +15,18 @@ $config['special_browser'] = array('Internet Explorer');
 |
 */
 
-$config['app_name']	= 'IMJD Torrijos - Reserva Deportiva';
+$config['app_name']	= 'Robledo de Chavela - Reserva Deportiva';
 $config['app_provider']	= 'Reserva Deportiva';
-$config['app_title']	= 'IMJD Torrijos - ReservaDeportiva.com - La forma de reservar donde jugar, sin moverte de casa';
-$config['club_name']	= 'IMJD Torrijos';
-$config['club_url']	= 'http://imjdtorrijos.reservadeportiva.com';
-$config['club_address']	= 'Lope de Vega, 4';
-$config['club_population']	= 'Torrijos';
+$config['app_title']	= 'ReservaDeportiva.com - La forma de reservar donde jugar, sin moverte de casa';
+$config['club_name']	= 'Robledo de Chavela';
+$config['club_url']	= 'http://176.28.102.241/robledo';
+$config['club_address']	= '';
+$config['club_population']	= '';
 $config['email_from_desc']	= $config['club_name'].' desde '.$config['app_provider'];
-$config['email_from']	= 'noreply@reservadeportiva.com';
-$config['email_replyto']	= 'noreply@reservadeportiva.com';
+$config['email_from']	= 'noreply@rdeportiva.com';
+$config['email_replyto']	= 'noreply@rdeportiva.com';
 $config['email_reply_to']   = TRUE;
-$config['email_reply_to_address']   = 'noreply@reservadeportiva.com';
+$config['email_reply_to_address']   = 'noreply@rdeportiva.com';
 $config['club_map']   = '';
 $config['club_normativa']   = '';
 $config['club_weather']   = '<div id="TT_RiT1EEE1E1UB18IUKfuzjjjDjWlULU12LtkdEcCoakj5GomoG"><h2><a href="http://www.tutiempo.net/Tiempo-Espana.html">El Tiempo</a></h2><a href="http://www.tutiempo.net/Tiempo-Torrijos-E45688.html">El tiempo en Torrijos</a></div>
