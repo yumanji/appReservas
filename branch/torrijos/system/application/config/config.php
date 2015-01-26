@@ -219,8 +219,8 @@ $config['log_date_format'] = 'Y-m-d H:i:s';
 | system/cache/ folder.  Use a full server path with trailing slash.
 |
 */
-$config['cache_path'] = $_SERVER['DOCUMENT_ROOT'].'/torrijos/system/cache/';
-$config['root_path'] = $_SERVER['DOCUMENT_ROOT'].'/torrijos/';
+$config['cache_path'] = '/var/www/vhosts/rdeportiva.com/httpdocs/torrijos/system/cache/';
+$config['root_path'] = '/var/www/vhosts/rdeportiva.com/httpdocs/torrijos/';
 
 
 /*
