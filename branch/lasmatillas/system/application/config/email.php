@@ -11,6 +11,6 @@ $config['email']['mailtype']  = 'html';
 $config['email']['charset']   = 'utf-8';
 
 
-$config['email_automated_send_quantity']   = 60;
+$config['email_automated_send_quantity']   = 40;
 
 
