@@ -46,7 +46,7 @@
 |
 */
 
-    define('CRON_CI_INDEX', '/srv/www/vhosts/reservadeportiva.com/subdomains/naranjo/httpdocs/index.php');   // Your CodeIgniter main index.php file
+    define('CRON_CI_INDEX', '/var/www/vhosts/rdeportiva.com/httpdocs/naranjo/index.php');   // Your CodeIgniter main index.php file
     define('CRON', TRUE);   // Test for this in your controllers if you only want them accessible via cron
 
 

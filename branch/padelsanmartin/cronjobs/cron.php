@@ -46,7 +46,7 @@
 |
 */
 
-    define('CRON_CI_INDEX', '/var/www/vhosts/rdeportiva.com/httpdocs/carranque/index.php');   // Your CodeIgniter main index.php file
+    define('CRON_CI_INDEX', '/var/www/vhosts/rdeportiva.com/httpdocs/sanmartin/index.php');   // Your CodeIgniter main index.php file
     define('CRON', TRUE);   // Test for this in your controllers if you only want them accessible via cron
 
 
@@ -120,11 +120,11 @@
 
 
 # Log the results of this run
-    error_log("### ".date('Y-m-d H:i:s')." cron.php $cmdline\n", 3, CRON_LOG);
-    error_log($output, 3, CRON_LOG);
-    error_log("\n### \n\n", 3, CRON_LOG);
+    //error_log("### ".date('Y-m-d H:i:s')." cron.php $cmdline\n", 3, CRON_LOG);
+    //error_log($output, 3, CRON_LOG);
+    //error_log("\n### \n\n", 3, CRON_LOG);
 
 
-echo "\n\n";
+//echo "\n\n";
 
-?> 
+?>
