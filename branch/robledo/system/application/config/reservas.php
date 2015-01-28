@@ -170,7 +170,7 @@ $config['booking_extra_riogrande_quantity']	= 0.6;
 |
 */
 
-$config['public_register_user']	= FALSE;
+$config['public_register_user']	= TRUE;
 $config['public_login_user']	= TRUE;
 
 
