@@ -285,7 +285,7 @@ class Notifications extends Controller {
 
 		$mails = $this->mails->getNextMessages();	//Llamo a la función que devuelve el objeto resultset y directamente llamo al result_array() sobre él
 		$timestamp = time();
-		//print_r($mails); exit();
+		//echo '<pre>';print_r($this->config); exit('Fin');
 		# Recorro el array de mails
 		foreach($mails as $mail) {
 			
@@ -307,7 +307,7 @@ class Notifications extends Controller {
 				$this->mails->setMessageSended($mail['id']);	//Llamo a la función que devuelve el objeto resultset y directamente llamo al result_array() sobre él
 			
 			} else {
-				//echo 'Error en envio de mail '.$mail['id'].'<br>';
+				//echo 'Error en envio de mail '.$mail['id'].'<br>'.$this->email->print_debugger();
 				$this->mails->setMessageFailed($mail['id'],$this->email->print_debugger());
 			}
 			
