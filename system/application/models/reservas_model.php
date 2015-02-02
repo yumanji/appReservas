@@ -713,7 +713,7 @@ class Reservas_model extends Model {
 ##############################################################################
 
 
-
+    
 
     function getBookingInfoByRealid($id) {
     	# Devuelve información de la reserva pendiente registrada para un numero de sesion
@@ -802,6 +802,93 @@ class Reservas_model extends Model {
 ##############################################################################
 
 
+    function getBookingCancelledInfoById($id_transacion) {
+    	# Devuelve información de la reserva pendiente registrada para un numero de sesion
+    
+    
+    	$sql = "SELECT courts.id as id_court, courts.name as name, booking_cancelled.id, booking_cancelled.id_transaction, date , intervalo, price, id_user, booking_cancelled.user_desc, booking_code, user_phone, no_cost, no_cost_desc, booking_cancelled.status as status, meta.first_name as first_name, meta.last_name as last_name, meta.phone as phone, zz_booking_status.description as status_desc, courts.sport_type as id_sport, zz_sports.description as sport, id_paymentway, booking_cancelled.create_time FROM courts, zz_booking_status, zz_sports, booking_cancelled LEFT OUTER JOIN meta ON booking_cancelled.id_user = meta.user_id WHERE zz_booking_status.id = booking_cancelled.status AND zz_sports.id = courts.sport_type AND courts.id=booking_cancelled.id_court and courts.active=1 and id_transaction = ? ORDER BY id_court asc, intervalo asc";
+    	$query = $this->db->query($sql, array($id_transacion));
+    	//echo $this->db->last_query();//exit();
+    	if ($query->num_rows() > 0) {
+    		$precio_total=0;
+    		$precio_pista=0;
+    		$precio_supl1=0;
+    		$precio_supl2=0;
+    		$intervalos=0;
+    		$min='';
+    		$max='';
+    		$light = false;
+    		$light_price = 0;
+    		$pista=array();
+    		$fecha=0;
+    		$usuario=0;
+    		$id_court=0;
+    		$status=0;
+    		$id = '';
+    		foreach ($query->result() as $row) {
+    			if($id == '' || $id > $row->id) $id = $row->id;	// Me quedo con el id menor
+    				
+    			$id_court = $row->id_court;
+    			$reserve_interval = $this->pistas->getCourtInterval($id_court);
+    			$status = $row->status;
+    
+    			if(!isset($pista[$row->name])) $pista[$row->name] = array();
+    			$inicio=date($this->config->item('hour_db_format'), strtotime($row->intervalo));
+    			$fin=date($this->config->item('hour_db_format'), strtotime($row->intervalo)+($reserve_interval * 60));
+    			array_push($pista[$row->name], array($inicio, $fin, $row->price));
+    			if($min > $inicio || $min=='') $min = $inicio;
+    			if($max < $fin || $max=='') $max = $fin;
+    				
+    			$usuario = $row->id_user;
+    			if($usuario==0) {
+    				$user_desc = $row->user_desc;
+    				$user_phone = $row->user_phone;
+    			} else {
+    				$user_desc = $row->first_name.' '.$row->last_name;
+    				$user_phone = $row->phone;
+    			}
+    				
+    			$intervalos++;
+    			$fecha=$row->date;
+    		}
+    
+    
+    		$result=array(
+    				'date' => $fecha,
+    				'fecha' => date($this->config->item('reserve_date_filter_format') ,strtotime($fecha)),
+    				'price' => 0,
+    				'intervals' => $intervalos,
+    				'user' => $usuario,
+    				'user_desc' => $user_desc,
+    				'user_phone' => $user_phone,
+    				'inicio' => $min,
+    				'fin' => $max,
+    				'reserva' => $pista	,
+    				'id_court' => $id_court,
+    				'court' => $row->name,
+    				'id_sport' => $row->id_sport,
+    				'sport' => $row->sport,
+    				'no_cost' => $row->no_cost,
+    				'no_cost_desc' => $row->no_cost_desc,
+    				'booking_code' => $row->booking_code,
+    				'id_transaction' => $row->id_transaction,
+    				'id' => $id,
+    				'status' => $status,
+    				'status_desc' => $row->status_desc,
+    				'paymentway' => $row->id_paymentway,
+    				'operation_desc' => 'Reserva ('.$row->booking_code.') de '.$row->name.' el '.date($this->config->item('reserve_date_filter_format'), strtotime($fecha)).' de '.$min.' a '.$max,
+    				'create_time' => $row->create_time,
+    		);
+    
+    
+    					return $result;
+    					} else return FALSE;
+    }
+    
+        ##############################################################################
+    
+    
+    
 
     function eraseInterval() {
     	# Devuelve array con las horas disponibles para ser reservadas de la pista y dia comunicados, del 'availability' almacenado
@@ -2683,30 +2770,31 @@ if($debug) echo "E";
 		{
 
 		$this->load->model('Pistas_model', 'pistas', TRUE);
-
-		$table_name = 'booking_cancelled';
+		$this->db->flush_cache();
+		
+			$lista_de_reservas = array();
+			$table_name = 'booking_cancelled';
 			
 			//Build contents query
-			$this->db->select('distinct id_transaction', FALSE)->from($table_name);
-
-			$this->db->join('courts', 'courts.id='.$table_name.'.id_court', 'left outer');
-			$this->db->join('meta', $table_name.'.id_user=meta.user_id', 'left outer');
-			$this->db->join('zz_booking_status', $table_name.'.status=zz_booking_status.id', 'left outer');
-			$this->db->join('zz_paymentway', $table_name.'.id_paymentway=zz_paymentway.id', 'left outer');
-	
-	
-			if (!empty ($params['where'])) $this->db->where($params['where']);
-		
-			if (!empty ($params['orderby']) && !empty ($params['orderbyway'])) $this->db->order_by($params['orderby'], $params['orderbyway']);
-			
-			if ($page != "all") $this->db->limit ($params ["num_rows"], $params ["num_rows"] *  ($params ["page"] - 1) );
-			
-			//Get contents
-			//$query = $this->db->get();
-			
-			$lista_de_reservas = array();
-			//Get contents
 			if ($page != "all") {
+				$this->db->select('distinct id_transaction', FALSE)->from($table_name);
+	
+				$this->db->join('courts', 'courts.id='.$table_name.'.id_court', 'left outer');
+				$this->db->join('meta', $table_name.'.id_user=meta.user_id', 'left outer');
+				$this->db->join('zz_booking_status', $table_name.'.status=zz_booking_status.id', 'left outer');
+				$this->db->join('zz_paymentway', $table_name.'.id_paymentway=zz_paymentway.id', 'left outer');
+		
+		
+				if (!empty ($params['where'])) $this->db->where($params['where']);
+			
+				if (!empty ($params['orderby']) && !empty ($params['orderbyway'])) $this->db->order_by($params['orderby'], $params['orderbyway']);
+				
+				if ($page != "all") $this->db->limit ($params ["num_rows"], $params ["num_rows"] *  ($params ["page"] - 1) );
+				
+				//Get contents
+				//$query = $this->db->get();
+				
+				//Get contents
 				$query = $this->db->get();
 				$lista_de_reservas = array();
 				foreach ($query->result() as $row)
@@ -2716,7 +2804,7 @@ if($debug) echo "E";
 			}
 
 
-						
+			$this->db->flush_cache();
 			$table_name = 'booking_cancelled';
 			
 			//Build contents query
