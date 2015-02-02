@@ -266,6 +266,9 @@ class Informes extends Controller {
 			if ($row->id_type=="1" || $row->id_type=="4") {
 				#Si estamos hablando de reservas de pistas
 				$info=$this->reservas->getBookingInfoById($row->id_transaction);
+				if(!isset($info['reserva'])) $info=$this->reservas->getBookingCancelledInfoById($row->id_transaction);
+				
+				//print($row->quantity." - ".$row->id_transaction."<pre>");print_r($info['reserva']);
 				$cantidad=$info['intervals']/2;
 				$fecha=$info['date'];
 				$minimo=""; $maximo="";
@@ -279,7 +282,7 @@ class Informes extends Controller {
 								if($maximo=="" || $maximo < $dato[1]) $maximo = $dato[1];
 							}
 					}
-				}
+				} else { $pista = "Desconocida"; $cantidad=1; $minimo = 1; $maximo = 2;}
 			} elseif ($row->id_type=="2") {
 				#Si estamos hablando de un curso
 				$transaccion = explode('-', $row->id_transaction);
