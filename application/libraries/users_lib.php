@@ -8,7 +8,7 @@ class users_lib
 {
 	public function users_lib()
 	{
-		$this->CI =& get_instance();
+		isset($this->CI) || $this->CI =& get_instance();
 		log_message('debug', "users_lib Class Initialized");
 		$this->CI->load->model('Redux_auth_model', 'usuario', TRUE);
 	}

@@ -82,7 +82,7 @@
         <td width="7%">&nbsp;</td>
     </tr>
     <?php
-    	$this->CI =& get_instance();
+    	isset($this->CI) || $this->CI =& get_instance();
     	foreach($info['signed_users'] as $usuario) {
     		$datos = $this->CI->usuario->get_user($usuario['id_user']);
     		

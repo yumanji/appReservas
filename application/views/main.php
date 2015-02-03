@@ -14,7 +14,7 @@ echo doctype();
 <body>
 
 <?php //$this->load->view('fb_login'); ?>
-<?php include ("ie6.inc"); ?>
+<?php //include ("ie6.inc"); ?>
 
 <?php if(isset($header)) echo $header; ?>
 

@@ -27,7 +27,7 @@ class Flexigrid
 	*/	
 	public function Flexigrid()
     {
-		$this->CI =& get_instance();
+		isset($this->CI) || $this->CI =& get_instance();
 		//Load config
 		$this->CI->config->load('flexigrid');
 		log_message('debug', "EVD CMS Flexigrid Class Initialized");

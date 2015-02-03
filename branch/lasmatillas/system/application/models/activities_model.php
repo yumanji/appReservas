@@ -1,10 +1,10 @@
 <?php
-class Activities_model extends Model {
+class Activities_model extends CI_Model {
 
     function Activities_model()
     {
         // Call the Model constructor
-        parent::Model();
+        parent::__construct();
     }
 
     /* FUNCTION PARA CAPTURAR TODAS LAS ACTIVIDADES POR DÍA*/

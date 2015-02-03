@@ -1,10 +1,10 @@
 <?php
-class App extends Model {
+class App extends CI_Model {
 
     function App()
     {
         // Call the Model constructor
-        parent::Model();
+        parent::__construct();
     }
     
     function get_menu_options()

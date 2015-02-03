@@ -1,6 +1,6 @@
 <?php
 	$this->lang->load('reservas');
-	$this->CI =& get_instance();
+	isset($this->CI) || $this->CI =& get_instance();
 
 
 

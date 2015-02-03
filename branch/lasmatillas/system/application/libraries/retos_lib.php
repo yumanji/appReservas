@@ -8,7 +8,7 @@ class retos_lib
 {
 	public function retos_lib()
 	{
-		$this->CI =& get_instance();
+		isset($this->CI) || $this->CI =& get_instance();
 		log_message('debug', "retos_lib Class Initialized");
 		$this->CI->load->model('Retos_model', 'retos', TRUE);
 	}

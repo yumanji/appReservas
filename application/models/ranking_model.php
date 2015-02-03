@@ -1,5 +1,5 @@
 <?php
-class Ranking_model extends Model {
+class Ranking_model extends CI_Model {
 
 		var $id   = NULL;
 		var $create_user   = NULL;
@@ -12,7 +12,7 @@ class Ranking_model extends Model {
     function Ranking_model()
     {
         // Call the Model constructor
-        parent::Model();
+        parent::__construct();
     }
 
 ##############################################################################
@@ -1315,7 +1315,7 @@ function setTeamPosition($ranking, $team, $group, $position, $ronda = null)
 
     function add_player($id, $data)
     {
-    		$this->CI =& get_instance();
+    		isset($this->CI) || $this->CI =& get_instance();
     		$check = 1;
     		//$this->load->model('Reservas_model', 'reserva', TRUE);
 				$info=$this->CI->reservas->getBookingInfoById($id);

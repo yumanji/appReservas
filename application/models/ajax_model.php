@@ -11,15 +11,15 @@
  * @version   0.1
 */
 
-class Ajax_model extends Model 
+class Ajax_model extends CI_Model 
 {
 	/**
 	* Instanciar o CI
 	*/
 	public function Ajax_model()
     {
-        parent::Model();
-		$this->CI =& get_instance();
+        parent::__construct();
+		isset($this->CI) || $this->CI =& get_instance();
     }
 	
 	public function get_countries() 

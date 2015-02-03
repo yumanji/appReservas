@@ -228,6 +228,7 @@ public function jqgrid_list_all ($add_params = NULL)
 
 		$req_param['where'] = $where;
 //print($where);
+		$data = new stdClass();
 		$data->page = $this->input->post( "page", TRUE );
 		$data->records = count ($this->ranking->get_data($req_param,"all"));
 		$data->total = ceil ($data->records / $req_param['num_rows'] );
@@ -300,6 +301,7 @@ public function jqgrid_list_all_user ($usuario)
 
 		$req_param['where'] = $where;
 //print($where);exit();
+		$data = new stdClass();
 		$data->page = $this->input->post( "page", TRUE );
 		$data->records = count ($this->ranking->get_data($req_param,"all"));
 		$data->total = ceil ($data->records / $req_param['num_rows'] );

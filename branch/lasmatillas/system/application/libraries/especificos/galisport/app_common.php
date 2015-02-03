@@ -8,13 +8,13 @@ class app_common
 {
 	public function app_common()
 	{
-		$this->CI =& get_instance();
+		isset($this->CI) || $this->CI =& get_instance();
 		log_message('debug', "app_common Class Initialized");
 	}
 	
 	public function arrayToOptionConverter($array_values = NULL)
     {
-		//$this->CI =& get_instance();
+		//isset($this->CI) || $this->CI =& get_instance();
 
 		# Si viene vacío, devuelvo vacío
 		if(!isset($array_values) || !is_array($array_values)) return NULL;

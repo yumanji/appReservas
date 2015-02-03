@@ -6,15 +6,24 @@
 */
 class app_common
 {
+	/**
+	 * CodeIgniter global
+	 *
+	 * @var string
+	 **/
+	protected $CI;
+	
+	
+	
 	public function app_common()
 	{
-		$this->CI =& get_instance();
+		isset($this->CI) || $this->CI =& get_instance();
 		log_message('debug', "app_common Class Initialized");
 	}
 	
 	public function arrayToOptionConverter($array_values = NULL)
     {
-		//$this->CI =& get_instance();
+		//isset($this->CI) || $this->CI =& get_instance();
 
 		# Si viene vacío, devuelvo vacío
 		if(!isset($array_values) || !is_array($array_values)) return NULL;
@@ -273,7 +282,7 @@ class app_common
 		
 		if(!isset($court) || $court == '' || !isset($date) || $date == '') return NULL;
 		
-		$this->CI =& get_instance();
+		isset($this->CI) || $this->CI =& get_instance();
 		$this->CI->load->model('Reservas_model', 'reservas', TRUE);
 		$this->CI->load->model('Pistas_model', 'pistas', TRUE);
 		$this->CI->load->model('Lessons_model', 'lessons', TRUE);
@@ -380,7 +389,7 @@ class app_common
     	
 			$weekday=@date('N', strtotime($date));
 			$interval=@date($this->CI->config->item('hour_db_format'), strtotime($time));
-
+			$quantity = 0;
 //echo "C";    	
 			
 				if(isset($id_price) && $id_price != "") {
@@ -407,8 +416,10 @@ class app_common
 							$query2 = $this->CI->db->query($sql2, array($id_price, $date, $date, $weekday));
 							//log_message('debug', 'SQL: '.$this->db->last_query());
 							if($debug) echo "\r\n".$this->CI->db->last_query();
-							$row2 = $query2->row();
-							$quantity = $row2->quantity;
+							if ($query2->num_rows() > 0) {
+								$row2 = $query2->row();
+								$quantity = $row2->quantity;
+							}
 							
 						} elseif ($by_weekday == '1' && $by_time == '1' && $by_group == '1') {
 							
@@ -417,8 +428,10 @@ class app_common
 							$query2 = $this->CI->db->query($sql2, array($id_price, $group, $weekday, $date, $date, $interval));
 							//log_message('debug', 'SQL: '.$this->db->last_query());
 							if($debug) echo "\r\n".$this->CI->db->last_query();
-							$row2 = $query2->row();
-							$quantity = $row2->quantity;		
+							if ($query2->num_rows() > 0) {
+								$row2 = $query2->row();
+								$quantity = $row2->quantity;
+							}	
 							if($debug) echo "\r\n---!!-".$row2->quantity;
 																			
 						} elseif ($by_weekday == '0' && $by_time == '1' && $by_group == '1') {
@@ -428,8 +441,10 @@ class app_common
 							$query2 = $this->CI->db->query($sql2, array($id_price, $group, $date, $date, $interval));
 							//log_message('debug', 'SQL: '.$this->db->last_query());
 							if($debug) echo "\r\n".$this->CI->db->last_query();
-							$row2 = $query2->row();
-							$quantity = $row2->quantity;		
+							if ($query2->num_rows() > 0) {
+								$row2 = $query2->row();
+								$quantity = $row2->quantity;
+							}
 							if($debug) echo "\r\n------".$row2->quantity;
 												
 						}	 elseif ($by_weekday == '1' && $by_time == '1' && $by_group == '0') {
@@ -440,8 +455,10 @@ class app_common
 							//log_message('debug', 'SQL: '.$this->db->last_query());
 							//echo $this->db->last_query();
 							if($debug) echo "\r\n".$this->CI->db->last_query();
-							$row2 = $query2->row();
-							$quantity = $row2->quantity;		
+							if ($query2->num_rows() > 0) {
+								$row2 = $query2->row();
+								$quantity = $row2->quantity;
+							}	
 												
 						} elseif($by_group == '1') {
 							
@@ -450,8 +467,10 @@ class app_common
 							$query2 = $this->CI->db->query($sql2, array($id_price, $group, $date, $date));
 							if($debug) echo "\r\n".$this->CI->db->last_query();
 							//echo $this->db->last_query();
-							$row2 = $query2->row();
-							$quantity = $row2->quantity;							
+							if ($query2->num_rows() > 0) {
+								$row2 = $query2->row();
+								$quantity = $row2->quantity;
+							}						
 							
 						} elseif($by_weekday == '0' && $by_time == '0' && $by_group == '0') {
 							

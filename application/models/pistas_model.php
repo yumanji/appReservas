@@ -1,5 +1,5 @@
 <?php
-class Pistas_model extends Model {
+class Pistas_model extends CI_Model {
 
     var $id   = NULL;
     var $name   = NULL;
@@ -9,7 +9,7 @@ class Pistas_model extends Model {
 
     function Pistas_model() {
         // Call the Model constructor
-        parent::Model();
+        parent::__construct();
     }
     
     function getTimeTablesArray() {
@@ -256,7 +256,7 @@ class Pistas_model extends Model {
 			$debug = FALSE;
 			$weekday=@date('N', strtotime($date));
 			# Recupero el timetable por defecto
-	    $sql = "SELECT time_table_default FROM courts WHERE active=1 and id = ? LIMIT 1"; 
+	    	$sql = "SELECT time_table_default FROM courts WHERE active=1 and id = ? LIMIT 1"; 
 			$query = $this->db->query($sql, array($this->id));
 			if($debug) echo '<br>'.$this->db->last_query();
 			if ($query->num_rows() > 0) {	
@@ -384,7 +384,7 @@ class Pistas_model extends Model {
 public function get_specialdates_data($params = "" , $page = "all")
 	{
 		
-		$this->CI =& get_instance();
+		isset($this->CI) || $this->CI =& get_instance();
 
 		//Select table name
 		$table_name = "time_tables_specials";

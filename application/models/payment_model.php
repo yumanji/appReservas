@@ -1,5 +1,5 @@
 <?php
-class Payment_model extends Model {
+class Payment_model extends CI_Model {
 
     var $id_type   = NULL;
     var $id_element   = NULL;
@@ -17,7 +17,12 @@ class Payment_model extends Model {
     var $create_time   = NULL;
     var $create_ip   = NULL;
 
-
+    public function __construct()
+    {
+    	parent::__construct();
+    	//isset($this->CI) || $this->CI =& get_instance(); 
+    }
+    
 ##############################################################################
 
 	function setPayment() {
@@ -253,7 +258,7 @@ class Payment_model extends Model {
 # -------------------------------------------------------------------
 	public function get_global_list($filters="", $orderby="", $orderbyway="", $limit="", $flexigrid=FALSE) 
 	{
-		$this->CI =& get_instance();
+		
 
 		//Select table name
 		$table_name = "payments";
@@ -490,7 +495,6 @@ class Payment_model extends Model {
 public function get_data($params = "" , $page = "all")
 	{
 		
-		$this->CI =& get_instance();
 
 		//Select table name
 		$table_name = "payments";
@@ -531,7 +535,7 @@ public function get_data($params = "" , $page = "all")
 public function get_data_to_export($params = "" , $page = "all")
 	{
 		
-		$this->CI =& get_instance();
+		isset($this->CI) || $this->CI =& get_instance();
 
 		//Select table name
 		$table_name = "payments";
@@ -574,7 +578,7 @@ public function get_data_to_export($params = "" , $page = "all")
 
     function getPaymentMethodsByUser($user_level) {
     	# Devuelve array de los diferentes métodos de pago disponibles
-    	$this->CI =& get_instance();
+    	isset($this->CI) || $this->CI =& get_instance();
     	$this->CI->load->config('pagos');
     	
     	$payment = array ('reserve' => FALSE, 'cash' => FALSE, 'paypal' => FALSE, 'prepaid' => FALSE, 'creditcard' => FALSE, 'tpv' => FALSE, 'bank' => FALSE);
@@ -608,7 +612,7 @@ function getNextTicketNumber($date, $extra = NULL)
 	{
 		
 		if(!isset($date)) return NULL;
-		$this->CI =& get_instance();
+		isset($this->CI) || $this->CI =& get_instance();
 		$this->CI->load->config('pagos');
 		
 		$numero_diario = date($this->CI->config->item('payment_ticket_format_prefix')).sprintf($this->CI->config->item('payment_ticket_format_number'), 1); 

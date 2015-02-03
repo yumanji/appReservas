@@ -1530,6 +1530,7 @@ public function jqgrid_list_all ()
 
 		$req_param['where'] = $where;
 
+		$data = new stdClass();
 		$data->page = $this->input->post( "page", TRUE );
 		$data->records = count ($this->retos->get_global_data($req_param,"all"));
 		$data->total = ceil ($data->records / $req_param['num_rows'] );
@@ -1611,6 +1612,7 @@ public function jqgrid_list_by_user ($user)
 		$req_param['where'] = $where;
 		$req_param['usuario'] = $user;
 
+		$data = new stdClass();
 		$data->page = $this->input->post( "page", TRUE );
 		$data->records = count ($this->retos->get_global_data($req_param,"all"));
 		$data->total = ceil ($data->records / $req_param['num_rows'] );
@@ -1687,6 +1689,7 @@ public function jqgrid_list_all_public ()
 
 		$req_param['where'] = $where;
 
+		$data = new stdClass();
 		$data->page = $this->input->post( "page", TRUE );
 		$records = $this->retos->get_global_data ($req_param, 'none');
 		//$data->records = $this->retos->get_global_data($req_param,"count");
@@ -1765,6 +1768,7 @@ public function jqgrid_list_players ($id_transaction = NULL)
 		$where.= 'booking_players.id_transaction = \''.$id_transaction.'\' AND booking_players.status NOT IN (2,3)';
 		$req_param['where'] = $where;
 
+		$data = new stdClass();
 		$data->page = $this->input->post( "page", TRUE );
 		$data->records = count ($this->retos->get_data($req_param,"all")->result_array());
 		$data->total = ceil ($data->records / $req_param['num_rows'] );
@@ -1849,6 +1853,7 @@ public function jqgrid_list_players_waiting ($id_transaction = NULL)
 		$where.= 'booking_players.id_transaction = \''.$id_transaction.'\' AND booking_players.status = \'2\'';
 		$req_param['where'] = $where;
 
+		$data = new stdClass();
 		$data->page = $this->input->post( "page", TRUE );
 		$data->records = count ($this->retos->get_data($req_param,"all")->result_array());
 		$data->total = ceil ($data->records / $req_param['num_rows'] );

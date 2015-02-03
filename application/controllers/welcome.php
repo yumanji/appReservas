@@ -2,7 +2,7 @@
 
 class Welcome extends CI_Controller {
 
-	function Welcome()
+	function __construct()
 	{
 		parent::__construct();
 	}

@@ -8,7 +8,7 @@ class comunicacion
 {
 	public function comunicacion()
 	{
-		$this->CI =& get_instance();
+		isset($this->CI) || $this->CI =& get_instance();
 		log_message('debug', "comunicacion Class Initialized");
 		$this->CI->load->model('Notifications_model', 'mails', TRUE);
 	}

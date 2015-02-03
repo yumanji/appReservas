@@ -2,7 +2,7 @@
 	$this->lang->load('reservas');
 	$this->config->load('pagos');
 
-	$this->CI =& get_instance();
+	isset($this->CI) || $this->CI =& get_instance();
 ?>
 	<script type="text/javascript">
 	$(function() {

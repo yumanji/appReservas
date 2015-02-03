@@ -1,5 +1,5 @@
 <?php
-class User_model extends Model {
+class User_model extends CI_Model {
 
     var $email   = '';
     var $password = '';
@@ -7,7 +7,7 @@ class User_model extends Model {
     function User_model()
     {
         // Call the Model constructor
-        parent::Model();
+        parent::__construct();
     }
     
     function login()

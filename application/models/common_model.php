@@ -1,10 +1,10 @@
 <?php
-class Common_model extends Model {
+class Common_model extends CI_Model {
 
     function Common_model()
     {
         // Call the Model constructor
-        parent::Model();
+        parent::__construct();
     }
     
  

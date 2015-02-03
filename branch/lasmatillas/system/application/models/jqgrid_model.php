@@ -1,5 +1,5 @@
 <?php
-class Jqgrid_model extends Model {
+class Jqgrid_model extends CI_Model {
 	
 	public function get_data($params = "" , $page = "all")
 		{

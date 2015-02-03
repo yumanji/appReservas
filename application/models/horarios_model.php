@@ -1,11 +1,11 @@
 <?php
-class Horarios_model extends Model {
+class Horarios_model extends CI_Model {
 
     var $id   = '';
 
     function Horarios_model() {
         // Call the Model constructor
-        parent::Model();
+        parent::__construct();
     }
     
 }

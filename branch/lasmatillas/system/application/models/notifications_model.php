@@ -1,14 +1,14 @@
 <?php
-class Notifications_model extends Model {
+class Notifications_model extends CI_Model {
 
     function Notifications_model() {
         // Call the Model constructor
-        parent::Model();
+        parent::__construct();
     }
     
     function getNextMessages($quantity = 0) {
     	# Devuelve nombre de la pista
-    	$this->CI =& get_instance();
+    	isset($this->CI) || $this->CI =& get_instance();
 			$this->CI->load->model('redux_auth_model', 'usuario', TRUE);
 			//$this->CI->load->config('email');
 			$this->CI->config->item('email_automated_send_quantity');

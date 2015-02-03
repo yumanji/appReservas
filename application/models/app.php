@@ -1,10 +1,10 @@
 <?php
-class App extends Model {
+class App extends CI_Model {
 
-    function App()
+    function __construct()
     {
         // Call the Model constructor
-        parent::Model();
+        parent::__construct();
     }
     
  

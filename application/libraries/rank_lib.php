@@ -21,14 +21,14 @@ class rank_lib
 	/*
 	public function __construct()
 	{
-		$this->CI =& get_instance();
+		isset($this->CI) || $this->CI =& get_instance();
 		log_message('debug', "rank_Lib Class Initialized");
 	}
 	*/
 	
 	public function rank_lib()
 	{
-		$this->CI =& get_instance();
+		isset($this->CI) || $this->CI =& get_instance();
 		log_message('debug', "rank_Lib Class Initialized");
 	}
 	
@@ -799,6 +799,7 @@ class rank_lib
 		$req_param['where'] = $where;
 		if(isset($add_params) && is_array($add_params) && isset($add_params['where']) && $add_params['where'] != '') { if(trim($req_param['where']) != '') $req_param['where'] .= ' AND '; $req_param['where'] .= $add_params['where'];}
 		
+		$data = new stdClass();
 		$data->page = $this->CI->input->post( "page", TRUE );
 
 

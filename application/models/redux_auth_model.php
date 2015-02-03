@@ -11,8 +11,17 @@
 /**
 * redux_auth_model
 */
-class redux_auth_model extends Model
+class redux_auth_model extends CI_Model
 {
+	/**
+	 * CodeIgniter global
+	 *
+	 * @var string
+	 **/
+	protected $CI;
+	
+	
+	
 	/**
 	 * Holds an array of tables used in
 	 * redux.
@@ -55,7 +64,7 @@ class redux_auth_model extends Model
 		$this->load->config('redux_auth');
 		$this->tables  = $this->config->item('tables');
 		$this->columns = $this->config->item('columns');
-		$this->CI =& get_instance();
+		isset($this->CI) || $this->CI =& get_instance(); //$this->CI = ''; $this->CI =& get_instance();
 	}
 	
 	/**
@@ -864,7 +873,7 @@ public function get_data_to_export($params = "" , $page = "all")
 	 **/
 	public function get_global_list($filters="", $orderby="", $orderbyway="", $limit="", $flexigrid=NULL) 
 	{
-		$this->CI =& get_instance();
+		//$this->CI = ''; $this->CI =& get_instance();
 	    $users_table     = $this->tables['users'];
 	    $groups_table    = $this->tables['groups'];
 	    $meta_table      = $this->tables['meta'];

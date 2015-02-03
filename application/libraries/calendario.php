@@ -21,7 +21,7 @@ class Calendario
 	public function Calendario()
     {
 		log_message('debug', "Calendario Class Initialized");
-		$this->CI =& get_instance();
+		isset($this->CI) || $this->CI =& get_instance();
 		log_message('debug', "Calendario Class Initialized - 2");
 
 	}

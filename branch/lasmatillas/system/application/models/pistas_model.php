@@ -1,5 +1,5 @@
 <?php
-class Pistas_model extends Model {
+class Pistas_model extends CI_Model {
 
     var $id   = NULL;
     var $name   = NULL;
@@ -9,7 +9,7 @@ class Pistas_model extends Model {
 
     function Pistas_model() {
         // Call the Model constructor
-        parent::Model();
+        parent::__construct();
     }
     
     function getTimeTablesArray() {
@@ -384,7 +384,7 @@ class Pistas_model extends Model {
 public function get_specialdates_data($params = "" , $page = "all")
 	{
 		
-		$this->CI =& get_instance();
+		isset($this->CI) || $this->CI =& get_instance();
 
 		//Select table name
 		$table_name = "time_tables_specials";

@@ -1,5 +1,5 @@
 <?php
-class Reservas_model extends Model {
+class Reservas_model extends CI_Model {
 
 /*
 # CONTENIDO
@@ -68,7 +68,7 @@ class Reservas_model extends Model {
     function Reservas_model()
     {
         // Call the Model constructor
-        parent::Model();
+        parent::__construct();
 		$this->load->model('Pistas_model', 'pistas', TRUE);
     }
 
@@ -687,7 +687,7 @@ class Reservas_model extends Model {
 								$row_user_desc = $row->user_desc;
 								$row_user_phone = $row->user_phone;
 								if($row->id_user != 0) {
-									$this->CI =& get_instance();
+									isset($this->CI) || $this->CI =& get_instance();
 									$this->CI->load->model('Redux_auth_model', 'usuario', TRUE);
 									$row_user_desc = $this->CI->usuario->getUserDesc($row->id_user);
 									$row_user_phone = $this->CI->usuario->getUserPhone($row->id_user);									
@@ -1129,7 +1129,7 @@ class Reservas_model extends Model {
 				$this->court = $row->id_court;
 				$this->id_user = $row->id_user;
 				if($this->id_user != 0) {
-					$this->CI =& get_instance();
+					isset($this->CI) || $this->CI =& get_instance();
 					$this->CI->load->model('Redux_auth_model', 'usuario', TRUE);
 					$this->group = $this->CI->usuario->getUserGroup($row->id_user);
 					if(!isset($this->group)) $this->group = 9;					
@@ -1437,7 +1437,7 @@ if($debug) echo "E";
     	# Devuelve precio de la luz para el intervalo del día para la pista solicitada
 //echo "A";    	
     	if(!$this->date || !$this->intervalo) return NULL;
-    	$this->CI =& get_instance();
+    	isset($this->CI) || $this->CI =& get_instance();
     	$this->CI->load->model('Pistas_model', 'pistas', TRUE);
 //echo "B";    	
     	$id = $this->court;
@@ -1660,7 +1660,7 @@ if($debug) echo "E";
 # -------------------------------------------------------------------
 	public function get_list_by_day($date = NULL) 
 	{
-		$this->CI =& get_instance();
+		isset($this->CI) || $this->CI =& get_instance();
 
 		//Select table name
 		$table_name = "booking";
@@ -1706,7 +1706,7 @@ if($debug) echo "E";
 # -------------------------------------------------------------------
 	public function get_global_list($filters="", $orderby="", $orderbyway="", $limit="", $flexigrid=FALSE) 
 	{
-		$this->CI =& get_instance();
+		isset($this->CI) || $this->CI =& get_instance();
 
 		//Select table name
 		$table_name = "booking";
@@ -1827,7 +1827,7 @@ if($debug) echo "E";
 	public function get_complete_court_ocupation($fecha1=NULL, $fecha2=NULL, $hora1=NULL, $hora2=NULL) 
 	{
 		
-		$this->CI =& get_instance();
+		isset($this->CI) || $this->CI =& get_instance();
 		$this->load->model('Pistas_model', 'pistas', TRUE);
 		$pistas=$this->pistas->getAvailableCourtsArray('','');
 		//print_r($pistas);
@@ -1838,7 +1838,7 @@ if($debug) echo "E";
 		else $filters .= "AND (intervalo >= '00:00:00' OR intervalo IS NULL)";
 		if(isset($hora2) && $hora2!="") $filters .= "AND (intervalo <= '".$hora2."' OR intervalo IS NULL)";
 		else $filters .= "AND (intervalo <= '23:59:59' OR intervalo IS NULL)";
-		$this->CI =& get_instance();
+		isset($this->CI) || $this->CI =& get_instance();
 		
 		$ocupacion = $this->get_court_ocupation($filters);
 			//print("aaaaaaaaaa<pre>");print_r($ocupacion['records']->result_array());print('BBBBB<br>');
@@ -2855,7 +2855,7 @@ if($debug) echo "E";
 
     function add_player($id, $data)
     {
-    		$this->CI =& get_instance();
+    		isset($this->CI) || $this->CI =& get_instance();
     		$check = 1;
     		//$this->load->model('Reservas_model', 'reserva', TRUE);
 				$info=$this->CI->reservas->getBookingInfoById($id);

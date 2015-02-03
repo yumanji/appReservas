@@ -63,7 +63,7 @@ class Paypal_Lib {
 	
 	function Paypal_Lib()
 	{
-		$this->CI =& get_instance();
+		isset($this->CI) || $this->CI =& get_instance();
 		$this->CI->load->helper('url');
 		$this->CI->load->helper('form');
 		$this->CI->load->config('paypallib_config');

@@ -1,5 +1,5 @@
 <?php 
-	$this->CI =& get_instance();
+	isset($this->CI) || $this->CI =& get_instance();
 	
 	$panel_permission = $this->config->item('control_panel_permission');
 	$caja_permission = $this->config->item('cierre_caja_permission');

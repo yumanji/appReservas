@@ -8,7 +8,7 @@ class payments
 {
 	public function payments()
 	{
-		$this->CI =& get_instance();
+		isset($this->CI) || $this->CI =& get_instance();
 		log_message('debug', "payment Class Initialized");
 	}
 

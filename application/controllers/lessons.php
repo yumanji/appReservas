@@ -211,8 +211,8 @@ public function jqgrid_list_all ($add_params = NULL, $id_user = NULL)
 		}
 
 		#Procesado de filtros automaticos
-$filters = $_POST['filters'];
-$search = $_POST['_search'];
+$filters = $this->input->post('filters');
+$search = $this->input->post('_search');
 
     //$where = "";
 
@@ -301,6 +301,7 @@ if(($search==true) &&($filters != "")) {
 		
 		$req_param['where'] = $where;
 		if(isset($add_params) && $add_params != 'none' && $add_params['where'] != '') { if(trim($req_param['where']) != '') $req_param['where'] .= ' AND '; $req_param['where'] .= $add_params['where'];}
+		$data = new stdClass();
 		$data->page = $this->input->post( "page", TRUE );
 
 		//print("<pre>");print_r($req_param);exit();
@@ -386,6 +387,7 @@ public function jqgrid_list_all_generation ($add_params = NULL)
 		
 		$req_param['where'] = $where;
 		if(isset($add_params) && $add_params['where'] != '') { if(trim($req_param['where']) != '') $req_param['where'] .= ' AND '; $req_param['where'] .= $add_params['where'];}
+		$data = new stdClass();
 		$data->page = $this->input->post( "page", TRUE );
 
 
@@ -469,6 +471,7 @@ public function jqgrid_list_assistants ($id = NULL)
 		$where.= 'lessons_assistants.id_lesson = \''.$id.'\' AND lessons_assistants.status IN (1,2,3)';
 		$req_param['where'] = $where;
 
+		$data = new stdClass();
 		$data->page = $this->input->post( "page", TRUE );
 		$data->records = count ($this->lessons->get_AssitantsData($req_param,"all"));
 		$data->total = ceil ($data->records / $req_param['num_rows'] );
@@ -550,6 +553,7 @@ public function jqgrid_list_waiting ($id = NULL, $global = NULL)
 		$where.= 'lessons_assistants.status IN (7)';
 		$req_param['where'] = $where;
 
+		$data = new stdClass();
 		$data->page = $this->input->post( "page", TRUE );
 		$data->records = count ($this->lessons->get_AssitantsData($req_param,"all"));
 		$data->total = ceil ($data->records / $req_param['num_rows'] );
@@ -632,6 +636,7 @@ public function jqgrid_list_erased ($id = NULL, $global = NULL)
 		$where.= 'lessons_assistants.status IN (9)';
 		$req_param['where'] = $where;
 
+		$data = new stdClass();
 		$data->page = $this->input->post( "page", TRUE );
 		$data->records = count ($this->lessons->get_AssitantsData($req_param,"all"));
 		$data->total = ceil ($data->records / $req_param['num_rows'] );
@@ -708,6 +713,7 @@ public function jqgrid_list_assistance ($id = NULL)
 		$where.= 'lessons_assistance.id_lesson = \''.$id.'\'';
 		$req_param['where'] = $where;
 
+		$data = new stdClass();
 		$data->page = $this->input->post( "page", TRUE );
 		$data->records = count ($this->lessons->get_AssitanceData($req_param,"all"));
 		$data->total = ceil ($data->records / $req_param['num_rows'] );

@@ -1,5 +1,5 @@
 <?php
-class Lessons_model extends Model {
+class Lessons_model extends CI_Model {
 
 /*
 # CONTENIDO
@@ -36,7 +36,7 @@ class Lessons_model extends Model {
 
     function Lessons_model() {
         // Call the Model constructor
-        parent::Model();
+        parent::__construct();
         $this->load->library('calendario');
         
     }
@@ -47,7 +47,7 @@ class Lessons_model extends Model {
         # Devuelve array con el horario para la pista dada
  
             //echo "<pre>";//print_r($disponibilidad);
-            $this->CI =& get_instance();
+            isset($this->CI) || $this->CI =& get_instance();
         $this->CI->load->model('Pistas_model', 'pistas', TRUE);
         $reserve_interval = $this->CI->pistas->getCourtInterval($pista);
  

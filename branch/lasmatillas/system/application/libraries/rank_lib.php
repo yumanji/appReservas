@@ -21,14 +21,14 @@ class rank_lib
 	/*
 	public function __construct()
 	{
-		$this->CI =& get_instance();
+		isset($this->CI) || $this->CI =& get_instance();
 		log_message('debug', "rank_Lib Class Initialized");
 	}
 	*/
 	
 	public function rank_lib()
 	{
-		$this->CI =& get_instance();
+		isset($this->CI) || $this->CI =& get_instance();
 		log_message('debug', "rank_Lib Class Initialized");
 	}
 	

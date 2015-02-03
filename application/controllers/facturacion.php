@@ -617,6 +617,7 @@ class Facturacion extends CI_Controller {
 		$req_param['where'] = $where;
 		if(isset($add_params) && is_array($add_params) && $add_params['where'] != '') { if(trim($req_param['where']) != '') $req_param['where'] .= ' AND '; $req_param['where'] .= $add_params['where'];}
 		
+		$data = new stdClass();
 		$data->page = $this->input->post( "page", TRUE );
 		$data->records = $this->pagos->get_data($req_param,"count");
 		if($req_param['num_rows']==0 || $req_param['num_rows'] == '') $num_rows = 1; 

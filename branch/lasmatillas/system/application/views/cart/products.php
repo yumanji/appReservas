@@ -1,5 +1,5 @@
 <?php 
-	$this->CI =& get_instance();
+	isset($this->CI) || $this->CI =& get_instance();
 	
 	$search_permission = $this->config->item('main_search_permission');
 	$perfil=$this->CI->redux_auth->profile();

@@ -1304,6 +1304,7 @@ public function browse ()
 				*/
 		);
 
+		$data = new stdClass();
 		$data->page = $this->input->post( "page", TRUE );
 		$data->records = count ($this->reservas->get_data($req_param,"all")->result_array());
 		$data->total = ceil ($data->records /10 );

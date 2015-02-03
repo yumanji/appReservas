@@ -1,5 +1,5 @@
 <?php
-class Retos_model extends Model {
+class Retos_model extends CI_Model {
 
 		var $id_transaction   = NULL;
 		var $players   = NULL;
@@ -20,7 +20,7 @@ class Retos_model extends Model {
     function Retos_model()
     {
         // Call the Model constructor
-        parent::Model();
+        parent::__construct();
     }
     
     function get_last_ten_entries()
@@ -74,7 +74,7 @@ class Retos_model extends Model {
 
     function add_player($id, $data)
     {
-    		$this->CI =& get_instance();
+    		isset($this->CI) || $this->CI =& get_instance();
     		$check = 1;
     		//$this->load->model('Reservas_model', 'reserva', TRUE);
 				$info=$this->CI->reservas->getBookingInfoById($id);
@@ -224,7 +224,7 @@ public function get_data($params = "" , $page = "all")
 	public function get_global_data($params = "" , $page = "all")
 		{
 			
-		$this->CI =& get_instance();
+		isset($this->CI) || $this->CI =& get_instance();
 		$this->CI->load->model('Pistas_model', 'pistas', TRUE);
 
 		$table_name = 'booking';

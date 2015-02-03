@@ -372,6 +372,7 @@ public function jqgrid_list_all ($add_params = NULL)
 		$req_param['where'] = $where;
 		if(isset($add_params) && is_array($add_params) && isset($add_params['where']) && $add_params['where'] != '') { if(trim($req_param['where']) != '') $req_param['where'] .= ' AND '; $req_param['where'] .= $add_params['where'];}
 		
+		$data = new stdClass();
 		$data->page = $this->input->post( "page", TRUE );
 
 
@@ -464,6 +465,7 @@ public function listadopendientes() {
 		
 		$req_param['where'] = '(booking.status = 7)';
 
+		$data = new stdClass();
 		$data->page = $this->input->post( "page", TRUE );
 
 
@@ -575,6 +577,7 @@ public function jqgrid_list_all_cancelled ()
 		
 		$req_param['where'] = $where;
 
+		$data = new stdClass();
 		$data->page = $this->input->post( "page", TRUE );
 
 
