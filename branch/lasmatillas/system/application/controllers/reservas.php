@@ -1,6 +1,6 @@
 <?php
 
-class Reservas extends Controller {
+class Reservas extends CI_Controller {
  /*
  # CONTENIDO
  #
@@ -20,7 +20,7 @@ class Reservas extends Controller {
  */
 	function Reservas()
 	{
-		parent::Controller();	
+			
 		$this->lang->load('reservas');
 		$this->load->library('user_agent');
 

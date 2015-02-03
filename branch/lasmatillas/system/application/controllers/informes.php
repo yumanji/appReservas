@@ -1,10 +1,10 @@
 <?php
 
-class Informes extends Controller {
+class Informes extends CI_Controller {
 
 	function Informes()
 	{
-		parent::Controller();	
+			
 		//$this->load->helper('flexigrid');
 		$this->lang->load('reservas');
 		$this->load->config('facturacion');

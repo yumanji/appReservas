@@ -1,9 +1,9 @@
 <?php
-class Flexigrid extends Controller {
+class Flexigrid extends CI_Controller {
 
 	function Flexigrid  ()
 	{
-		parent::Controller();	
+			
 		$this->load->helper('flexigrid');
 	}
 	

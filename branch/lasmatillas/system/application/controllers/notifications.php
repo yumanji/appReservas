@@ -1,10 +1,10 @@
 <?php
 
-class Notifications extends Controller {
+class Notifications extends CI_Controller {
 
 	function Notifications()
 	{
-		parent::Controller();	
+			
 	}
 	
 	function index()

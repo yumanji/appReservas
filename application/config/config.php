@@ -14,7 +14,7 @@
 | path to your installation.
 |
 */
-$config['base_url']	= '';
+$config['base_url']	= "http://localhost/appReservas/";
 
 /*
 |--------------------------------------------------------------------------
@@ -27,6 +27,7 @@ $config['base_url']	= '';
 |
 */
 $config['index_page'] = 'index.php';
+$config['index_page'] = "";
 
 /*
 |--------------------------------------------------------------------------
@@ -69,7 +70,7 @@ $config['url_suffix'] = '';
 | than english.
 |
 */
-$config['language']	= 'english';
+$config['language']	= 'spanish';
 
 /*
 |--------------------------------------------------------------------------
@@ -154,8 +155,13 @@ $config['permitted_uri_chars'] = 'a-z 0-9~%.:_\-';
 | use segment based URLs.
 |
 */
+# Variante... En caso de tener index2.php como fichero, acepto query strings ... para accesos externos..
+if(SELF == "index2.php") {
+	$config['enable_query_strings'] = TRUE;
+	$config['index_page'] = "index2.php";
+} else $config['enable_query_strings'] = FALSE;
+
 $config['allow_get_array']		= TRUE;
-$config['enable_query_strings'] = FALSE;
 $config['controller_trigger']	= 'c';
 $config['function_trigger']		= 'm';
 $config['directory_trigger']	= 'd'; // experimental not currently in use
@@ -180,7 +186,7 @@ $config['directory_trigger']	= 'd'; // experimental not currently in use
 | your log files will fill up very fast.
 |
 */
-$config['log_threshold'] = 0;
+$config['log_threshold'] = 2;
 
 /*
 |--------------------------------------------------------------------------
@@ -213,6 +219,8 @@ $config['log_date_format'] = 'Y-m-d H:i:s';
 | system/cache/ folder.  Use a full server path with trailing slash.
 |
 */
+//$config['cache_path'] = $_SERVER['DOCUMENT_ROOT'].'/appReservas/system/cache/';
+$config['root_path'] = $_SERVER['DOCUMENT_ROOT'].'/appReservas/';
 $config['cache_path'] = '';
 
 /*

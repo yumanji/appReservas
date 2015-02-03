@@ -1,10 +1,10 @@
 <?php
 
-class Users extends Controller {
+class Users extends CI_Controller {
 
 	function Users()
 	{
-		parent::Controller();	
+			
 		$this->load->helper('flexigrid');
 		$this->load->library('flexigrid');
 

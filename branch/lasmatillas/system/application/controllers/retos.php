@@ -1,10 +1,10 @@
 <?php
 
-class Retos extends Controller {
+class Retos extends CI_Controller {
 
 	function Retos()
 	{
-		parent::Controller();	
+			
 	}
 	
 

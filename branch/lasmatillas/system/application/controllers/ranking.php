@@ -1,10 +1,10 @@
 <?php
 
-class Ranking extends Controller {
+class Ranking extends CI_Controller {
 
 	function Ranking()
 	{
-		parent::Controller();	
+			
 		$this->load->config('ranking');
 		$this->load->library('rank_lib');
 	}

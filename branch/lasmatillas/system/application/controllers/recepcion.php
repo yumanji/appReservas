@@ -1,10 +1,10 @@
 <?php
 
-class Recepcion extends Controller {
+class Recepcion extends CI_Controller {
 
 	function Recepcion()
 	{
-		parent::Controller();	
+			
 		$this->config->load('recepcion');
 	}
 	

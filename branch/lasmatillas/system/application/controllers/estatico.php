@@ -1,10 +1,10 @@
 <?php
 
-class Estatico extends Controller {
+class Estatico extends CI_Controller {
 
 	function Estatico()
 	{
-		parent::Controller();	
+			
 	}
 	
 	function index( $option = NULL)

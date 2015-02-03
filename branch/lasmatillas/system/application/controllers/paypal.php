@@ -15,11 +15,11 @@
  *
  */
 
-class Paypal extends Controller {
+class Paypal extends CI_Controller {
 
 	function Paypal()
 	{
-		parent::Controller();
+		
 		$this->load->library('paypal_lib');
 	}
 	

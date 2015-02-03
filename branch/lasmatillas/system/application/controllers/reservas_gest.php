@@ -1,10 +1,10 @@
 <?php
 
-class Reservas_gest extends Controller {
+class Reservas_gest extends CI_Controller {
 
 	function Reservas_gest()
 	{
-		parent::Controller();	
+			
 		$this->load->helper('flexigrid');
 		$this->load->library('flexigrid');
 	}

@@ -1,10 +1,10 @@
 <?php
 
-class Calendar extends Controller {
+class Calendar extends CI_Controller {
 
 	function Calendar()
 	{
-		parent::Controller();	
+			
 	}
 	
 

@@ -1,10 +1,10 @@
 <?php
 
-class Activities extends Controller {
+class Activities extends CI_Controller {
 
 	function Activities()
 	{
-		parent::Controller();	
+			
 	}
 	
 

@@ -1,10 +1,10 @@
 <?php
 
-class Gestion extends Controller {
+class Gestion extends CI_Controller {
 
 	function Gestion()
 	{
-		parent::Controller();	
+			
 		$this->load->helper('flexigrid');
 	}
 	

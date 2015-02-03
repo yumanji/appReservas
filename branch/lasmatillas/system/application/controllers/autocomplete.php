@@ -1,9 +1,9 @@
 <?php
-class Autocomplete extends Controller {
+class Autocomplete extends CI_Controller {
  
     function Autocomplete()
     {
-        parent::Controller();    
+            
  
         // load models
         $this->load->model('redux_auth_model', 'users', TRUE);

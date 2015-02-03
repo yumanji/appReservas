@@ -1,10 +1,10 @@
 <?php
 
-class Control extends Controller {
+class Control extends CI_Controller {
 
 	function Control()
 	{
-		parent::Controller();	
+			
 	}
 	
 	function index()

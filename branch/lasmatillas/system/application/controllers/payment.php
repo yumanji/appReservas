@@ -1,10 +1,10 @@
 <?php
 
-class Payment extends Controller {
+class Payment extends CI_Controller {
 
 	function Payment()
 	{
-		parent::Controller();	
+			
 		$this->lang->load('payment');
 		$this->load->config('facturacion');
 	}

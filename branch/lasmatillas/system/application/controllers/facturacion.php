@@ -1,10 +1,10 @@
 <?php
 
-class Facturacion extends Controller {
+class Facturacion extends CI_Controller {
 
 	function Facturacion()
 	{
-		parent::Controller();	
+			
 		$this->load->config('facturacion');
 		$this->load->helper('flexigrid');
 		$this->load->library('flexigrid');

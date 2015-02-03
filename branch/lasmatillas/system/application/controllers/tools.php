@@ -1,10 +1,10 @@
 <?php
 
-class Tools extends Controller {
+class Tools extends CI_Controller {
 
 	function Tools()
 	{
-		parent::Controller();	
+			
 	}
 	
 	function index()

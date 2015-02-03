@@ -1,9 +1,9 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed');
-class Ajax extends Controller {
+class Ajax extends CI_Controller {
 
 	function Ajax ()
 	{
-		parent::Controller();	
+			
 		$this->load->model('ajax_model');
 		$this->load->library('flexigrid');
 	}

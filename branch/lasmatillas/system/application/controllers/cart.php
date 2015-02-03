@@ -1,10 +1,10 @@
 <?php
 
-	class Cart extends Controller { // Our Cart class extends the Controller class
+	class Cart extends CI_Controller { // Our Cart class extends the Controller class
 
 		function Cart()
 		{
-			parent::Controller(); // We define the the Controller class is the parent.
+			 // We define the the Controller class is the parent.
 			$this->load->library('cart'); // Load our cart model for our entire class 
 			$this->load->model('cart_model'); // Load our cart model for our entire class 
 			$this->load->model('payment_model');

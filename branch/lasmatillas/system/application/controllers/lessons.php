@@ -1,6 +1,6 @@
 <?php
 
-class Lessons extends Controller {
+class Lessons extends CI_Controller {
  /*
  # CONTENIDO
  #
@@ -9,7 +9,7 @@ class Lessons extends Controller {
  */
 	function Lessons()
 	{
-		parent::Controller();	
+			
 		$this->lang->load('lessons');
 		$this->config->load('lessons');
 
