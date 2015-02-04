@@ -1057,10 +1057,7 @@ class Reservas_model extends CI_Model {
       $this->db->where('id_transaction', $id_transaction);
 			$this->db->update('booking', $data);
 			log_message('debug',$this->db->last_query());
-			if($this->db->affected_rows()) return TRUE;
-			//echo $this->db->last_query();
-			//exit();
-			return FALSE;			
+			return TRUE;
 		        
     }
 

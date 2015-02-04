@@ -1210,7 +1210,7 @@ class Reservas extends CI_Controller {
 		$this->load->model('Redux_auth_model', 'usuario', TRUE);
 		$this->load->library('booking');
 
-		$debug = TRUE;
+		$debug = FALSE;
 		$session=$this->session->userdata('session_id');
 		if($this->redux_auth->logged_in()) {
 			$profile=$this->redux_auth->profile();
@@ -1287,6 +1287,7 @@ class Reservas extends CI_Controller {
 		$booking_no_cost = $this->input->post('no_cost');
 		if($booking_no_cost == "true") $booking_no_cost = TRUE;
 		else $booking_no_cost = FALSE;
+		
 		if($booking_no_cost) $info['total_price']=0;
 		$booking_no_cost_desc = $this->input->post('no_cost_desc');
 		
@@ -1332,7 +1333,6 @@ class Reservas extends CI_Controller {
 
 		if($booking_no_cost) {
 			# Si se ha marcado que la reserva no tiene coste, podemos saltarnos la siguiente pestaña y marcar la reserva como hecha
-			
 			$estado_reserva=9;
 			$modo_pago=1;
 			$this->reservas->setSelectionReserved($id_transaction, $estado_reserva, $modo_pago, $booking_id_user, $booking_user_desc, $booking_user_phone, 1, $booking_no_cost_desc);
@@ -1876,7 +1876,7 @@ class Reservas extends CI_Controller {
 		//log_message('debug','Estado: '.$success);
 		
 		# Mail de notificación de reservas
-		if(($success == "1" ||$success == "5")&& $this->config->item('reserve_send_mail')) {
+		if(($success == "1" ||$success == "5") && $this->config->item('reserve_send_mail')) {
 			$this->booking->notify_booking($info);
 		}
 

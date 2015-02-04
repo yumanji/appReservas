@@ -18,7 +18,7 @@
 		 echo '<a href="http://www.tuenti.com/share?url='.urlencode(site_url('reservas/resume/'.$info['id_transaction'].'/'.$info['booking_code'])).'" target="_blank">'.img(array('src' => 'images/tuenti.png', 'alt' => 'Comparte con Tuenti', 'align' => 'absmiddle', 'title' => 'Comparte con Tuenti', 'border'=>'0')).'</a>';
 		 
 		 
-		 if($permiso_ticket) echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="'.site_url('facturacion/view_receipt/'.$pago->id).'">'.img(array('src' => 'images/printer-icon.png', 'alt' => 'Imprimir tiquet de reserva', 'align' => 'absmiddle', 'title' => 'Imprimir tiquet de reserva', 'border'=>'0')).'</a>';
+		 if(isset($permiso_ticket) && $permiso_ticket) echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="'.site_url('facturacion/view_receipt/'.$pago->id).'">'.img(array('src' => 'images/printer-icon.png', 'alt' => 'Imprimir tiquet de reserva', 'align' => 'absmiddle', 'title' => 'Imprimir tiquet de reserva', 'border'=>'0')).'</a>';
 		 echo '</p>';
 	} 	elseif($success == "5") {
 		# Para reservas.. sin pago.
