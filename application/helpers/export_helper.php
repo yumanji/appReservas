@@ -120,9 +120,10 @@ function listado_clases($data)
 	$callStartTime = microtime(true);
 
 	// Redirect output to a client’s web browser (Excel2007)
-	header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
-	if(count($data)>1) header('Content-Disposition: attachment;filename="clases_listado_'.date('YmdHis').'.xls"');
-	else header('Content-Disposition: attachment;filename="'.str_replace(' ', '_', $nombre_fichero).'_'.date('YmdHis').'.xls"');
+	//header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+	header('Content-Type: application/vnd.ms-excel; charset=utf-8');
+	if(count($data)>1) header('Content-Disposition: attachment;filename="clases_listado_'.date('YmdHis').'"');
+	else header('Content-Disposition: attachment;filename="'.str_replace(' ', '_', $nombre_fichero).'_'.date('YmdHis').'"');
 	header('Cache-Control: max-age=0');
 	// If you're serving to IE 9, then the following may be needed
 	header('Cache-Control: max-age=1');
