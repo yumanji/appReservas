@@ -23,7 +23,7 @@ class app_common
 	
 	public function arrayToOptionConverter($array_values = NULL)
     {
-		//isset($this->CI) || $this->CI =& get_instance();
+		
 
 		# Si viene vacío, devuelvo vacío
 		if(!isset($array_values) || !is_array($array_values)) return NULL;

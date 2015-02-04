@@ -1315,10 +1315,10 @@ function setTeamPosition($ranking, $team, $group, $position, $ronda = null)
 
     function add_player($id, $data)
     {
-    		isset($this->CI) || $this->CI =& get_instance();
+    		//isset($this->CI) || $this->CI =& get_instance();
     		$check = 1;
     		//$this->load->model('Reservas_model', 'reserva', TRUE);
-				$info=$this->CI->reservas->getBookingInfoById($id);
+				$info=$this->reservas->getBookingInfoById($id);
 				//print("<pre>");print_r($data);print_r($info);exit();
 				
 				foreach($info['signed_users'] as $usuario) {

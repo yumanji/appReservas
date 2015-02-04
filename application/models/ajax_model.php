@@ -19,7 +19,7 @@ class Ajax_model extends CI_Model
 	public function Ajax_model()
     {
         parent::__construct();
-		isset($this->CI) || $this->CI =& get_instance();
+		//isset($this->CI) || $this->CI =& get_instance();
     }
 	
 	public function get_countries() 
@@ -29,14 +29,14 @@ class Ajax_model extends CI_Model
 		
 		//Build contents query
 		$this->db->select('id,iso,name,printable_name,iso3,numcode')->from($table_name);
-		$this->CI->flexigrid->build_query();
+		$this->flexigrid->build_query();
 		
 		//Get contents
 		$return['records'] = $this->db->get();
 		
 		//Build count query
 		$this->db->select('count(id) as record_count')->from($table_name);
-		$this->CI->flexigrid->build_query(FALSE);
+		$this->flexigrid->build_query(FALSE);
 		$record_count = $this->db->get();
 		$row = $record_count->row();
 		

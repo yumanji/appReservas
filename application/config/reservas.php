@@ -119,6 +119,7 @@ $config['reserve_minimum_intervals']	= array(9 => 3, 8 => 3, 7 => 3, 6 => 3, 5 =
 
 // Numero de segmentos máximos (por deporte y por nivel de usuario) que se puede reservar en un día
 $config['reserve_maximum_intervals_check']	= TRUE;
+$config['reserve_maximum_intervals_default']	= 3;
 $config['reserve_maximum_intervals']	= array(
 		1 => array (
 								1 => 999,

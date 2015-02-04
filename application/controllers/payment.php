@@ -815,7 +815,7 @@ function simpleSearchFields($options=array())
 			# Cargo la vista de formas de pago
 			if($full == '1') {
 				
-				$paymnet_content= $this->load->view('payment/pago_fullsize', array('methods' => $paymentMethods, 'lines' => $paymentLines, 'order' => $order, 'paymentDescription' => $paymentDescription, 'payment_type' => $payment_type, 'prepaid_enabled' => $prepaid_enabled, 'bank_enabled' => $bank_enabled, 'transaction_id' => $id_transaction), TRUE);
+				$paymnet_content= $this->load->view('payment/pago_fullsize', array('methods' => $paymentMethods, 'info' => $info, 'lines' => $paymentLines, 'order' => $order, 'paymentDescription' => $paymentDescription, 'payment_type' => $payment_type, 'prepaid_enabled' => $prepaid_enabled, 'bank_enabled' => $bank_enabled, 'transaction_id' => $id_transaction), TRUE);
 				$data=array(
 					'meta' => $this->load->view('meta', '', true),
 					'header' => $this->load->view('header', array('enable_menu' => $this->redux_auth->logged_in()), true),
@@ -854,9 +854,9 @@ function simpleSearchFields($options=array())
 							$data['header']=$this->load->view('header_index', array('enable_menu' => '0'), true);
 							$data['footer']=$this->load->view('footer_index', $added, true);
 						}
-		      	$data['main_content']=$this->load->view('payment/pago_iexplorer', array('user_name' => $user_name, 'methods' => $paymentMethods, 'lines' => $paymentLines, 'order' => $order, 'paymentDescription' => $paymentDescription, 'payment_type' => $payment_type, 'prepaid_enabled' => $prepaid_enabled, 'bank_enabled' => $bank_enabled, 'transaction_id' => $id_transaction), true);
+		      	$data['main_content']=$this->load->view('payment/pago_iexplorer', array('user_name' => $user_name, 'methods' => $paymentMethods, 'info' => $info, 'lines' => $paymentLines, 'order' => $order, 'paymentDescription' => $paymentDescription, 'payment_type' => $payment_type, 'prepaid_enabled' => $prepaid_enabled, 'bank_enabled' => $bank_enabled, 'transaction_id' => $id_transaction), true);
 		      	$this->load->view('main', $data);
-		      } else $this->load->view('payment/pago', array('methods' => $paymentMethods, 'lines' => $paymentLines, 'order' => $order, 'paymentDescription' => $paymentDescription, 'payment_type' => $payment_type, 'prepaid_enabled' => $prepaid_enabled, 'bank_enabled' => $bank_enabled, 'transaction_id' => $id_transaction));
+		      } else $this->load->view('payment/pago', array('methods' => $paymentMethods, 'info' => $info, 'lines' => $paymentLines, 'order' => $order, 'paymentDescription' => $paymentDescription, 'payment_type' => $payment_type, 'prepaid_enabled' => $prepaid_enabled, 'bank_enabled' => $bank_enabled, 'transaction_id' => $id_transaction));
 				
 			}
 			

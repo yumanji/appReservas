@@ -34,8 +34,8 @@ class Lessons_model extends CI_Model {
     var $signin   = NULL;
 
 
-    function Lessons_model() {
-        // Call the Model constructor
+	public function __construct() {
+            // Call the Model constructor
         parent::__construct();
         $this->load->library('calendario');
         
@@ -47,9 +47,9 @@ class Lessons_model extends CI_Model {
         # Devuelve array con el horario para la pista dada
  
             //echo "<pre>";//print_r($disponibilidad);
-            isset($this->CI) || $this->CI =& get_instance();
-        $this->CI->load->model('Pistas_model', 'pistas', TRUE);
-        $reserve_interval = $this->CI->pistas->getCourtInterval($pista);
+            
+        $this->load->model('Pistas_model', 'pistas', TRUE);
+        $reserve_interval = $this->pistas->getCourtInterval($pista);
  
             $weekday=@date('N', strtotime($fecha));
             $condicion = '';

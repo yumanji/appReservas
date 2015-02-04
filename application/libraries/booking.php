@@ -618,10 +618,11 @@ class booking
 			if(!isset($deporte) || $deporte == '' || !isset($nivel_usuario) || $nivel_usuario == '') return FALSE;
 		
 			if($debug) print 'Comprobamos el numero máximo de reservas disponibles'."\r\n";
+			$maximas_exactas = $this->CI->config->item('reserve_maximum_intervals_default');
 			$reservas_maximas = $this->CI->config->item('reserve_maximum_intervals');
 			if($debug) print_r ($reservas_maximas);
 			if(isset($reservas_maximas) || count($reservas_maximas) > 0)  {
-				$maximas_exactas = $reservas_maximas[$deporte][$nivel_usuario];
+				if(isset($reservas_maximas[$deporte][$nivel_usuario])) $maximas_exactas = $reservas_maximas[$deporte][$nivel_usuario];
 				$reservas_hechas = $this->CI->reservas->getBookingCountDayUser($deporte, $date, $usuario, $force);
 				if($debug) print 'Tenemos un total de '.$reservas_hechas.' para el usuario '.$usuario.' y se dispone de un maximo para el nivel '.$nivel_usuario.' en el deporte '.$deporte.' (pista '.$pista.') de '.$maximas_exactas."\r\n";
 				if(isset($maximas_exactas) && $maximas_exactas!='') {

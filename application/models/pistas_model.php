@@ -384,7 +384,7 @@ class Pistas_model extends CI_Model {
 public function get_specialdates_data($params = "" , $page = "all")
 	{
 		
-		isset($this->CI) || $this->CI =& get_instance();
+		//isset($this->CI) || $this->CI =& get_instance();
 
 		//Select table name
 		$table_name = "time_tables_specials";

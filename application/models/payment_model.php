@@ -20,7 +20,7 @@ class Payment_model extends CI_Model {
     public function __construct()
     {
     	parent::__construct();
-    	//isset($this->CI) || $this->CI =& get_instance(); 
+    	 
     }
     
 ##############################################################################
@@ -265,7 +265,7 @@ class Payment_model extends CI_Model {
 		
 		//Build contents query
 		$this->db->select('payments.id as id, payments.id_type as id_type, payments.id_transaction as id_transaction, payments.id_user, payments.desc_user as desc_user, payments.status as status, payments.quantity, payments.ticket_number, payments.datetime as datetime, DATE_FORMAT(DATE(payments.fecha_valor), \'%d-%m-%Y\') as fecha_valor, DATE_FORMAT(DATE(payments.datetime), \'%d-%m-%Y\') as date, TIME(payments.datetime) as time, payments.description as description, payments.id_paymentway as id_paymentway, payments.create_user as create_user, payments.create_time as create_time, payments.modify_user as modify_user, payments.modify_time as modify_time, meta.first_name as first_name, meta.last_name as last_name, meta.player_level as player_level, meta.phone as phone, groups.description as grupo, zz_payment_status.description as status_desc, zz_paymentway.description as paymentway_desc, zz_payment_type.description as id_type_desc, meta.bank_titular, meta.bank, meta.bank_office, meta.bank_dc, meta.bank_account, meta.numero_socio', FALSE)->from($table_name);
-		if($flexigrid) $this->CI->flexigrid->build_query();
+		if($flexigrid) $this->flexigrid->build_query();
 		//$this->db->join('courts', 'courts.id=booking.id_court', 'left outer');
 		//$this->db->join('booking', 'payments.id_transaction=booking.id_transaction', 'left outer');
 		$this->db->join('meta', 'payments.id_user=meta.user_id', 'left outer');
@@ -291,7 +291,7 @@ class Payment_model extends CI_Model {
 		
 		# Para devolver el numero de registros
 		$this->db->select('count(payments.id) as record_count')->from($table_name);
-		if($flexigrid) $this->CI->flexigrid->build_query();
+		if($flexigrid) $this->flexigrid->build_query();
 		//$this->db->join('courts', 'courts.id=booking.id_court', 'left outer');
 		//$this->db->join('booking', 'payments.id_transaction=booking.id_transaction', 'left outer');
 		$this->db->join('meta', 'payments.id_user=meta.user_id', 'left outer');
@@ -535,7 +535,7 @@ public function get_data($params = "" , $page = "all")
 public function get_data_to_export($params = "" , $page = "all")
 	{
 		
-		isset($this->CI) || $this->CI =& get_instance();
+		
 
 		//Select table name
 		$table_name = "payments";
@@ -578,8 +578,8 @@ public function get_data_to_export($params = "" , $page = "all")
 
     function getPaymentMethodsByUser($user_level) {
     	# Devuelve array de los diferentes métodos de pago disponibles
-    	isset($this->CI) || $this->CI =& get_instance();
-    	$this->CI->load->config('pagos');
+    	
+    	$this->load->config('pagos');
     	
     	$payment = array ('reserve' => FALSE, 'cash' => FALSE, 'paypal' => FALSE, 'prepaid' => FALSE, 'creditcard' => FALSE, 'tpv' => FALSE, 'bank' => FALSE);
     	//echo $user_level.'<br>';
@@ -588,12 +588,12 @@ public function get_data_to_export($params = "" , $page = "all")
     		$payment[$type] = $this->app_common->PaymentMethodStatus($type);
     	}
     	
-    	if($user_level < 3 ) $pagos_adaptado = $this->CI->config->item('payment_admin_available');
-    	elseif($user_level >= 3 && $user_level < 4 ) $pagos_adaptado = $this->CI->config->item('payment_operator_available');
-    	elseif($user_level >= 4 && $user_level < 5 ) $pagos_adaptado = $this->CI->config->item('payment_profesor_available');
-    	elseif($user_level >= 5 && $user_level < 7 ) $pagos_adaptado = $this->CI->config->item('payment_advanced_user_available');
-    	elseif($user_level >= 7 && $user_level < 8 ) $pagos_adaptado = $this->CI->config->item('payment_user_available');
-    	else  $pagos_adaptado = $this->CI->config->item('payment_anonimo_available');
+    	if($user_level < 3 ) $pagos_adaptado = $this->config->item('payment_admin_available');
+    	elseif($user_level >= 3 && $user_level < 4 ) $pagos_adaptado = $this->config->item('payment_operator_available');
+    	elseif($user_level >= 4 && $user_level < 5 ) $pagos_adaptado = $this->config->item('payment_profesor_available');
+    	elseif($user_level >= 5 && $user_level < 7 ) $pagos_adaptado = $this->config->item('payment_advanced_user_available');
+    	elseif($user_level >= 7 && $user_level < 8 ) $pagos_adaptado = $this->config->item('payment_user_available');
+    	else  $pagos_adaptado = $this->config->item('payment_anonimo_available');
     	
     	//print_r($payment);print_r($pagos_adaptado);//exit("AAAAAA");
     	foreach($payment as $type => $value) {
@@ -612,10 +612,10 @@ function getNextTicketNumber($date, $extra = NULL)
 	{
 		
 		if(!isset($date)) return NULL;
-		isset($this->CI) || $this->CI =& get_instance();
-		$this->CI->load->config('pagos');
 		
-		$numero_diario = date($this->CI->config->item('payment_ticket_format_prefix')).sprintf($this->CI->config->item('payment_ticket_format_number'), 1); 
+		$this->load->config('pagos');
+		
+		$numero_diario = date($this->config->item('payment_ticket_format_prefix')).sprintf($this->config->item('payment_ticket_format_number'), 1); 
 		//echo '--'.$numero_diario.'<br>';
 		//Select table name
 		$table_name = "payments";
@@ -633,9 +633,9 @@ function getNextTicketNumber($date, $extra = NULL)
 		  $row = $query->row(); 
 			$maximo = $row->ticket_number;
 			if(isset($maximo) && $maximo != '') {
-				$sub_maximo = intval(substr($maximo, (-1 * $this->CI->config->item('payment_ticket_format_number_length'))));
+				$sub_maximo = intval(substr($maximo, (-1 * $this->config->item('payment_ticket_format_number_length'))));
 				//echo '--'.$sub_maximo.'<br>';
-				$numero_diario = date($this->CI->config->item('payment_ticket_format_prefix')).sprintf($this->CI->config->item('payment_ticket_format_number'), $sub_maximo + 1);
+				$numero_diario = date($this->config->item('payment_ticket_format_prefix')).sprintf($this->config->item('payment_ticket_format_number'), $sub_maximo + 1);
 			}
 		   //echo '--'.$row->ticket_number;
 		}		

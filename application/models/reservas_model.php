@@ -690,10 +690,10 @@ class Reservas_model extends CI_Model {
 								$row_user_desc = $row->user_desc;
 								$row_user_phone = $row->user_phone;
 								if($row->id_user != 0) {
-									isset($this->CI) || $this->CI =& get_instance();
-									$this->CI->load->model('Redux_auth_model', 'usuario', TRUE);
-									$row_user_desc = $this->CI->usuario->getUserDesc($row->id_user);
-									$row_user_phone = $this->CI->usuario->getUserPhone($row->id_user);									
+									
+									$this->load->model('Redux_auth_model', 'usuario', TRUE);
+									$row_user_desc = $this->usuario->getUserDesc($row->id_user);
+									$row_user_phone = $this->usuario->getUserPhone($row->id_user);									
 								}
 								array_push($signed_users, array('id' => $row->id, 'id_user' => $row->id_user, 'user_desc' => $row_user_desc, 'user_phone' => $row_user_phone, 'status' => $row->status));
 						}
@@ -1219,9 +1219,9 @@ class Reservas_model extends CI_Model {
 				$this->court = $row->id_court;
 				$this->id_user = $row->id_user;
 				if($this->id_user != 0) {
-					isset($this->CI) || $this->CI =& get_instance();
-					$this->CI->load->model('Redux_auth_model', 'usuario', TRUE);
-					$this->group = $this->CI->usuario->getUserGroup($row->id_user);
+					
+					$this->load->model('Redux_auth_model', 'usuario', TRUE);
+					$this->group = $this->usuario->getUserGroup($row->id_user);
 					if(!isset($this->group)) $this->group = 9;					
 				}	else $this->group = 9;
 				
@@ -1528,8 +1528,8 @@ if($debug) echo "E";
     	# Devuelve precio de la luz para el intervalo del día para la pista solicitada
 //echo "A";    	
     	if(!$this->date || !$this->intervalo) return NULL;
-    	isset($this->CI) || $this->CI =& get_instance();
-    	$this->CI->load->model('Pistas_model', 'pistas', TRUE);
+    	
+    	$this->load->model('Pistas_model', 'pistas', TRUE);
 //echo "B";    	
     	$id = $this->court;
     	$date = $this->date;
@@ -1541,7 +1541,7 @@ if($debug) echo "E";
 			$interval=@date($this->config->item('hour_db_format'), strtotime($time));
 			
 			# Recupero tarifa
-			$id_price=$this->CI->pistas->getCourtLightPrice($id);
+			$id_price=$this->pistas->getCourtLightPrice($id);
 			
 				if($id_price!="") {
 //echo "D";    	
@@ -1751,14 +1751,14 @@ if($debug) echo "E";
 # -------------------------------------------------------------------
 	public function get_list_by_day($date = NULL) 
 	{
-		isset($this->CI) || $this->CI =& get_instance();
+		
 
 		//Select table name
 		$table_name = "booking";
 		
 		//Build contents query
 		$this->db->select('id_booking, date, intervalo, courts.name, no_cost, status, price, id_user, user_desc')->from($table_name);
-		$this->CI->flexigrid->build_query();
+		$this->flexigrid->build_query();
 		$this->db->join('courts', 'courts.id=booking.id_court');
 
 		if (isset($date) && trim($date)!="") $this->db->where('date', $date);
@@ -1773,7 +1773,7 @@ if($debug) echo "E";
 		log_message('debug', 'SQL: '.$this->db->last_query());
 		//Build count query
 		$this->db->select('count(id_booking) as record_count')->from($table_name);
-		$this->CI->flexigrid->build_query(FALSE);
+		$this->flexigrid->build_query(FALSE);
 		$this->db->join('courts', 'courts.id=booking.id_court');
 		if (isset($date) && trim($date)!="") $this->db->where('date', $date);
 
@@ -1797,7 +1797,7 @@ if($debug) echo "E";
 # -------------------------------------------------------------------
 	public function get_global_list($filters="", $orderby="", $orderbyway="", $limit="", $flexigrid=FALSE) 
 	{
-		//isset($this->CI) || $this->CI =& get_instance();
+		
 
 		//Select table name
 		$table_name = "booking";
@@ -1809,7 +1809,7 @@ if($debug) echo "E";
 		 				'booking.modify_time as modify_time, courts.name as court_name, meta.first_name as first_name, '.
 						'meta.last_name as last_name,  meta.phone as phone, zz_booking_status.description as status_desc, '.
 						'zz_paymentway.description as paymentway_desc, booking.price_light as price_light, booking.price_court as price_court', FALSE)->from($table_name);
-		if($flexigrid) $this->CI->flexigrid->build_query();
+		if($flexigrid) $this->flexigrid->build_query();
 		//$this->CI->flexigrid->build_query();
 		$this->db->join('courts', 'courts.id=booking.id_court', 'left outer');
 		$this->db->join('meta', 'booking.id_user=meta.user_id', 'left outer');
@@ -1918,7 +1918,7 @@ if($debug) echo "E";
 	public function get_complete_court_ocupation($fecha1=NULL, $fecha2=NULL, $hora1=NULL, $hora2=NULL) 
 	{
 		
-		//isset($this->CI) || $this->CI =& get_instance();
+		
 		$this->load->model('Pistas_model', 'pistas', TRUE);
 		$pistas=$this->pistas->getAvailableCourtsArray('','');
 		//print_r($pistas);
@@ -1929,7 +1929,7 @@ if($debug) echo "E";
 		else $filters .= "AND (intervalo >= '00:00:00' OR intervalo IS NULL)";
 		if(isset($hora2) && $hora2!="") $filters .= "AND (intervalo <= '".$hora2."' OR intervalo IS NULL)";
 		else $filters .= "AND (intervalo <= '23:59:59' OR intervalo IS NULL)";
-		//isset($this->CI) || $this->CI =& get_instance();
+		
 		
 		$ocupacion = $this->get_court_ocupation($filters);
 			//print("aaaaaaaaaa<pre>");print_r($ocupacion['records']->result_array());print('BBBBB<br>');
@@ -2952,10 +2952,10 @@ if($debug) echo "E";
 
     function add_player($id, $data)
     {
-    		isset($this->CI) || $this->CI =& get_instance();
+    		
     		$check = 1;
     		//$this->load->model('Reservas_model', 'reserva', TRUE);
-				$info=$this->CI->reservas->getBookingInfoById($id);
+				$info=$this->reservas->getBookingInfoById($id);
 				//print("<pre>");print_r($data);print_r($info);exit();
 				
 				if(!isset($info) || !is_array($info) || count($info)<=0) return ('Reserva no encontrada');

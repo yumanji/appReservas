@@ -203,7 +203,7 @@ $(function() {
 			buttons: {
 				'Baja del alumno': function() {
 					//modificar para que mantenga el filtro
-					alert (document.getElementById('unsubscription_reason').value);
+					//alert (document.getElementById('unsubscription_reason').value);
 					document.getElementById('frmBaja').action='<?php echo site_url('lessons/unsubscribe_assistant/'.$id_transaction.'/'); ?>/'+identificador;
 					document.getElementById('frmBaja').submit();
 					//alert(document.getElementById('frmBaja').action);
@@ -303,7 +303,7 @@ $(function() {
 	<form action="" method=post name="frmPago2" id="frmPago2">
 	<p>Pago de la cuota de socio.<br/>
 		Pagado hasta: <input name="payd_date_tmp" type="text" id="payd_date_tmp" value="" /><br/>
-		Cuota a cobrar <input name="payable_quota_tmp" type="text" id="payable_quota_tmp" value="<?php echo number_format($quota,2); ?>" size="7" alt="dinero"/><br/>
+		Cuota a cobrar <input name="payable_quota_tmp" type="text" id="payable_quota_tmp" value="<?php echo number_format(0,2); ?>" size="7" alt="dinero"/><br/>
 		<span style="color: red; font-size:0.75em;">(Si se deja un campo vac&iacute;o se aplica el valor por defecto)</span></p>
 	</form>
 </div>

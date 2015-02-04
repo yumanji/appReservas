@@ -139,7 +139,7 @@
         <td width="7%">&nbsp;</td>
     </tr>
     <?php
-    	//isset($this->CI) || $this->CI =& get_instance();
+    	
     		$cont = 0;
 	    	foreach($info['playing_users'] as $usuario) {
 				

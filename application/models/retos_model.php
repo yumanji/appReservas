@@ -74,10 +74,10 @@ class Retos_model extends CI_Model {
 
     function add_player($id, $data)
     {
-    		isset($this->CI) || $this->CI =& get_instance();
+    		//isset($this->CI) || $this->CI =& get_instance();
     		$check = 1;
     		//$this->load->model('Reservas_model', 'reserva', TRUE);
-				$info=$this->CI->reservas->getBookingInfoById($id);
+				$info=$this->reservas->getBookingInfoById($id);
 				//print("<pre>");print_r($data);print_r($info);exit();
 				
 				foreach($info['signed_users'] as $usuario) {
@@ -224,8 +224,8 @@ public function get_data($params = "" , $page = "all")
 	public function get_global_data($params = "" , $page = "all")
 		{
 			
-		isset($this->CI) || $this->CI =& get_instance();
-		$this->CI->load->model('Pistas_model', 'pistas', TRUE);
+		//isset($this->CI) || $this->CI =& get_instance();
+		$this->load->model('Pistas_model', 'pistas', TRUE);
 
 		$table_name = 'booking';
 			
@@ -304,7 +304,7 @@ public function get_data($params = "" , $page = "all")
 				if($row->id_user) $usuario = $row->first_name.' '.$row->last_name.'('.$row->phone.')';
 				else $usuario = $row->user_desc.'('.$row->user_phone.')';
 				if(trim($usuario)=="") $usuario="No registrado";
-				$reserve_interval = $this->CI->pistas->getCourtInterval($row->id_court);
+				$reserve_interval = $this->pistas->getCourtInterval($row->id_court);
 				
 				$time=$row->intervalo;
 				$precio+=$row->price;

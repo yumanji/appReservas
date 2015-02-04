@@ -8,13 +8,13 @@ class Notifications_model extends CI_Model {
     
     function getNextMessages($quantity = 0) {
     	# Devuelve nombre de la pista
-    	isset($this->CI) || $this->CI =& get_instance();
-			$this->CI->load->model('redux_auth_model', 'usuario', TRUE);
-			//$this->CI->load->config('email');
-			$this->CI->config->item('email_automated_send_quantity');
+    	//isset($this->CI) || $this->CI =& get_instance();
+			$this->load->model('redux_auth_model', 'usuario', TRUE);
+			//$this->load->config('email');
+			$this->config->item('email_automated_send_quantity');
 			
-			if(!is_numeric($quantity) || $quantity < 1) $quantity = $this->CI->config->item('email_automated_send_quantity');
-			//echo 'aa'.$this->CI->config->item('email_automated_send_quantity');
+			if(!is_numeric($quantity) || $quantity < 1) $quantity = $this->config->item('email_automated_send_quantity');
+			//echo 'aa'.$this->config->item('email_automated_send_quantity');
 			$table = "notification_mails";
 			
 			$this->db->select("id, id_notification, subject, `from`, type, destination_type, destination_id, destination_text, content, active, start_process, end_process")->from($table);
@@ -25,7 +25,7 @@ class Notifications_model extends CI_Model {
 			$query = $this->db->get()->result_array();
 			for($i=0; $i<count($query); $i++) {
 				if($query[$i]['destination_id']!='' && $query[$i]['destination_id']!='0') {
-					$email = $this->CI->usuario->getUserMail($query[$i]['destination_id']);
+					$email = $this->usuario->getUserMail($query[$i]['destination_id']);
 					if($email!='') $query[$i]['destination_text'] = $email;
 				}
 			}

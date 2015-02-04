@@ -1617,6 +1617,7 @@ function simpleSearchFields($options=array())
 		if(isset($usuario) && $usuario !='') $submenu =  $this->load->view('users/submenu_navegacion_detail', array(), true);
 		else $submenu =  $this->load->view('users/submenu_navegacion', array(), true);
 		
+		$extra_meta = '';
 		$data=array(
 			'meta' => $this->load->view('meta', array('lib_jqgrid' => TRUE, 'extra' => $extra_meta), true),
 			'header' => $this->load->view('header', array('enable_menu' => $this->redux_auth->logged_in(), 'enable_submenu' => $submenu), true),

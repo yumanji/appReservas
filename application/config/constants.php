@@ -37,5 +37,14 @@ define('FOPEN_WRITE_CREATE_STRICT',				'xb');
 define('FOPEN_READ_WRITE_CREATE_STRICT',		'x+b');
 
 
+/*
+ |--------------------------------------------------------------------------
+ | DATE TIME FORMATS
+ |--------------------------------------------------------------------------
+ |
+ */
+
+define('DATETIME_DB',		'Y-m-d H:i:s');
+
 /* End of file constants.php */
 /* Location: ./application/config/constants.php */

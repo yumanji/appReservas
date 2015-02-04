@@ -179,7 +179,7 @@ $(function() {
 function reservar(value, usuario, celda, dummy) {
 	var opciones="toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, width=300, height=300, top=85, left=140";
 	var dt = new Date();
-	var pagina='index.php?/reservas/preselect/'+usuario+'/'+value+'/'+dt.getTime();
+	var pagina='<?php echo site_url('reservas/preselect'); ?>/'+usuario+'/'+value+'/'+dt.getTime();
 	//window.open(pagina,"",opciones);
 	//return;
 //alert(pagina);

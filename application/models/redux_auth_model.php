@@ -64,7 +64,7 @@ class redux_auth_model extends CI_Model
 		$this->load->config('redux_auth');
 		$this->tables  = $this->config->item('tables');
 		$this->columns = $this->config->item('columns');
-		isset($this->CI) || $this->CI =& get_instance(); //$this->CI = ''; $this->CI =& get_instance();
+		//isset($this->CI) || $this->CI =& get_instance(); //$this->CI = ''; $this->CI =& get_instance();
 	}
 	
 	/**
@@ -907,8 +907,8 @@ public function get_data_to_export($params = "" , $page = "all")
 		}
 		//print("<pre>");print_r($this->db);
 		
-		// OLD CODE, añadido nuevo parámetro $this->CI->flexigrid->build_query();
-		if($flexigrid) $this->CI->flexigrid->build_query();
+		// OLD CODE, añadido nuevo parámetro $this->flexigrid->build_query();
+		if($flexigrid) $this->flexigrid->build_query();
 		
 		$this->db->from($users_table);
 		$this->db->join($meta_table, $users_table.'.id = '.$meta_table.'.'.$meta_join, 'left');
@@ -1694,12 +1694,12 @@ public function get_data_to_export($params = "" , $page = "all")
 						case 5:
 						# Mensual
 							//$last_payd_date = date($this->config->item('log_date_format'), strtotime($this->config->item('users_monthly_quota_next_date').' +'.$resultado['price_duration'].' month'));
-							$last_payd_date = date($this->CI->config->item('date_db_format'), strtotime($this->CI->config->item('users_monthly_quota_next_date')));
+							$last_payd_date = date($this->config->item('date_db_format'), strtotime($this->config->item('users_monthly_quota_next_date')));
 						break;
 						case 9:
 						# Anual
 							//$last_payd_date = date($this->config->item('log_date_format'), strtotime($this->config->item('users_yearly_quota_next_date').' +'.$resultado['price_duration'].' month'));
-							$last_payd_date = date($this->CI->config->item('date_db_format'), strtotime($this->CI->config->item('users_yearly_quota_next_date')));
+							$last_payd_date = date($this->config->item('date_db_format'), strtotime($this->config->item('users_yearly_quota_next_date')));
 						break;
 						
 					}
@@ -1738,19 +1738,19 @@ public function get_data_to_export($params = "" , $page = "all")
 				//echo '---'.date('Y', strtotime($resultado['last_payd_date']));
 				if(!isset($resultado['last_payd_date']) || $resultado['last_payd_date'] == '' || date('Y', strtotime($resultado['last_payd_date'])) < 1990) $last_payd_date = $this->getLastPayedDate($usuario); 
 				else $last_payd_date = $resultado['last_payd_date'];
-				if(!isset($last_payd_date) || $last_payd_date=='') $last_payd_date = $this->CI->config->item('users_monthly_quota_next_date');
+				if(!isset($last_payd_date) || $last_payd_date=='') $last_payd_date = $this->config->item('users_monthly_quota_next_date');
 				//echo $last_payd_date;
 				
 				switch($resultado['frequency']) {
 					case 5:
 					# Mensual
 					//echo 'C';
-						$next_payment_date = date($this->CI->config->item('date_db_format'), strtotime($last_payd_date.' +'.$resultado['price_duration'].' month'));
+						$next_payment_date = date($this->config->item('date_db_format'), strtotime($last_payd_date.' +'.$resultado['price_duration'].' month'));
 					break;
 					case 9:
 					# Anual
 					//echo 'D';
-						$next_payment_date = date($this->CI->config->item('date_db_format'), strtotime($last_payd_date.' +'.$resultado['price_duration'].' month'));
+						$next_payment_date = date($this->config->item('date_db_format'), strtotime($last_payd_date.' +'.$resultado['price_duration'].' month'));
 					break;
 				}
 				/*
@@ -1940,7 +1940,7 @@ public function get_data_to_export($params = "" , $page = "all")
     /* FUNCTION PARA GENERAR EL PROXIMO NUMERO DE SOCIO/ABONADO VALIDO*/
     function getNextMemberNumber()
     {
-			$formato = $this->CI->config->item('users_member_number_auto_format');
+			$formato = $this->config->item('users_member_number_auto_format');
 			
 			$sql_select = "SELECT max(numero_socio) as numero_socio FROM meta";
 			$query = $this->db->query($sql_select);
