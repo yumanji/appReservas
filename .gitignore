@@ -3,4 +3,5 @@
 */logs/!index.html
 */cache/*
 */cache/!index.html
+*/cache/!mx_acl.php
 */cache/!.htaccess
