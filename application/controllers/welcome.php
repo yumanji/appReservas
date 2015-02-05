@@ -7,9 +7,15 @@ class Welcome extends CI_Controller {
 		parent::__construct();
 	}
 	
+	function index_test()
+	{
+		$this->load->view('responsive', NULL);
+	}
+	
+	
 	function index()
 	{
-			$this->load->library('user_agent');
+		$this->load->library('user_agent');
 			$menu=array('menu' => $this->app_common->get_menu_options());
 			//print("<pre>");print_r($menu);print("</pre>");
 			//$this->session->set_userdata('message',"asasassa");
@@ -330,7 +336,7 @@ function remember()
 	}	
 
 
-	public function forgotten_password_complete()
+	function forgotten_password_complete()
 	{
 	    $this->form_validation->set_rules('code', 'Verification Code', 'required');
 	    $this->form_validation->set_error_delimiters('<p class="error">', '</p>');

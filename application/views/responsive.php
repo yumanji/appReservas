@@ -1,9 +1,10 @@
 <?php 
 echo doctype('html5'); 
 ?>
+<!DOCTYPE html>
 <!-- 
-Template Name: Metronic - Responsive Admin Dashboard Template build with Twitter Bootstrap 3.3.1
-Version: 3.6.1
+Template Name: Metronic - Responsive Admin Dashboard Template build with Twitter Bootstrap 3.3.2
+Version: 3.6.2
 Author: KeenThemes
 Website: http://www.keenthemes.com/
 Contact: support@keenthemes.com
@@ -20,7 +21,7 @@ License: You must have a valid license purchased only from themeforest(the above
 <!-- BEGIN HEAD -->
 <head>
 <meta charset="utf-8"/>
-<title>Metronic | Admin Dashboard Template</title>
+<title>Metronic | Dashboard</title>
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <meta content="" name="description"/>
@@ -42,12 +43,10 @@ License: You must have a valid license purchased only from themeforest(the above
 <link href="../../assets/admin/pages/css/tasks.css" rel="stylesheet" type="text/css"/>
 <!-- END PAGE STYLES -->
 <!-- BEGIN THEME STYLES -->
-<!-- DOC: To use 'rounded corners' style just load 'components-rounded.css' stylesheet instead of 'components.css' in the below style tag -->
 <link href="../../assets/global/css/components.css" id="style_components" rel="stylesheet" type="text/css"/>
 <link href="../../assets/global/css/plugins.css" rel="stylesheet" type="text/css"/>
 <link href="../../assets/admin/layout/css/layout.css" rel="stylesheet" type="text/css"/>
 <link href="../../assets/admin/layout/css/themes/darkblue.css" rel="stylesheet" type="text/css" id="style_color"/>
-
 <link href="../../assets/admin/layout/css/custom.css" rel="stylesheet" type="text/css"/>
 <!-- END THEME STYLES -->
 <link rel="shortcut icon" href="favicon.ico"/>
@@ -63,7 +62,7 @@ License: You must have a valid license purchased only from themeforest(the above
 <!-- DOC: Apply "page-footer-fixed" class to the body element to have fixed footer -->
 <!-- DOC: Apply "page-sidebar-reversed" class to put the sidebar on the right side -->
 <!-- DOC: Apply "page-full-width" class to the body element to have full width page without the sidebar menu -->
-<body class="page-header-fixed page-quick-sidebar-over-content page-style-square"> 
+<body class="page-header-fixed page-quick-sidebar-over-content page-sidebar-closed-hide-logo page-container-bg-solid">
 <!-- BEGIN HEADER -->
 <div class="page-header navbar navbar-fixed-top">
 	<!-- BEGIN HEADER INNER -->
@@ -74,7 +73,6 @@ License: You must have a valid license purchased only from themeforest(the above
 			<img src="../../assets/admin/layout/img/logo.png" alt="logo" class="logo-default"/>
 			</a>
 			<div class="menu-toggler sidebar-toggler hide">
-				<!-- DOC: Remove the above "hide" to enable the sidebar toggler button on header -->
 			</div>
 		</div>
 		<!-- END LOGO -->
@@ -446,6 +444,8 @@ License: You must have a valid license purchased only from themeforest(the above
 <div class="page-container">
 	<!-- BEGIN SIDEBAR -->
 	<div class="page-sidebar-wrapper">
+		<!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
+		<!-- DOC: Change data-auto-speed="200" to adjust the sub menu slide up/down speed -->
 		<div class="page-sidebar navbar-collapse collapse">
 			<!-- BEGIN SIDEBAR MENU -->
 			<!-- DOC: Apply "page-sidebar-menu-light" class right after "page-sidebar-menu" to enable light sidebar menu style(without borders) -->
@@ -454,7 +454,7 @@ License: You must have a valid license purchased only from themeforest(the above
 			<!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
 			<!-- DOC: Set data-keep-expand="true" to keep the submenues expanded -->
 			<!-- DOC: Set data-auto-speed="200" to adjust the sub menu slide up/down speed -->
-			<ul class="page-sidebar-menu" data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
+			<ul class="page-sidebar-menu page-sidebar-menu-hover-submenu" data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
 				<!-- DOC: To remove the sidebar toggler from the sidebar you just need to completely remove the below "sidebar-toggler-wrapper" LI element -->
 				<li class="sidebar-toggler-wrapper">
 					<!-- BEGIN SIDEBAR TOGGLER BUTTON -->
@@ -488,7 +488,7 @@ License: You must have a valid license purchased only from themeforest(the above
 					<span class="arrow open"></span>
 					</a>
 					<ul class="sub-menu">
-						<li class="active">
+						<li>
 							<a href="index.html">
 							<i class="icon-bar-chart"></i>
 							Default Dashboard</a>
@@ -498,7 +498,7 @@ License: You must have a valid license purchased only from themeforest(the above
 							<i class="icon-bulb"></i>
 							New Dashboard #1</a>
 						</li>
-						<li>
+						<li class="active">
 							<a href="index_3.html">
 							<i class="icon-graph"></i>
 							New Dashboard #2</a>
@@ -729,6 +729,10 @@ License: You must have a valid license purchased only from themeforest(the above
 							Date & Time Pickers</a>
 						</li>
 						<li>
+							<a href="components_context_menu.html">
+							Context Menu</a>
+						</li>
+						<li>
 							<a href="components_dropdowns.html">
 							Custom Dropdowns</a>
 						</li>
@@ -827,6 +831,10 @@ License: You must have a valid license purchased only from themeforest(the above
 							Basic Datatables</a>
 						</li>
 						<li>
+							<a href="table_tree.html">
+							Tree Datatables</a>
+						</li>
+						<li>
 							<a href="table_responsive.html">
 							Responsive Datatables</a>
 						</li>
@@ -903,10 +911,13 @@ License: You must have a valid license purchased only from themeforest(the above
 					<ul class="sub-menu">
 						<li>
 							<a href="page_timeline.html">
-								<i class="icon-paper-plane"></i>
-								<span class="badge badge-warning">2</span>
-								New Timeline
-							</a>
+							<i class="icon-paper-plane"></i>
+							<span class="badge badge-warning">2</span>New Timeline</a>
+						</li>
+						<li>
+							<a href="extra_profile.html">
+							<i class="icon-user-following"></i>
+							<span class="badge badge-success badge-roundless">new</span>New User Profile</a>
 						</li>
 						<li>
 							<a href="page_todo.html">
@@ -919,16 +930,6 @@ License: You must have a valid license purchased only from themeforest(the above
 							<span class="badge badge-danger">4</span>Inbox</a>
 						</li>
 						<li>
-							<a href="extra_profile.html">
-							<i class="icon-user-following"></i>
-							<span class="badge badge-success badge-roundless">new</span>New User Profile</a>
-						</li>
-						<li>
-							<a href="extra_profile_old.html">
-							<i class="icon-user"></i>
-							Old User Profile</a>
-						</li>
-						<li>
 							<a href="extra_faq.html">
 							<i class="icon-question"></i>
 							FAQ</a>
@@ -937,11 +938,6 @@ License: You must have a valid license purchased only from themeforest(the above
 							<a href="page_calendar.html">
 							<i class="icon-calendar"></i>
 							<span class="badge badge-danger">14</span>Calendar</a>
-						</li>
-						<li>
-							<a href="page_timeline_old.html">
-							<i class="icon-clock"></i>
-							<span class="badge badge-info">4</span>Old Timeline</a>
 						</li>
 						<li>
 							<a href="page_coming_soon.html">
@@ -967,6 +963,16 @@ License: You must have a valid license purchased only from themeforest(the above
 							<a href="page_news_item.html">
 							<i class="icon-bell"></i>
 							News View</a>
+						</li>
+						<li>
+							<a href="page_timeline_old.html">
+							<i class="icon-paper-plane"></i>
+							<span class="badge badge-warning">2</span>Old Timeline</a>
+						</li>
+						<li>
+							<a href="extra_profile_old.html">
+							<i class="icon-user"></i>
+							Old User Profile</a>
 						</li>
 					</ul>
 				</li>
@@ -1240,14 +1246,6 @@ License: You must have a valid license purchased only from themeforest(the above
 					</div>
 					<div class="theme-option">
 						<span>
-						Theme Style </span>
-						<select class="layout-style-option form-control input-sm">
-							<option value="square" selected="selected">Square corners</option>
-							<option value="rounded">Rounded corners</option>
-						</select>
-					</div>
-					<div class="theme-option">
-						<span>
 						Layout </span>
 						<select class="layout-option form-control input-sm">
 							<option value="fluid" selected="selected">Fluid</option>
@@ -1314,9 +1312,6 @@ License: You must have a valid license purchased only from themeforest(the above
 			</div>
 			<!-- END STYLE CUSTOMIZER -->
 			<!-- BEGIN PAGE HEADER-->
-			<h3 class="page-title">
-			Dashboard <small>reports & statistics</small>
-			</h3>
 			<div class="page-bar">
 				<ul class="page-breadcrumb">
 					<li>
@@ -1329,13 +1324,14 @@ License: You must have a valid license purchased only from themeforest(the above
 					</li>
 				</ul>
 				<div class="page-toolbar">
-					<div id="dashboard-report-range" class="pull-right tooltips btn btn-fit-height grey-salt" data-placement="top" data-original-title="Change dashboard date range">
-						<i class="icon-calendar"></i>&nbsp;
-						<span class="thin uppercase visible-lg-inline-block">&nbsp;</span>&nbsp;
-						<i class="fa fa-angle-down"></i>
+					<div id="dashboard-report-range" class="pull-right tooltips btn btn-sm btn-default" data-container="body" data-placement="bottom" data-original-title="Change dashboard date range">
+						<i class="icon-calendar"></i>&nbsp; <span class="thin uppercase visible-lg-inline-block"></span>&nbsp; <i class="fa fa-angle-down"></i>
 					</div>
 				</div>
 			</div>
+			<h3 class="page-title">
+			Dashboard <small>reports & statistics</small>
+			</h3>
 			<!-- END PAGE HEADER-->
 			<!-- BEGIN DASHBOARD STATS -->
 			<div class="row">
@@ -1418,16 +1414,18 @@ License: You must have a valid license purchased only from themeforest(the above
 			<div class="row">
 				<div class="col-md-6 col-sm-6">
 					<!-- BEGIN PORTLET-->
-					<div class="portlet solid bordered grey-cararra">
+					<div class="portlet light ">
 						<div class="portlet-title">
 							<div class="caption">
-								<i class="fa fa-bar-chart-o"></i>Site Visits
+								<i class="icon-bar-chart font-green-sharp hide"></i>
+								<span class="caption-subject font-green-sharp bold uppercase">Site Visits</span>
+								<span class="caption-helper">weekly stats...</span>
 							</div>
 							<div class="actions">
-								<div class="btn-group" data-toggle="buttons">
-									<label class="btn grey-steel btn-sm active">
+								<div class="btn-group btn-group-devided" data-toggle="buttons">
+									<label class="btn btn-transparent grey-salsa btn-circle btn-sm active">
 									<input type="radio" name="options" class="toggle" id="option1">New</label>
-									<label class="btn grey-steel btn-sm">
+									<label class="btn btn-transparent grey-salsa btn-circle btn-sm">
 									<input type="radio" name="options" class="toggle" id="option2">Returning</label>
 								</div>
 							</div>
@@ -1446,15 +1444,17 @@ License: You must have a valid license purchased only from themeforest(the above
 				</div>
 				<div class="col-md-6 col-sm-6">
 					<!-- BEGIN PORTLET-->
-					<div class="portlet solid grey-cararra bordered">
+					<div class="portlet light ">
 						<div class="portlet-title">
 							<div class="caption">
-								<i class="fa fa-bullhorn"></i>Revenue
+								<i class="icon-share font-red-sunglo hide"></i>
+								<span class="caption-subject font-red-sunglo bold uppercase">Revenue</span>
+								<span class="caption-helper">monthly stats...</span>
 							</div>
 							<div class="actions">
-								<div class="btn-group pull-right">
-									<a href="" class="btn grey-steel btn-sm dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-									Filter <span class="fa fa-angle-down">
+								<div class="btn-group">
+									<a href="" class="btn grey-salsa btn-circle btn-sm dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+									Filter Range<span class="fa fa-angle-down">
 									</span>
 									</a>
 									<ul class="dropdown-menu pull-right">
@@ -1525,16 +1525,17 @@ License: You must have a valid license purchased only from themeforest(the above
 			</div>
 			<div class="clearfix">
 			</div>
-			<div class="row ">
+			<div class="row">
 				<div class="col-md-6 col-sm-6">
-					<div class="portlet box blue-steel">
+					<div class="portlet light ">
 						<div class="portlet-title">
 							<div class="caption">
-								<i class="fa fa-bell-o"></i>Recent Activities
+								<i class="icon-share font-blue-steel hide"></i>
+								<span class="caption-subject font-blue-steel bold uppercase">Recent Activities</span>
 							</div>
 							<div class="actions">
 								<div class="btn-group">
-									<a class="btn btn-sm btn-default dropdown-toggle" href="#" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+									<a class="btn btn-sm btn-default btn-circle" href="#" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
 									Filter By <i class="fa fa-angle-down"></i>
 									</a>
 									<div class="dropdown-menu hold-on-click dropdown-checkboxes pull-right">
@@ -1872,22 +1873,16 @@ License: You must have a valid license purchased only from themeforest(the above
 					</div>
 				</div>
 				<div class="col-md-6 col-sm-6">
-					<div class="portlet box green-haze tasks-widget">
+					<div class="portlet light tasks-widget">
 						<div class="portlet-title">
 							<div class="caption">
-								<i class="fa fa-check"></i>Tasks
-							</div>
-							<div class="tools">
-								<a href="#portlet-config" data-toggle="modal" class="config">
-								</a>
-								<a href="" class="reload">
-								</a>
-								<a href="javascript:;" class="fullscreen">
-								</a>
+								<i class="icon-share font-green-haze hide"></i>
+								<span class="caption-subject font-green-haze bold uppercase">Tasks</span>
+								<span class="caption-helper">tasks summary...</span>
 							</div>
 							<div class="actions">
 								<div class="btn-group">
-									<a class="btn btn-default btn-sm dropdown-toggle" href="#" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+									<a class="btn green-haze btn-circle btn-sm" href="#" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
 									More <i class="fa fa-angle-down"></i>
 									</a>
 									<ul class="dropdown-menu pull-right">
@@ -1940,8 +1935,7 @@ License: You must have a valid license purchased only from themeforest(the above
 									<ul class="task-list">
 										<li>
 											<div class="task-checkbox">
-												<input type="hidden" value="1" name="test"/>
-												<input type="checkbox" class="liChild" value="2" name="test"/>
+												<input type="checkbox" class="liChild" value=""/>
 											</div>
 											<div class="task-title">
 												<span class="task-title-sp">
@@ -2246,15 +2240,16 @@ License: You must have a valid license purchased only from themeforest(the above
 			</div>
 			<div class="clearfix">
 			</div>
-			<div class="row ">
+			<div class="row">
 				<div class="col-md-6 col-sm-6">
-					<div class="portlet box purple-wisteria">
+					<div class="portlet light ">
 						<div class="portlet-title">
 							<div class="caption">
-								<i class="fa fa-calendar"></i>General Stats
+								<i class="icon-cursor font-purple-intense hide"></i>
+								<span class="caption-subject font-purple-intense bold uppercase">General Stats</span>
 							</div>
 							<div class="actions">
-								<a href="javascript:;" class="btn btn-sm btn-default easy-pie-chart-reload">
+								<a href="javascript:;" class="btn btn-sm btn-circle btn-default easy-pie-chart-reload">
 								<i class="fa fa-repeat"></i> Reload </a>
 							</div>
 						</div>
@@ -2305,10 +2300,12 @@ License: You must have a valid license purchased only from themeforest(the above
 					</div>
 				</div>
 				<div class="col-md-6 col-sm-6">
-					<div class="portlet box red-sunglo">
+					<div class="portlet light ">
 						<div class="portlet-title">
 							<div class="caption">
-								<i class="fa fa-calendar"></i>Server Stats
+								<i class="icon-equalizer font-purple-plum hide"></i>
+								<span class="caption-subject font-red-sunglo bold uppercase">Server Stats</span>
+								<span class="caption-helper">monthly stats...</span>
 							</div>
 							<div class="tools">
 								<a href="" class="collapse">
@@ -2325,7 +2322,8 @@ License: You must have a valid license purchased only from themeforest(the above
 							<div class="row">
 								<div class="col-md-4">
 									<div class="sparkline-chart">
-										<div class="number" id="sparkline_bar"></div>
+										<div class="number" id="sparkline_bar">
+										</div>
 										<a class="title" href="#">
 										Network <i class="icon-arrow-right"></i>
 										</a>
@@ -2335,7 +2333,8 @@ License: You must have a valid license purchased only from themeforest(the above
 								</div>
 								<div class="col-md-4">
 									<div class="sparkline-chart">
-										<div class="number" id="sparkline_bar2"></div>
+										<div class="number" id="sparkline_bar2">
+										</div>
 										<a class="title" href="#">
 										CPU Load <i class="icon-arrow-right"></i>
 										</a>
@@ -2345,7 +2344,8 @@ License: You must have a valid license purchased only from themeforest(the above
 								</div>
 								<div class="col-md-4">
 									<div class="sparkline-chart">
-										<div class="number" id="sparkline_line"></div>
+										<div class="number" id="sparkline_line">
+										</div>
 										<a class="title" href="#">
 										Load Rate <i class="icon-arrow-right"></i>
 										</a>
@@ -2358,24 +2358,26 @@ License: You must have a valid license purchased only from themeforest(the above
 			</div>
 			<div class="clearfix">
 			</div>
-			<div class="row ">
+			<div class="row">
 				<div class="col-md-6 col-sm-6">
 					<!-- BEGIN REGIONAL STATS PORTLET-->
-					<div class="portlet">
+					<div class="portlet light ">
 						<div class="portlet-title">
 							<div class="caption">
-								<i class="fa fa-globe"></i>Regional Stats
+								<i class="icon-share font-red-sunglo"></i>
+								<span class="caption-subject font-red-sunglo bold uppercase">Regional Stats</span>
 							</div>
-							<div class="tools">
-								<a href="" class="collapse">
+							<div class="actions">
+								<a class="btn btn-circle btn-icon-only btn-default" href="#">
+								<i class="icon-cloud-upload"></i>
 								</a>
-								<a href="#portlet-config" data-toggle="modal" class="config">
+								<a class="btn btn-circle btn-icon-only btn-default" href="#">
+								<i class="icon-wrench"></i>
 								</a>
-								<a href="" class="reload">
+								<a class="btn btn-circle btn-icon-only btn-default fullscreen" href="#">
 								</a>
-								<a href="" class="fullscreen">
-								</a>
-								<a href="" class="remove">
+								<a class="btn btn-circle btn-icon-only btn-default" href="#">
+								<i class="icon-trash"></i>
 								</a>
 							</div>
 						</div>
@@ -2385,14 +2387,14 @@ License: You must have a valid license purchased only from themeforest(the above
 							</div>
 							<div id="region_statistics_content" class="display-none">
 								<div class="btn-toolbar margin-bottom-10">
-									<div class="btn-group" data-toggle="buttons">
-										<a href="" class="btn default btn-sm active">
+									<div class="btn-group btn-group-circle" data-toggle="buttons">
+										<a href="" class="btn grey-salsa btn-sm active">
 										Users </a>
-										<a href="" class="btn default btn-sm">
+										<a href="" class="btn grey-salsa btn-sm">
 										Orders </a>
 									</div>
 									<div class="btn-group pull-right">
-										<a href="" class="btn default btn-sm dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+										<a href="" class="btn btn-circle grey-salsa btn-sm dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
 										Select Region <span class="fa fa-angle-down">
 										</span>
 										</a>
@@ -2437,844 +2439,833 @@ License: You must have a valid license purchased only from themeforest(the above
 				</div>
 				<div class="col-md-6 col-sm-6">
 					<!-- BEGIN PORTLET-->
-					<div class="portlet paddingless">
-						<div class="portlet-title line">
+					<div class="portlet light">
+						<div class="portlet-title tabbable-line">
 							<div class="caption">
-								<i class="fa fa-bell-o"></i>Feeds
+								<i class="icon-globe font-green-sharp"></i>
+								<span class="caption-subject font-green-sharp bold uppercase">Feeds</span>
 							</div>
-							<div class="tools">
-								<a href="" class="collapse">
-								</a>
-								<a href="#portlet-config" data-toggle="modal" class="config">
-								</a>
-								<a href="" class="reload">
-								</a>
-								<a href="" class="remove">
-								</a>
-							</div>
+							<ul class="nav nav-tabs">
+								<li class="active">
+									<a href="#tab_1_1" data-toggle="tab">
+									System </a>
+								</li>
+								<li>
+									<a href="#tab_1_2" data-toggle="tab">
+									Activities </a>
+								</li>
+								<li>
+									<a href="#tab_1_3" data-toggle="tab">
+									Recent Users </a>
+								</li>
+							</ul>
 						</div>
 						<div class="portlet-body">
 							<!--BEGIN TABS-->
-							<div class="tabbable tabbable-custom">
-								<ul class="nav nav-tabs">
-									<li class="active">
-										<a href="#tab_1_1" data-toggle="tab">
-										System </a>
-									</li>
-									<li>
-										<a href="#tab_1_2" data-toggle="tab">
-										Activities </a>
-									</li>
-									<li>
-										<a href="#tab_1_3" data-toggle="tab">
-										Recent Users </a>
-									</li>
-								</ul>
-								<div class="tab-content">
-									<div class="tab-pane active" id="tab_1_1">
-										<div class="scroller" style="height: 290px;" data-always-visible="1" data-rail-visible="0">
-											<ul class="feeds">
-												<li>
-													<div class="col1">
-														<div class="cont">
-															<div class="cont-col1">
-																<div class="label label-sm label-success">
-																	<i class="fa fa-bell-o"></i>
-																</div>
+							<div class="tab-content">
+								<div class="tab-pane active" id="tab_1_1">
+									<div class="scroller" style="height: 339px;" data-always-visible="1" data-rail-visible="0">
+										<ul class="feeds">
+											<li>
+												<div class="col1">
+													<div class="cont">
+														<div class="cont-col1">
+															<div class="label label-sm label-success">
+																<i class="fa fa-bell-o"></i>
 															</div>
-															<div class="cont-col2">
-																<div class="desc">
-																	 You have 4 pending tasks. <span class="label label-sm label-danger ">
-																	Take action <i class="fa fa-share"></i>
-																	</span>
-																</div>
+														</div>
+														<div class="cont-col2">
+															<div class="desc">
+																 You have 4 pending tasks. <span class="label label-sm label-info">
+																Take action <i class="fa fa-share"></i>
+																</span>
 															</div>
 														</div>
 													</div>
-													<div class="col2">
-														<div class="date">
-															 Just now
-														</div>
+												</div>
+												<div class="col2">
+													<div class="date">
+														 Just now
 													</div>
-												</li>
-												<li>
-													<a href="#">
-													<div class="col1">
-														<div class="cont">
-															<div class="cont-col1">
-																<div class="label label-sm label-success">
-																	<i class="fa fa-bell-o"></i>
-																</div>
-															</div>
-															<div class="cont-col2">
-																<div class="desc">
-																	 New version v1.4 just lunched!
-																</div>
+												</div>
+											</li>
+											<li>
+												<a href="#">
+												<div class="col1">
+													<div class="cont">
+														<div class="cont-col1">
+															<div class="label label-sm label-success">
+																<i class="fa fa-bell-o"></i>
 															</div>
 														</div>
-													</div>
-													<div class="col2">
-														<div class="date">
-															 20 mins
-														</div>
-													</div>
-													</a>
-												</li>
-												<li>
-													<div class="col1">
-														<div class="cont">
-															<div class="cont-col1">
-																<div class="label label-sm label-danger">
-																	<i class="fa fa-bolt"></i>
-																</div>
-															</div>
-															<div class="cont-col2">
-																<div class="desc">
-																	 Database server #12 overloaded. Please fix the issue.
-																</div>
+														<div class="cont-col2">
+															<div class="desc">
+																 New version v1.4 just lunched!
 															</div>
 														</div>
 													</div>
-													<div class="col2">
-														<div class="date">
-															 24 mins
-														</div>
+												</div>
+												<div class="col2">
+													<div class="date">
+														 20 mins
 													</div>
-												</li>
-												<li>
-													<div class="col1">
-														<div class="cont">
-															<div class="cont-col1">
-																<div class="label label-sm label-info">
-																	<i class="fa fa-bullhorn"></i>
-																</div>
-															</div>
-															<div class="cont-col2">
-																<div class="desc">
-																	 New order received. Please take care of it.
-																</div>
+												</div>
+												</a>
+											</li>
+											<li>
+												<div class="col1">
+													<div class="cont">
+														<div class="cont-col1">
+															<div class="label label-sm label-danger">
+																<i class="fa fa-bolt"></i>
 															</div>
 														</div>
-													</div>
-													<div class="col2">
-														<div class="date">
-															 30 mins
-														</div>
-													</div>
-												</li>
-												<li>
-													<div class="col1">
-														<div class="cont">
-															<div class="cont-col1">
-																<div class="label label-sm label-success">
-																	<i class="fa fa-bullhorn"></i>
-																</div>
-															</div>
-															<div class="cont-col2">
-																<div class="desc">
-																	 New order received. Please take care of it.
-																</div>
+														<div class="cont-col2">
+															<div class="desc">
+																 Database server #12 overloaded. Please fix the issue.
 															</div>
 														</div>
 													</div>
-													<div class="col2">
-														<div class="date">
-															 40 mins
-														</div>
+												</div>
+												<div class="col2">
+													<div class="date">
+														 24 mins
 													</div>
-												</li>
-												<li>
-													<div class="col1">
-														<div class="cont">
-															<div class="cont-col1">
-																<div class="label label-sm label-warning">
-																	<i class="fa fa-plus"></i>
-																</div>
-															</div>
-															<div class="cont-col2">
-																<div class="desc">
-																	 New user registered.
-																</div>
+												</div>
+											</li>
+											<li>
+												<div class="col1">
+													<div class="cont">
+														<div class="cont-col1">
+															<div class="label label-sm label-info">
+																<i class="fa fa-bullhorn"></i>
 															</div>
 														</div>
-													</div>
-													<div class="col2">
-														<div class="date">
-															 1.5 hours
-														</div>
-													</div>
-												</li>
-												<li>
-													<div class="col1">
-														<div class="cont">
-															<div class="cont-col1">
-																<div class="label label-sm label-success">
-																	<i class="fa fa-bell-o"></i>
-																</div>
-															</div>
-															<div class="cont-col2">
-																<div class="desc">
-																	 Web server hardware needs to be upgraded. <span class="label label-sm label-default ">
-																	Overdue </span>
-																</div>
+														<div class="cont-col2">
+															<div class="desc">
+																 New order received. Please take care of it.
 															</div>
 														</div>
 													</div>
-													<div class="col2">
-														<div class="date">
-															 2 hours
-														</div>
+												</div>
+												<div class="col2">
+													<div class="date">
+														 30 mins
 													</div>
-												</li>
-												<li>
-													<div class="col1">
-														<div class="cont">
-															<div class="cont-col1">
-																<div class="label label-sm label-default">
-																	<i class="fa fa-bullhorn"></i>
-																</div>
-															</div>
-															<div class="cont-col2">
-																<div class="desc">
-																	 New order received. Please take care of it.
-																</div>
+												</div>
+											</li>
+											<li>
+												<div class="col1">
+													<div class="cont">
+														<div class="cont-col1">
+															<div class="label label-sm label-success">
+																<i class="fa fa-bullhorn"></i>
 															</div>
 														</div>
-													</div>
-													<div class="col2">
-														<div class="date">
-															 3 hours
-														</div>
-													</div>
-												</li>
-												<li>
-													<div class="col1">
-														<div class="cont">
-															<div class="cont-col1">
-																<div class="label label-sm label-warning">
-																	<i class="fa fa-bullhorn"></i>
-																</div>
-															</div>
-															<div class="cont-col2">
-																<div class="desc">
-																	 New order received. Please take care of it.
-																</div>
+														<div class="cont-col2">
+															<div class="desc">
+																 New order received. Please take care of it.
 															</div>
 														</div>
 													</div>
-													<div class="col2">
-														<div class="date">
-															 5 hours
-														</div>
+												</div>
+												<div class="col2">
+													<div class="date">
+														 40 mins
 													</div>
-												</li>
-												<li>
-													<div class="col1">
-														<div class="cont">
-															<div class="cont-col1">
-																<div class="label label-sm label-info">
-																	<i class="fa fa-bullhorn"></i>
-																</div>
-															</div>
-															<div class="cont-col2">
-																<div class="desc">
-																	 New order received. Please take care of it.
-																</div>
+												</div>
+											</li>
+											<li>
+												<div class="col1">
+													<div class="cont">
+														<div class="cont-col1">
+															<div class="label label-sm label-warning">
+																<i class="fa fa-plus"></i>
 															</div>
 														</div>
-													</div>
-													<div class="col2">
-														<div class="date">
-															 18 hours
-														</div>
-													</div>
-												</li>
-												<li>
-													<div class="col1">
-														<div class="cont">
-															<div class="cont-col1">
-																<div class="label label-sm label-default">
-																	<i class="fa fa-bullhorn"></i>
-																</div>
-															</div>
-															<div class="cont-col2">
-																<div class="desc">
-																	 New order received. Please take care of it.
-																</div>
+														<div class="cont-col2">
+															<div class="desc">
+																 New user registered.
 															</div>
 														</div>
 													</div>
-													<div class="col2">
-														<div class="date">
-															 21 hours
-														</div>
+												</div>
+												<div class="col2">
+													<div class="date">
+														 1.5 hours
 													</div>
-												</li>
-												<li>
-													<div class="col1">
-														<div class="cont">
-															<div class="cont-col1">
-																<div class="label label-sm label-info">
-																	<i class="fa fa-bullhorn"></i>
-																</div>
-															</div>
-															<div class="cont-col2">
-																<div class="desc">
-																	 New order received. Please take care of it.
-																</div>
+												</div>
+											</li>
+											<li>
+												<div class="col1">
+													<div class="cont">
+														<div class="cont-col1">
+															<div class="label label-sm label-success">
+																<i class="fa fa-bell-o"></i>
 															</div>
 														</div>
-													</div>
-													<div class="col2">
-														<div class="date">
-															 22 hours
-														</div>
-													</div>
-												</li>
-												<li>
-													<div class="col1">
-														<div class="cont">
-															<div class="cont-col1">
-																<div class="label label-sm label-default">
-																	<i class="fa fa-bullhorn"></i>
-																</div>
-															</div>
-															<div class="cont-col2">
-																<div class="desc">
-																	 New order received. Please take care of it.
-																</div>
+														<div class="cont-col2">
+															<div class="desc">
+																 Web server hardware needs to be upgraded. <span class="label label-sm label-default ">
+																Overdue </span>
 															</div>
 														</div>
 													</div>
-													<div class="col2">
-														<div class="date">
-															 21 hours
-														</div>
+												</div>
+												<div class="col2">
+													<div class="date">
+														 2 hours
 													</div>
-												</li>
-												<li>
-													<div class="col1">
-														<div class="cont">
-															<div class="cont-col1">
-																<div class="label label-sm label-info">
-																	<i class="fa fa-bullhorn"></i>
-																</div>
-															</div>
-															<div class="cont-col2">
-																<div class="desc">
-																	 New order received. Please take care of it.
-																</div>
+												</div>
+											</li>
+											<li>
+												<div class="col1">
+													<div class="cont">
+														<div class="cont-col1">
+															<div class="label label-sm label-default">
+																<i class="fa fa-bullhorn"></i>
 															</div>
 														</div>
-													</div>
-													<div class="col2">
-														<div class="date">
-															 22 hours
-														</div>
-													</div>
-												</li>
-												<li>
-													<div class="col1">
-														<div class="cont">
-															<div class="cont-col1">
-																<div class="label label-sm label-default">
-																	<i class="fa fa-bullhorn"></i>
-																</div>
-															</div>
-															<div class="cont-col2">
-																<div class="desc">
-																	 New order received. Please take care of it.
-																</div>
+														<div class="cont-col2">
+															<div class="desc">
+																 New order received. Please take care of it.
 															</div>
 														</div>
 													</div>
-													<div class="col2">
-														<div class="date">
-															 21 hours
-														</div>
+												</div>
+												<div class="col2">
+													<div class="date">
+														 3 hours
 													</div>
-												</li>
-												<li>
-													<div class="col1">
-														<div class="cont">
-															<div class="cont-col1">
-																<div class="label label-sm label-info">
-																	<i class="fa fa-bullhorn"></i>
-																</div>
-															</div>
-															<div class="cont-col2">
-																<div class="desc">
-																	 New order received. Please take care of it.
-																</div>
+												</div>
+											</li>
+											<li>
+												<div class="col1">
+													<div class="cont">
+														<div class="cont-col1">
+															<div class="label label-sm label-warning">
+																<i class="fa fa-bullhorn"></i>
 															</div>
 														</div>
-													</div>
-													<div class="col2">
-														<div class="date">
-															 22 hours
-														</div>
-													</div>
-												</li>
-												<li>
-													<div class="col1">
-														<div class="cont">
-															<div class="cont-col1">
-																<div class="label label-sm label-default">
-																	<i class="fa fa-bullhorn"></i>
-																</div>
-															</div>
-															<div class="cont-col2">
-																<div class="desc">
-																	 New order received. Please take care of it.
-																</div>
+														<div class="cont-col2">
+															<div class="desc">
+																 New order received. Please take care of it.
 															</div>
 														</div>
 													</div>
-													<div class="col2">
-														<div class="date">
-															 21 hours
-														</div>
+												</div>
+												<div class="col2">
+													<div class="date">
+														 5 hours
 													</div>
-												</li>
-												<li>
-													<div class="col1">
-														<div class="cont">
-															<div class="cont-col1">
-																<div class="label label-sm label-info">
-																	<i class="fa fa-bullhorn"></i>
-																</div>
-															</div>
-															<div class="cont-col2">
-																<div class="desc">
-																	 New order received. Please take care of it.
-																</div>
+												</div>
+											</li>
+											<li>
+												<div class="col1">
+													<div class="cont">
+														<div class="cont-col1">
+															<div class="label label-sm label-info">
+																<i class="fa fa-bullhorn"></i>
 															</div>
 														</div>
-													</div>
-													<div class="col2">
-														<div class="date">
-															 22 hours
+														<div class="cont-col2">
+															<div class="desc">
+																 New order received. Please take care of it.
+															</div>
 														</div>
 													</div>
-												</li>
-											</ul>
-										</div>
+												</div>
+												<div class="col2">
+													<div class="date">
+														 18 hours
+													</div>
+												</div>
+											</li>
+											<li>
+												<div class="col1">
+													<div class="cont">
+														<div class="cont-col1">
+															<div class="label label-sm label-default">
+																<i class="fa fa-bullhorn"></i>
+															</div>
+														</div>
+														<div class="cont-col2">
+															<div class="desc">
+																 New order received. Please take care of it.
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="col2">
+													<div class="date">
+														 21 hours
+													</div>
+												</div>
+											</li>
+											<li>
+												<div class="col1">
+													<div class="cont">
+														<div class="cont-col1">
+															<div class="label label-sm label-info">
+																<i class="fa fa-bullhorn"></i>
+															</div>
+														</div>
+														<div class="cont-col2">
+															<div class="desc">
+																 New order received. Please take care of it.
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="col2">
+													<div class="date">
+														 22 hours
+													</div>
+												</div>
+											</li>
+											<li>
+												<div class="col1">
+													<div class="cont">
+														<div class="cont-col1">
+															<div class="label label-sm label-default">
+																<i class="fa fa-bullhorn"></i>
+															</div>
+														</div>
+														<div class="cont-col2">
+															<div class="desc">
+																 New order received. Please take care of it.
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="col2">
+													<div class="date">
+														 21 hours
+													</div>
+												</div>
+											</li>
+											<li>
+												<div class="col1">
+													<div class="cont">
+														<div class="cont-col1">
+															<div class="label label-sm label-info">
+																<i class="fa fa-bullhorn"></i>
+															</div>
+														</div>
+														<div class="cont-col2">
+															<div class="desc">
+																 New order received. Please take care of it.
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="col2">
+													<div class="date">
+														 22 hours
+													</div>
+												</div>
+											</li>
+											<li>
+												<div class="col1">
+													<div class="cont">
+														<div class="cont-col1">
+															<div class="label label-sm label-default">
+																<i class="fa fa-bullhorn"></i>
+															</div>
+														</div>
+														<div class="cont-col2">
+															<div class="desc">
+																 New order received. Please take care of it.
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="col2">
+													<div class="date">
+														 21 hours
+													</div>
+												</div>
+											</li>
+											<li>
+												<div class="col1">
+													<div class="cont">
+														<div class="cont-col1">
+															<div class="label label-sm label-info">
+																<i class="fa fa-bullhorn"></i>
+															</div>
+														</div>
+														<div class="cont-col2">
+															<div class="desc">
+																 New order received. Please take care of it.
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="col2">
+													<div class="date">
+														 22 hours
+													</div>
+												</div>
+											</li>
+											<li>
+												<div class="col1">
+													<div class="cont">
+														<div class="cont-col1">
+															<div class="label label-sm label-default">
+																<i class="fa fa-bullhorn"></i>
+															</div>
+														</div>
+														<div class="cont-col2">
+															<div class="desc">
+																 New order received. Please take care of it.
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="col2">
+													<div class="date">
+														 21 hours
+													</div>
+												</div>
+											</li>
+											<li>
+												<div class="col1">
+													<div class="cont">
+														<div class="cont-col1">
+															<div class="label label-sm label-info">
+																<i class="fa fa-bullhorn"></i>
+															</div>
+														</div>
+														<div class="cont-col2">
+															<div class="desc">
+																 New order received. Please take care of it.
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="col2">
+													<div class="date">
+														 22 hours
+													</div>
+												</div>
+											</li>
+										</ul>
 									</div>
-									<div class="tab-pane" id="tab_1_2">
-										<div class="scroller" style="height: 290px;" data-always-visible="1" data-rail-visible1="1">
-											<ul class="feeds">
-												<li>
-													<a href="#">
-													<div class="col1">
-														<div class="cont">
-															<div class="cont-col1">
-																<div class="label label-sm label-success">
-																	<i class="fa fa-bell-o"></i>
-																</div>
-															</div>
-															<div class="cont-col2">
-																<div class="desc">
-																	 New user registered
-																</div>
+								</div>
+								<div class="tab-pane" id="tab_1_2">
+									<div class="scroller" style="height: 290px;" data-always-visible="1" data-rail-visible1="1">
+										<ul class="feeds">
+											<li>
+												<a href="#">
+												<div class="col1">
+													<div class="cont">
+														<div class="cont-col1">
+															<div class="label label-sm label-success">
+																<i class="fa fa-bell-o"></i>
 															</div>
 														</div>
-													</div>
-													<div class="col2">
-														<div class="date">
-															 Just now
-														</div>
-													</div>
-													</a>
-												</li>
-												<li>
-													<a href="#">
-													<div class="col1">
-														<div class="cont">
-															<div class="cont-col1">
-																<div class="label label-sm label-success">
-																	<i class="fa fa-bell-o"></i>
-																</div>
-															</div>
-															<div class="cont-col2">
-																<div class="desc">
-																	 New order received
-																</div>
+														<div class="cont-col2">
+															<div class="desc">
+																 New user registered
 															</div>
 														</div>
 													</div>
-													<div class="col2">
-														<div class="date">
-															 10 mins
-														</div>
+												</div>
+												<div class="col2">
+													<div class="date">
+														 Just now
 													</div>
-													</a>
-												</li>
-												<li>
-													<div class="col1">
-														<div class="cont">
-															<div class="cont-col1">
-																<div class="label label-sm label-danger">
-																	<i class="fa fa-bolt"></i>
-																</div>
-															</div>
-															<div class="cont-col2">
-																<div class="desc">
-																	 Order #24DOP4 has been rejected. <span class="label label-sm label-danger ">
-																	Take action <i class="fa fa-share"></i>
-																	</span>
-																</div>
+												</div>
+												</a>
+											</li>
+											<li>
+												<a href="#">
+												<div class="col1">
+													<div class="cont">
+														<div class="cont-col1">
+															<div class="label label-sm label-success">
+																<i class="fa fa-bell-o"></i>
 															</div>
 														</div>
-													</div>
-													<div class="col2">
-														<div class="date">
-															 24 mins
-														</div>
-													</div>
-												</li>
-												<li>
-													<a href="#">
-													<div class="col1">
-														<div class="cont">
-															<div class="cont-col1">
-																<div class="label label-sm label-success">
-																	<i class="fa fa-bell-o"></i>
-																</div>
-															</div>
-															<div class="cont-col2">
-																<div class="desc">
-																	 New user registered
-																</div>
+														<div class="cont-col2">
+															<div class="desc">
+																 New order received
 															</div>
 														</div>
 													</div>
-													<div class="col2">
-														<div class="date">
-															 Just now
-														</div>
+												</div>
+												<div class="col2">
+													<div class="date">
+														 10 mins
 													</div>
-													</a>
-												</li>
-												<li>
-													<a href="#">
-													<div class="col1">
-														<div class="cont">
-															<div class="cont-col1">
-																<div class="label label-sm label-success">
-																	<i class="fa fa-bell-o"></i>
-																</div>
-															</div>
-															<div class="cont-col2">
-																<div class="desc">
-																	 New user registered
-																</div>
+												</div>
+												</a>
+											</li>
+											<li>
+												<div class="col1">
+													<div class="cont">
+														<div class="cont-col1">
+															<div class="label label-sm label-danger">
+																<i class="fa fa-bolt"></i>
 															</div>
 														</div>
-													</div>
-													<div class="col2">
-														<div class="date">
-															 Just now
-														</div>
-													</div>
-													</a>
-												</li>
-												<li>
-													<a href="#">
-													<div class="col1">
-														<div class="cont">
-															<div class="cont-col1">
-																<div class="label label-sm label-success">
-																	<i class="fa fa-bell-o"></i>
-																</div>
-															</div>
-															<div class="cont-col2">
-																<div class="desc">
-																	 New user registered
-																</div>
+														<div class="cont-col2">
+															<div class="desc">
+																 Order #24DOP4 has been rejected. <span class="label label-sm label-danger ">
+																Take action <i class="fa fa-share"></i>
+																</span>
 															</div>
 														</div>
 													</div>
-													<div class="col2">
-														<div class="date">
-															 Just now
-														</div>
+												</div>
+												<div class="col2">
+													<div class="date">
+														 24 mins
 													</div>
-													</a>
-												</li>
-												<li>
-													<a href="#">
-													<div class="col1">
-														<div class="cont">
-															<div class="cont-col1">
-																<div class="label label-sm label-success">
-																	<i class="fa fa-bell-o"></i>
-																</div>
-															</div>
-															<div class="cont-col2">
-																<div class="desc">
-																	 New user registered
-																</div>
+												</div>
+											</li>
+											<li>
+												<a href="#">
+												<div class="col1">
+													<div class="cont">
+														<div class="cont-col1">
+															<div class="label label-sm label-success">
+																<i class="fa fa-bell-o"></i>
 															</div>
 														</div>
-													</div>
-													<div class="col2">
-														<div class="date">
-															 Just now
-														</div>
-													</div>
-													</a>
-												</li>
-												<li>
-													<a href="#">
-													<div class="col1">
-														<div class="cont">
-															<div class="cont-col1">
-																<div class="label label-sm label-success">
-																	<i class="fa fa-bell-o"></i>
-																</div>
-															</div>
-															<div class="cont-col2">
-																<div class="desc">
-																	 New user registered
-																</div>
+														<div class="cont-col2">
+															<div class="desc">
+																 New user registered
 															</div>
 														</div>
 													</div>
-													<div class="col2">
-														<div class="date">
-															 Just now
-														</div>
+												</div>
+												<div class="col2">
+													<div class="date">
+														 Just now
 													</div>
-													</a>
-												</li>
-												<li>
-													<a href="#">
-													<div class="col1">
-														<div class="cont">
-															<div class="cont-col1">
-																<div class="label label-sm label-success">
-																	<i class="fa fa-bell-o"></i>
-																</div>
-															</div>
-															<div class="cont-col2">
-																<div class="desc">
-																	 New user registered
-																</div>
+												</div>
+												</a>
+											</li>
+											<li>
+												<a href="#">
+												<div class="col1">
+													<div class="cont">
+														<div class="cont-col1">
+															<div class="label label-sm label-success">
+																<i class="fa fa-bell-o"></i>
 															</div>
 														</div>
-													</div>
-													<div class="col2">
-														<div class="date">
-															 Just now
-														</div>
-													</div>
-													</a>
-												</li>
-												<li>
-													<a href="#">
-													<div class="col1">
-														<div class="cont">
-															<div class="cont-col1">
-																<div class="label label-sm label-success">
-																	<i class="fa fa-bell-o"></i>
-																</div>
-															</div>
-															<div class="cont-col2">
-																<div class="desc">
-																	 New user registered
-																</div>
+														<div class="cont-col2">
+															<div class="desc">
+																 New user registered
 															</div>
 														</div>
 													</div>
-													<div class="col2">
-														<div class="date">
-															 Just now
+												</div>
+												<div class="col2">
+													<div class="date">
+														 Just now
+													</div>
+												</div>
+												</a>
+											</li>
+											<li>
+												<a href="#">
+												<div class="col1">
+													<div class="cont">
+														<div class="cont-col1">
+															<div class="label label-sm label-success">
+																<i class="fa fa-bell-o"></i>
+															</div>
+														</div>
+														<div class="cont-col2">
+															<div class="desc">
+																 New user registered
+															</div>
 														</div>
 													</div>
-													</a>
-												</li>
-											</ul>
-										</div>
+												</div>
+												<div class="col2">
+													<div class="date">
+														 Just now
+													</div>
+												</div>
+												</a>
+											</li>
+											<li>
+												<a href="#">
+												<div class="col1">
+													<div class="cont">
+														<div class="cont-col1">
+															<div class="label label-sm label-success">
+																<i class="fa fa-bell-o"></i>
+															</div>
+														</div>
+														<div class="cont-col2">
+															<div class="desc">
+																 New user registered
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="col2">
+													<div class="date">
+														 Just now
+													</div>
+												</div>
+												</a>
+											</li>
+											<li>
+												<a href="#">
+												<div class="col1">
+													<div class="cont">
+														<div class="cont-col1">
+															<div class="label label-sm label-success">
+																<i class="fa fa-bell-o"></i>
+															</div>
+														</div>
+														<div class="cont-col2">
+															<div class="desc">
+																 New user registered
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="col2">
+													<div class="date">
+														 Just now
+													</div>
+												</div>
+												</a>
+											</li>
+											<li>
+												<a href="#">
+												<div class="col1">
+													<div class="cont">
+														<div class="cont-col1">
+															<div class="label label-sm label-success">
+																<i class="fa fa-bell-o"></i>
+															</div>
+														</div>
+														<div class="cont-col2">
+															<div class="desc">
+																 New user registered
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="col2">
+													<div class="date">
+														 Just now
+													</div>
+												</div>
+												</a>
+											</li>
+											<li>
+												<a href="#">
+												<div class="col1">
+													<div class="cont">
+														<div class="cont-col1">
+															<div class="label label-sm label-success">
+																<i class="fa fa-bell-o"></i>
+															</div>
+														</div>
+														<div class="cont-col2">
+															<div class="desc">
+																 New user registered
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="col2">
+													<div class="date">
+														 Just now
+													</div>
+												</div>
+												</a>
+											</li>
+										</ul>
 									</div>
-									<div class="tab-pane" id="tab_1_3">
-										<div class="scroller" style="height: 290px;" data-always-visible="1" data-rail-visible1="1">
-											<div class="row">
-												<div class="col-md-6 user-info">
-													<img alt="" src="../../assets/admin/layout/img/avatar.png" class="img-responsive"/>
-													<div class="details">
-														<div>
-															<a href="#">
-															Robert Nilson </a>
-															<span class="label label-sm label-success label-mini">
-															Approved </span>
-														</div>
-														<div>
-															 29 Jan 2013 10:45AM
-														</div>
+								</div>
+								<div class="tab-pane" id="tab_1_3">
+									<div class="scroller" style="height: 290px;" data-always-visible="1" data-rail-visible1="1">
+										<div class="row">
+											<div class="col-md-6 user-info">
+												<img alt="" src="../../assets/admin/layout/img/avatar.png" class="img-responsive"/>
+												<div class="details">
+													<div>
+														<a href="#">
+														Robert Nilson </a>
+														<span class="label label-sm label-success label-mini">
+														Approved </span>
 													</div>
-												</div>
-												<div class="col-md-6 user-info">
-													<img alt="" src="../../assets/admin/layout/img/avatar.png" class="img-responsive"/>
-													<div class="details">
-														<div>
-															<a href="#">
-															Lisa Miller </a>
-															<span class="label label-sm label-info">
-															Pending </span>
-														</div>
-														<div>
-															 19 Jan 2013 10:45AM
-														</div>
+													<div>
+														 29 Jan 2013 10:45AM
 													</div>
 												</div>
 											</div>
-											<div class="row">
-												<div class="col-md-6 user-info">
-													<img alt="" src="../../assets/admin/layout/img/avatar.png" class="img-responsive"/>
-													<div class="details">
-														<div>
-															<a href="#">
-															Eric Kim </a>
-															<span class="label label-sm label-info">
-															Pending </span>
-														</div>
-														<div>
-															 19 Jan 2013 12:45PM
-														</div>
+											<div class="col-md-6 user-info">
+												<img alt="" src="../../assets/admin/layout/img/avatar.png" class="img-responsive"/>
+												<div class="details">
+													<div>
+														<a href="#">
+														Lisa Miller </a>
+														<span class="label label-sm label-info">
+														Pending </span>
 													</div>
-												</div>
-												<div class="col-md-6 user-info">
-													<img alt="" src="../../assets/admin/layout/img/avatar.png" class="img-responsive"/>
-													<div class="details">
-														<div>
-															<a href="#">
-															Lisa Miller </a>
-															<span class="label label-sm label-danger">
-															In progress </span>
-														</div>
-														<div>
-															 19 Jan 2013 11:55PM
-														</div>
+													<div>
+														 19 Jan 2013 10:45AM
 													</div>
 												</div>
 											</div>
-											<div class="row">
-												<div class="col-md-6 user-info">
-													<img alt="" src="../../assets/admin/layout/img/avatar.png" class="img-responsive"/>
-													<div class="details">
-														<div>
-															<a href="#">
-															Eric Kim </a>
-															<span class="label label-sm label-info">
-															Pending </span>
-														</div>
-														<div>
-															 19 Jan 2013 12:45PM
-														</div>
+										</div>
+										<div class="row">
+											<div class="col-md-6 user-info">
+												<img alt="" src="../../assets/admin/layout/img/avatar.png" class="img-responsive"/>
+												<div class="details">
+													<div>
+														<a href="#">
+														Eric Kim </a>
+														<span class="label label-sm label-info">
+														Pending </span>
 													</div>
-												</div>
-												<div class="col-md-6 user-info">
-													<img alt="" src="../../assets/admin/layout/img/avatar.png" class="img-responsive"/>
-													<div class="details">
-														<div>
-															<a href="#">
-															Lisa Miller </a>
-															<span class="label label-sm label-danger">
-															In progress </span>
-														</div>
-														<div>
-															 19 Jan 2013 11:55PM
-														</div>
+													<div>
+														 19 Jan 2013 12:45PM
 													</div>
 												</div>
 											</div>
-											<div class="row">
-												<div class="col-md-6 user-info">
-													<img alt="" src="../../assets/admin/layout/img/avatar.png" class="img-responsive"/>
-													<div class="details">
-														<div>
-															<a href="#">
-															Eric Kim </a>
-															<span class="label label-sm label-info">
-															Pending </span>
-														</div>
-														<div>
-															 19 Jan 2013 12:45PM
-														</div>
+											<div class="col-md-6 user-info">
+												<img alt="" src="../../assets/admin/layout/img/avatar.png" class="img-responsive"/>
+												<div class="details">
+													<div>
+														<a href="#">
+														Lisa Miller </a>
+														<span class="label label-sm label-danger">
+														In progress </span>
 													</div>
-												</div>
-												<div class="col-md-6 user-info">
-													<img alt="" src="../../assets/admin/layout/img/avatar.png" class="img-responsive"/>
-													<div class="details">
-														<div>
-															<a href="#">
-															Lisa Miller </a>
-															<span class="label label-sm label-danger">
-															In progress </span>
-														</div>
-														<div>
-															 19 Jan 2013 11:55PM
-														</div>
+													<div>
+														 19 Jan 2013 11:55PM
 													</div>
 												</div>
 											</div>
-											<div class="row">
-												<div class="col-md-6 user-info">
-													<img alt="" src="../../assets/admin/layout/img/avatar.png" class="img-responsive"/>
-													<div class="details">
-														<div>
-															<a href="#">
-															Eric Kim </a>
-															<span class="label label-sm label-info">
-															Pending </span>
-														</div>
-														<div>
-															 19 Jan 2013 12:45PM
-														</div>
+										</div>
+										<div class="row">
+											<div class="col-md-6 user-info">
+												<img alt="" src="../../assets/admin/layout/img/avatar.png" class="img-responsive"/>
+												<div class="details">
+													<div>
+														<a href="#">
+														Eric Kim </a>
+														<span class="label label-sm label-info">
+														Pending </span>
 													</div>
-												</div>
-												<div class="col-md-6 user-info">
-													<img alt="" src="../../assets/admin/layout/img/avatar.png" class="img-responsive"/>
-													<div class="details">
-														<div>
-															<a href="#">
-															Lisa Miller </a>
-															<span class="label label-sm label-danger">
-															In progress </span>
-														</div>
-														<div>
-															 19 Jan 2013 11:55PM
-														</div>
+													<div>
+														 19 Jan 2013 12:45PM
 													</div>
 												</div>
 											</div>
-											<div class="row">
-												<div class="col-md-6 user-info">
-													<img alt="" src="../../assets/admin/layout/img/avatar.png" class="img-responsive"/>
-													<div class="details">
-														<div>
-															<a href="#">
-															Eric Kim </a>
-															<span class="label label-sm label-info">
-															Pending </span>
-														</div>
-														<div>
-															 19 Jan 2013 12:45PM
-														</div>
+											<div class="col-md-6 user-info">
+												<img alt="" src="../../assets/admin/layout/img/avatar.png" class="img-responsive"/>
+												<div class="details">
+													<div>
+														<a href="#">
+														Lisa Miller </a>
+														<span class="label label-sm label-danger">
+														In progress </span>
+													</div>
+													<div>
+														 19 Jan 2013 11:55PM
 													</div>
 												</div>
-												<div class="col-md-6 user-info">
-													<img alt="" src="../../assets/admin/layout/img/avatar.png" class="img-responsive"/>
-													<div class="details">
-														<div>
-															<a href="#">
-															Lisa Miller </a>
-															<span class="label label-sm label-danger">
-															In progress </span>
-														</div>
-														<div>
-															 19 Jan 2013 11:55PM
-														</div>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-md-6 user-info">
+												<img alt="" src="../../assets/admin/layout/img/avatar.png" class="img-responsive"/>
+												<div class="details">
+													<div>
+														<a href="#">
+														Eric Kim </a>
+														<span class="label label-sm label-info">
+														Pending </span>
+													</div>
+													<div>
+														 19 Jan 2013 12:45PM
+													</div>
+												</div>
+											</div>
+											<div class="col-md-6 user-info">
+												<img alt="" src="../../assets/admin/layout/img/avatar.png" class="img-responsive"/>
+												<div class="details">
+													<div>
+														<a href="#">
+														Lisa Miller </a>
+														<span class="label label-sm label-danger">
+														In progress </span>
+													</div>
+													<div>
+														 19 Jan 2013 11:55PM
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-md-6 user-info">
+												<img alt="" src="../../assets/admin/layout/img/avatar.png" class="img-responsive"/>
+												<div class="details">
+													<div>
+														<a href="#">
+														Eric Kim </a>
+														<span class="label label-sm label-info">
+														Pending </span>
+													</div>
+													<div>
+														 19 Jan 2013 12:45PM
+													</div>
+												</div>
+											</div>
+											<div class="col-md-6 user-info">
+												<img alt="" src="../../assets/admin/layout/img/avatar.png" class="img-responsive"/>
+												<div class="details">
+													<div>
+														<a href="#">
+														Lisa Miller </a>
+														<span class="label label-sm label-danger">
+														In progress </span>
+													</div>
+													<div>
+														 19 Jan 2013 11:55PM
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-md-6 user-info">
+												<img alt="" src="../../assets/admin/layout/img/avatar.png" class="img-responsive"/>
+												<div class="details">
+													<div>
+														<a href="#">
+														Eric Kim </a>
+														<span class="label label-sm label-info">
+														Pending </span>
+													</div>
+													<div>
+														 19 Jan 2013 12:45PM
+													</div>
+												</div>
+											</div>
+											<div class="col-md-6 user-info">
+												<img alt="" src="../../assets/admin/layout/img/avatar.png" class="img-responsive"/>
+												<div class="details">
+													<div>
+														<a href="#">
+														Lisa Miller </a>
+														<span class="label label-sm label-danger">
+														In progress </span>
+													</div>
+													<div>
+														 19 Jan 2013 11:55PM
 													</div>
 												</div>
 											</div>
@@ -3290,16 +3281,17 @@ License: You must have a valid license purchased only from themeforest(the above
 			</div>
 			<div class="clearfix">
 			</div>
-			<div class="row ">
+			<div class="row">
 				<div class="col-md-6 col-sm-6">
 					<!-- BEGIN PORTLET-->
-					<div class="portlet box blue-madison calendar">
-						<div class="portlet-title">
+					<div class="portlet light calendar ">
+						<div class="portlet-title ">
 							<div class="caption">
-								<i class="fa fa-calendar"></i>Calendar
+								<i class="icon-calendar font-green-sharp"></i>
+								<span class="caption-subject font-green-sharp bold uppercase">Feeds</span>
 							</div>
 						</div>
-						<div class="portlet-body light-grey">
+						<div class="portlet-body">
 							<div id="calendar">
 							</div>
 						</div>
@@ -3308,26 +3300,23 @@ License: You must have a valid license purchased only from themeforest(the above
 				</div>
 				<div class="col-md-6 col-sm-6">
 					<!-- BEGIN PORTLET-->
-					<div class="portlet">
-						<div class="portlet-title line">
+					<div class="portlet light ">
+						<div class="portlet-title">
 							<div class="caption">
-								<i class="fa fa-comments"></i>Chats
+								<i class="icon-bubble font-red-sunglo"></i>
+								<span class="caption-subject font-red-sunglo bold uppercase">Chats</span>
 							</div>
-							<div class="tools">
-								<a href="" class="collapse">
-								</a>
-								<a href="#portlet-config" data-toggle="modal" class="config">
-								</a>
-								<a href="" class="reload">
-								</a>
-								<a href="" class="fullscreen">
-								</a>
-								<a href="" class="remove">
-								</a>
+							<div class="actions">
+								<div class="portlet-input input-inline">
+									<div class="input-icon right">
+										<i class="icon-magnifier"></i>
+										<input type="text" class="form-control input-circle" placeholder="search...">
+									</div>
+								</div>
 							</div>
 						</div>
 						<div class="portlet-body" id="chats">
-							<div class="scroller" style="height: 352px;" data-always-visible="1" data-rail-visible1="1">
+							<div class="scroller" style="height: 341px;" data-always-visible="1" data-rail-visible1="1">
 								<ul class="chats">
 									<li class="in">
 										<img class="avatar" alt="" src="../../assets/admin/layout/img/avatar1.jpg"/>
@@ -4126,8 +4115,8 @@ License: You must have a valid license purchased only from themeforest(the above
 <![endif]-->
 <script src="../../assets/global/plugins/jquery.min.js" type="text/javascript"></script>
 <script src="../../assets/global/plugins/jquery-migrate.min.js" type="text/javascript"></script>
-<!-- IMPORTANT! Load jquery-ui-1.10.3.custom.min.js before bootstrap.min.js to fix bootstrap tooltip conflict with jquery ui tooltip -->
-<script src="../../assets/global/plugins/jquery-ui/jquery-ui-1.10.3.custom.min.js" type="text/javascript"></script>
+<!-- IMPORTANT! Load jquery-ui.min.js before bootstrap.min.js to fix bootstrap tooltip conflict with jquery ui tooltip -->
+<script src="../../assets/global/plugins/jquery-ui/jquery-ui.min.js" type="text/javascript"></script>
 <script src="../../assets/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
 <script src="../../assets/global/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js" type="text/javascript"></script>
 <script src="../../assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
@@ -4150,7 +4139,7 @@ License: You must have a valid license purchased only from themeforest(the above
 <script src="../../assets/global/plugins/jquery.pulsate.min.js" type="text/javascript"></script>
 <script src="../../assets/global/plugins/bootstrap-daterangepicker/moment.min.js" type="text/javascript"></script>
 <script src="../../assets/global/plugins/bootstrap-daterangepicker/daterangepicker.js" type="text/javascript"></script>
-<!-- IMPORTANT! fullcalendar depends on jquery-ui-1.10.3.custom.min.js for drag & drop support -->
+<!-- IMPORTANT! fullcalendar depends on jquery-ui.min.js for drag & drop support -->
 <script src="../../assets/global/plugins/fullcalendar/fullcalendar.min.js" type="text/javascript"></script>
 <script src="../../assets/global/plugins/jquery-easypiechart/jquery.easypiechart.min.js" type="text/javascript"></script>
 <script src="../../assets/global/plugins/jquery.sparkline.min.js" type="text/javascript"></script>
@@ -4168,7 +4157,7 @@ jQuery(document).ready(function() {
    Metronic.init(); // init metronic core componets
    Layout.init(); // init layout
    QuickSidebar.init(); // init quick sidebar
-   Demo.init(); // init demo features 
+Demo.init(); // init demo features
    Index.init();   
    Index.initDashboardDaterange();
    Index.initJQVMAP(); // init index page's custom scripts
