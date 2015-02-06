@@ -21,7 +21,11 @@ License: You must have a valid license purchased only from themeforest(the above
 <!-- BEGIN HEAD -->
 <head>
 <meta charset="utf-8"/>
-<title>Metronic | Dashboard</title>
+<?php 
+	#Titulo (con valor por defecto)
+	if(isset($title) && $title!="") echo '<title>'.$title.'</title>';
+	else echo '<title>'.$this->config->item('app_title').'</title>';
+?>
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <meta content="" name="description"/>
@@ -69,8 +73,8 @@ License: You must have a valid license purchased only from themeforest(the above
 	<div class="page-header-inner">
 		<!-- BEGIN LOGO -->
 		<div class="page-logo">
-			<a href="index.html">
-			<img src="../../assets/admin/layout/img/logo.png" alt="logo" class="logo-default"/>
+			<a href="<?php echo base_url(); ?>">
+			<img src="../../assets/admin/layout/img/logo_cliente.png" alt="logo" class="logo-default"/>
 			</a>
 			<div class="menu-toggler sidebar-toggler hide">
 			</div>
@@ -1330,7 +1334,7 @@ License: You must have a valid license purchased only from themeforest(the above
 				</div>
 			</div>
 			<h3 class="page-title">
-			Dashboard <small>reports & statistics</small>
+			Dashboard <small>reports & statistics</small><br/><small><?php echo $content; ?></small>
 			</h3>
 			<!-- END PAGE HEADER-->
 			<!-- BEGIN DASHBOARD STATS -->
