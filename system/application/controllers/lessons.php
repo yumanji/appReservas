@@ -2816,14 +2816,26 @@ public function jqgrid_list_assistance ($id = NULL)
 		}
 		
 
-		# recupero los datos del usuario
-		$array_result = $this->users->get_user($code_user);
+			# recupero los datos del usuario
+		$usuario=$this->calendario->getAssistantInfo($code_user);
+		if (!isset($usuario) || count($usuario) <=0)
+		{
+			$this->session->set_userdata('error_message', 'Informacion de alumno no disponible o usuario inexistente.');
+			redirect(site_url($return_url), 'Location'); 
+			exit();
+		}
+		//print_r($assistant);exit();
+		$array_result = $this->users->get_user($usuario->id_user);
 		if (!isset($array_result) || count($array_result) <=0)
 		{
 			$this->session->set_userdata('error_message', 'Informacion de usuario no disponible o usuario inexistente.');
 			redirect(site_url($return_url), 'Location'); 
 			exit();
 		}
+		# recupero los datos del usuario
+
+		
+
 		# recupero los datos del usuario
 		$usuario = $this->calendario->getAssistantInfo($code_user);
 		if (!isset($usuario) || count($usuario) <=0)
@@ -2847,7 +2859,7 @@ public function jqgrid_list_assistance ($id = NULL)
 		# Gestión de carnet de socio
 		$curso_permission = $this->config->item('lessons_idcard_lessons_enabled');
 		$carnet_enabled = FALSE;
-		if(!isset($curso_permission) || in_array($id, $curso_permission)) {
+		if(!isset($curso_permission) || !in_array($lesson, $curso_permission)) {
 			$this->session->set_userdata('error_message', 'Carnet no habilitado para este curso.');
 			redirect(site_url($return_url), 'Location'); 
 			exit();
