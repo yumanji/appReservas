@@ -13,6 +13,7 @@
 	error_reporting(E_ALL & ~E_NOTICE);
 	//error_reporting('E_ALL & ~E_NOTICE');
 
+	date_default_timezone_set('Europe/Madrid');
 /*
 |---------------------------------------------------------------
 | SYSTEM FOLDER NAME
