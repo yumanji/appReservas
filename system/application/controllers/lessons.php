@@ -2836,14 +2836,6 @@ public function jqgrid_list_assistance ($id = NULL)
 
 		
 
-		# recupero los datos del usuario
-		$usuario = $this->calendario->getAssistantInfo($code_user);
-		if (!isset($usuario) || count($usuario) <=0)
-		{
-			$this->session->set_userdata('error_message', 'Informacion de alumno no disponible o usuario inexistente.');
-			redirect(site_url($return_url), 'Location'); 
-			exit();
-		}
 		
 		//echo '<pre>';print_r($usuario); exit();
 		
