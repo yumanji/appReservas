@@ -2958,10 +2958,10 @@ public function jqgrid_list_assistance ($id = NULL)
 		*/
 
 		# Genero el codigo de barras
-		require($this->config->item('root_path').'system/libraries/barcode/BCGFontFile.php');
-		require($this->config->item('root_path').'system/libraries/barcode/BCGColor.php');
-		require($this->config->item('root_path').'system/libraries/barcode/BCGDrawing.php');
-		require($this->config->item('root_path').'system/libraries/barcode/BCGcode128.barcode.php');
+		require($this->config->item('root_path').'application/libraries/barcode/BCGFontFile.php');
+		require($this->config->item('root_path').'application/libraries/barcode/BCGColor.php');
+		require($this->config->item('root_path').'application/libraries/barcode/BCGDrawing.php');
+		require($this->config->item('root_path').'application/libraries/barcode/BCGcode128.barcode.php');
 		 
 		$font = $this->config->item('root_path').'system/fonts/FreeSansBold.ttf';
 		$font = new BCGFontFile($this->config->item('root_path').'system/fonts/Arial.ttf', 10);
@@ -2999,7 +2999,7 @@ public function jqgrid_list_assistance ($id = NULL)
 		imagecopy($image, $barcode, imagesx($image) - $ancho_barcode - $marge_right, imagesy($image) - $alto_barcode - $marge_bottom, 0, 0, $ancho_barcode, $alto_barcode);
 
 		header("Content-type: image/jpeg");
-		header("Content-type: " . $mime);
+		//header("Content-type: " . $mime);
 		//header("Content-Length: " . $size);
 		// NOTE: Possible header injection via $basename
 		header("Content-Disposition: attachment; filename=" . $code_user .'.jpg');
