@@ -2867,7 +2867,7 @@ public function jqgrid_list_assistance ($id = NULL)
 		if(!file_exists($imgPath) || !file_exists($font)) exit ('Fallo en la carga de las plantillas necesarias');
 		if(!file_exists($imgStampPath)) $imgStampPath = $this->config->item('root_path').'images/avatar.jpg';
 		//if(!file_exists($imgStampPath)) exit ('Foto del usuario no disponible');
-		print_r($array_result);exit();
+		//print_r($array_result);exit();
 
 		# Abro Avatar
 		$size=getimagesize($imgStampPath);
