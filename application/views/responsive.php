@@ -288,7 +288,8 @@ License: You must have a valid license purchased only from themeforest(the above
 								<li>
 									<a href="inbox.html?a=view">
 									<span class="photo">
-									<img src="../../assets/admin/layout3/img/avatar3.jpg" class="img-circle" alt="">
+									<?php echo img(array('src' => 'assets/admin/layout3/img/avatar3.jpg', 'alt' => '', 'class' => 'img-circle')); ?>
+									<!--  <img src="../../assets/admin/layout3/img/avatar3.jpg" class="img-circle" alt=""> -->
 									</span>
 									<span class="subject">
 									<span class="from">
@@ -405,7 +406,8 @@ License: You must have a valid license purchased only from themeforest(the above
 				<!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
 				<li class="dropdown dropdown-user">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-					<img alt="" class="img-circle" src="../../assets/admin/layout/img/avatar3_small.jpg"/>
+					<?php echo img(array('src' => 'assets/admin/layout/img/avatar3_small.jpg', 'alt' => '', 'class' => 'img-circle')); ?>
+					<!-- <img alt="" class="img-circle" src="../../assets/admin/layout/img/avatar3_small.jpg"/> -->
 					<span class="username username-hide-on-mobile">
 					Nick </span>
 					<i class="fa fa-angle-down"></i>
@@ -1453,7 +1455,8 @@ License: You must have a valid license purchased only from themeforest(the above
 						</div>
 						<div class="portlet-body">
 							<div id="site_statistics_loading">
-								<img src="../../assets/admin/layout/img/loading.gif" alt="loading"/>
+								<?php echo img(array('src' => 'assets/admin/layout/img/loading.gif', 'alt' => 'loading')); ?>
+								<!-- <img src="../../assets/admin/layout/img/loading.gif" alt="loading"/> -->
 							</div>
 							<div id="site_statistics_content" class="display-none">
 								<div id="site_statistics" class="chart">
@@ -1509,7 +1512,8 @@ License: You must have a valid license purchased only from themeforest(the above
 						</div>
 						<div class="portlet-body">
 							<div id="site_activities_loading">
-								<img src="../../assets/admin/layout/img/loading.gif" alt="loading"/>
+								<?php echo img(array('src' => 'assets/admin/layout/img/loading.gif', 'alt' => 'loading')); ?>
+								<!-- <img src="../../assets/admin/layout/img/loading.gif" alt="loading"/> -->
 							</div>
 							<div id="site_activities_content" class="display-none">
 								<div id="site_activities" style="height: 228px;">
@@ -2404,7 +2408,8 @@ License: You must have a valid license purchased only from themeforest(the above
 						</div>
 						<div class="portlet-body">
 							<div id="region_statistics_loading">
-								<img src="../../assets/admin/layout/img/loading.gif" alt="loading"/>
+								<?php echo img(array('src' => 'assets/admin/layout/img/loading.gif', 'alt' => 'loading')); ?>
+								<!-- <img src="../../assets/admin/layout/img/loading.gif" alt="loading"/> -->
 							</div>
 							<div id="region_statistics_content" class="display-none">
 								<div class="btn-toolbar margin-bottom-10">
@@ -3113,7 +3118,8 @@ License: You must have a valid license purchased only from themeforest(the above
 									<div class="scroller" style="height: 290px;" data-always-visible="1" data-rail-visible1="1">
 										<div class="row">
 											<div class="col-md-6 user-info">
-												<img alt="" src="../../assets/admin/layout/img/avatar.png" class="img-responsive"/>
+												<?php echo img(array('src' => 'assets/admin/layout/img/avatar.png', 'alt' => '', 'class' => 'img-responsive')); ?>
+												<!-- <img alt="" src="../../assets/admin/layout/img/avatar.png" class="img-responsive"/> -->
 												<div class="details">
 													<div>
 														<a href="#">
@@ -3127,7 +3133,8 @@ License: You must have a valid license purchased only from themeforest(the above
 												</div>
 											</div>
 											<div class="col-md-6 user-info">
-												<img alt="" src="../../assets/admin/layout/img/avatar.png" class="img-responsive"/>
+												<?php echo img(array('src' => 'assets/admin/layout/img/avatar.png', 'alt' => '', 'class' => 'img-responsive')); ?>
+												<!-- <img alt="" src="../../assets/admin/layout/img/avatar.png" class="img-responsive"/> -->
 												<div class="details">
 													<div>
 														<a href="#">
@@ -3143,7 +3150,8 @@ License: You must have a valid license purchased only from themeforest(the above
 										</div>
 										<div class="row">
 											<div class="col-md-6 user-info">
-												<img alt="" src="../../assets/admin/layout/img/avatar.png" class="img-responsive"/>
+												<?php echo img(array('src' => 'assets/admin/layout/img/avatar.png', 'alt' => '', 'class' => 'img-responsive')); ?>
+												<!-- <img alt="" src="../../assets/admin/layout/img/avatar.png" class="img-responsive"/> -->
 												<div class="details">
 													<div>
 														<a href="#">
@@ -3157,7 +3165,8 @@ License: You must have a valid license purchased only from themeforest(the above
 												</div>
 											</div>
 											<div class="col-md-6 user-info">
-												<img alt="" src="../../assets/admin/layout/img/avatar.png" class="img-responsive"/>
+												<?php echo img(array('src' => 'assets/admin/layout/img/avatar.png', 'alt' => '', 'class' => 'img-responsive')); ?>
+												<!-- <img alt="" src="../../assets/admin/layout/img/avatar.png" class="img-responsive"/> -->
 												<div class="details">
 													<div>
 														<a href="#">
@@ -3173,7 +3182,8 @@ License: You must have a valid license purchased only from themeforest(the above
 										</div>
 										<div class="row">
 											<div class="col-md-6 user-info">
-												<img alt="" src="../../assets/admin/layout/img/avatar.png" class="img-responsive"/>
+												<?php echo img(array('src' => 'assets/admin/layout/img/avatar.png', 'alt' => '', 'class' => 'img-responsive')); ?>
+												<!-- <img alt="" src="../../assets/admin/layout/img/avatar.png" class="img-responsive"/> -->
 												<div class="details">
 													<div>
 														<a href="#">
@@ -3187,7 +3197,8 @@ License: You must have a valid license purchased only from themeforest(the above
 												</div>
 											</div>
 											<div class="col-md-6 user-info">
-												<img alt="" src="../../assets/admin/layout/img/avatar.png" class="img-responsive"/>
+												<?php echo img(array('src' => 'assets/admin/layout/img/avatar.png', 'alt' => '', 'class' => 'img-responsive')); ?>
+												<!-- <img alt="" src="../../assets/admin/layout/img/avatar.png" class="img-responsive"/> -->
 												<div class="details">
 													<div>
 														<a href="#">
@@ -3203,7 +3214,8 @@ License: You must have a valid license purchased only from themeforest(the above
 										</div>
 										<div class="row">
 											<div class="col-md-6 user-info">
-												<img alt="" src="../../assets/admin/layout/img/avatar.png" class="img-responsive"/>
+												<?php echo img(array('src' => 'assets/admin/layout/img/avatar.png', 'alt' => '', 'class' => 'img-responsive')); ?>
+												<!-- <img alt="" src="../../assets/admin/layout/img/avatar.png" class="img-responsive"/> -->
 												<div class="details">
 													<div>
 														<a href="#">
@@ -3217,7 +3229,8 @@ License: You must have a valid license purchased only from themeforest(the above
 												</div>
 											</div>
 											<div class="col-md-6 user-info">
-												<img alt="" src="../../assets/admin/layout/img/avatar.png" class="img-responsive"/>
+												<?php echo img(array('src' => 'assets/admin/layout/img/avatar.png', 'alt' => '', 'class' => 'img-responsive')); ?>
+												<!-- <img alt="" src="../../assets/admin/layout/img/avatar.png" class="img-responsive"/> -->
 												<div class="details">
 													<div>
 														<a href="#">
@@ -3233,7 +3246,8 @@ License: You must have a valid license purchased only from themeforest(the above
 										</div>
 										<div class="row">
 											<div class="col-md-6 user-info">
-												<img alt="" src="../../assets/admin/layout/img/avatar.png" class="img-responsive"/>
+												<?php echo img(array('src' => 'assets/admin/layout/img/avatar.png', 'alt' => '', 'class' => 'img-responsive')); ?>
+												<!-- <img alt="" src="../../assets/admin/layout/img/avatar.png" class="img-responsive"/> -->
 												<div class="details">
 													<div>
 														<a href="#">
@@ -3247,7 +3261,8 @@ License: You must have a valid license purchased only from themeforest(the above
 												</div>
 											</div>
 											<div class="col-md-6 user-info">
-												<img alt="" src="../../assets/admin/layout/img/avatar.png" class="img-responsive"/>
+												<?php echo img(array('src' => 'assets/admin/layout/img/avatar.png', 'alt' => '', 'class' => 'img-responsive')); ?>
+												<!-- <img alt="" src="../../assets/admin/layout/img/avatar.png" class="img-responsive"/> -->
 												<div class="details">
 													<div>
 														<a href="#">
@@ -3263,7 +3278,8 @@ License: You must have a valid license purchased only from themeforest(the above
 										</div>
 										<div class="row">
 											<div class="col-md-6 user-info">
-												<img alt="" src="../../assets/admin/layout/img/avatar.png" class="img-responsive"/>
+												<?php echo img(array('src' => 'assets/admin/layout/img/avatar.png', 'alt' => '', 'class' => 'img-responsive')); ?>
+												<!-- <img alt="" src="../../assets/admin/layout/img/avatar.png" class="img-responsive"/> -->
 												<div class="details">
 													<div>
 														<a href="#">
@@ -3277,7 +3293,8 @@ License: You must have a valid license purchased only from themeforest(the above
 												</div>
 											</div>
 											<div class="col-md-6 user-info">
-												<img alt="" src="../../assets/admin/layout/img/avatar.png" class="img-responsive"/>
+												<?php echo img(array('src' => 'assets/admin/layout/img/avatar.png', 'alt' => '', 'class' => 'img-responsive')); ?>
+												<!-- <img alt="" src="../../assets/admin/layout/img/avatar.png" class="img-responsive"/>-->
 												<div class="details">
 													<div>
 														<a href="#">
@@ -3340,7 +3357,8 @@ License: You must have a valid license purchased only from themeforest(the above
 							<div class="scroller" style="height: 341px;" data-always-visible="1" data-rail-visible1="1">
 								<ul class="chats">
 									<li class="in">
-										<img class="avatar" alt="" src="../../assets/admin/layout/img/avatar1.jpg"/>
+										<?php echo img(array('src' => 'assets/admin/layout/img/avatar1.jpg', 'alt' => '', 'class' => 'avatar')); ?>
+										<!-- <img class="avatar" alt="" src="../../assets/admin/layout/img/avatar1.jpg"/> -->
 										<div class="message">
 											<span class="arrow">
 											</span>
@@ -3353,7 +3371,8 @@ License: You must have a valid license purchased only from themeforest(the above
 										</div>
 									</li>
 									<li class="out">
-										<img class="avatar" alt="" src="../../assets/admin/layout/img/avatar2.jpg"/>
+										<?php echo img(array('src' => 'assets/admin/layout/img/avatar2.jpg', 'alt' => '', 'class' => 'avatar')); ?>
+										<!-- <img class="avatar" alt="" src="../../assets/admin/layout/img/avatar2.jpg"/> -->
 										<div class="message">
 											<span class="arrow">
 											</span>
@@ -3366,7 +3385,8 @@ License: You must have a valid license purchased only from themeforest(the above
 										</div>
 									</li>
 									<li class="in">
-										<img class="avatar" alt="" src="../../assets/admin/layout/img/avatar1.jpg"/>
+										<?php echo img(array('src' => 'assets/admin/layout/img/avatar1.jpg', 'alt' => '', 'class' => 'avatar')); ?>
+										<!-- <img class="avatar" alt="" src="../../assets/admin/layout/img/avatar1.jpg"/> -->
 										<div class="message">
 											<span class="arrow">
 											</span>
@@ -3379,7 +3399,8 @@ License: You must have a valid license purchased only from themeforest(the above
 										</div>
 									</li>
 									<li class="out">
-										<img class="avatar" alt="" src="../../assets/admin/layout/img/avatar3.jpg"/>
+										<?php echo img(array('src' => 'assets/admin/layout/img/avatar3.jpg', 'alt' => '', 'class' => 'avatar')); ?>
+										<!-- <img class="avatar" alt="" src="../../assets/admin/layout/img/avatar3.jpg"/> -->
 										<div class="message">
 											<span class="arrow">
 											</span>
@@ -3392,7 +3413,8 @@ License: You must have a valid license purchased only from themeforest(the above
 										</div>
 									</li>
 									<li class="in">
-										<img class="avatar" alt="" src="../../assets/admin/layout/img/avatar3.jpg"/>
+										<?php echo img(array('src' => 'assets/admin/layout/img/avatar3.jpg', 'alt' => '', 'class' => 'avatar')); ?>
+										<!-- <img class="avatar" alt="" src="../../assets/admin/layout/img/avatar3.jpg"/> -->
 										<div class="message">
 											<span class="arrow">
 											</span>
@@ -3405,7 +3427,8 @@ License: You must have a valid license purchased only from themeforest(the above
 										</div>
 									</li>
 									<li class="out">
-										<img class="avatar" alt="" src="../../assets/admin/layout/img/avatar1.jpg"/>
+										<?php echo img(array('src' => 'assets/admin/layout/img/avatar1.jpg', 'alt' => '', 'class' => 'avatar')); ?>
+										<!-- <img class="avatar" alt="" src="../../assets/admin/layout/img/avatar1.jpg"/> -->
 										<div class="message">
 											<span class="arrow">
 											</span>
@@ -3418,7 +3441,8 @@ License: You must have a valid license purchased only from themeforest(the above
 										</div>
 									</li>
 									<li class="in">
-										<img class="avatar" alt="" src="../../assets/admin/layout/img/avatar3.jpg"/>
+										<?php echo img(array('src' => 'assets/admin/layout/img/avatar3.jpg', 'alt' => '', 'class' => 'avatar')); ?>
+										<!-- <img class="avatar" alt="" src="assets/admin/layout/img/avatar3.jpg"/> -->
 										<div class="message">
 											<span class="arrow">
 											</span>
@@ -3431,7 +3455,8 @@ License: You must have a valid license purchased only from themeforest(the above
 										</div>
 									</li>
 									<li class="out">
-										<img class="avatar" alt="" src="../../assets/admin/layout/img/avatar1.jpg"/>
+										<?php echo img(array('src' => 'assets/admin/layout/img/avatar1.jpg', 'alt' => '', 'class' => 'avatar')); ?>
+										<!-- <img class="avatar" alt="" src="assets/admin/layout/img/avatar1.jpg"/> -->
 										<div class="message">
 											<span class="arrow">
 											</span>
@@ -3516,7 +3541,8 @@ License: You must have a valid license purchased only from themeforest(the above
 									<div class="media-status">
 										<span class="badge badge-success">8</span>
 									</div>
-									<img class="media-object" src="../../assets/admin/layout/img/avatar3.jpg" alt="...">
+									<?php echo img(array('src' => 'assets/admin/layout/img/avatar3.jpg', 'alt' => '...', 'class' => 'media-object')); ?>
+									<!-- <img class="media-object" src="../../assets/admin/layout/img/avatar3.jpg" alt="..."> -->
 									<div class="media-body">
 										<h4 class="media-heading">Bob Nilson</h4>
 										<div class="media-heading-sub">
@@ -3525,7 +3551,8 @@ License: You must have a valid license purchased only from themeforest(the above
 									</div>
 								</li>
 								<li class="media">
-									<img class="media-object" src="../../assets/admin/layout/img/avatar1.jpg" alt="...">
+									<?php echo img(array('src' => 'assets/admin/layout/img/avatar1.jpg', 'alt' => '...', 'class' => 'media-object')); ?>
+									<!-- <img class="media-object" src="../../assets/admin/layout/img/avatar1.jpg" alt="..."> -->
 									<div class="media-body">
 										<h4 class="media-heading">Nick Larson</h4>
 										<div class="media-heading-sub">
@@ -3537,7 +3564,8 @@ License: You must have a valid license purchased only from themeforest(the above
 									<div class="media-status">
 										<span class="badge badge-danger">3</span>
 									</div>
-									<img class="media-object" src="../../assets/admin/layout/img/avatar4.jpg" alt="...">
+									<?php echo img(array('src' => 'assets/admin/layout/img/avatar4.jpg', 'alt' => '...', 'class' => 'media-object')); ?>
+									<!-- <img class="media-object" src="../../assets/admin/layout/img/avatar4.jpg" alt="..."> -->
 									<div class="media-body">
 										<h4 class="media-heading">Deon Hubert</h4>
 										<div class="media-heading-sub">
@@ -3546,7 +3574,8 @@ License: You must have a valid license purchased only from themeforest(the above
 									</div>
 								</li>
 								<li class="media">
-									<img class="media-object" src="../../assets/admin/layout/img/avatar2.jpg" alt="...">
+									<?php echo img(array('src' => 'assets/admin/layout/img/avatar2.jpg', 'alt' => '...', 'class' => 'media-object')); ?>
+									<!-- <img class="media-object" src="../../assets/admin/layout/img/avatar2.jpg" alt="..."> -->
 									<div class="media-body">
 										<h4 class="media-heading">Ella Wong</h4>
 										<div class="media-heading-sub">
@@ -3561,7 +3590,8 @@ License: You must have a valid license purchased only from themeforest(the above
 									<div class="media-status">
 										<span class="badge badge-warning">2</span>
 									</div>
-									<img class="media-object" src="../../assets/admin/layout/img/avatar6.jpg" alt="...">
+									<?php echo img(array('src' => 'assets/admin/layout/img/avatar6.jpg', 'alt' => '...', 'class' => 'media-object')); ?>
+									<!-- <img class="media-object" src="../../assets/admin/layout/img/avatar6.jpg" alt="..."> -->
 									<div class="media-body">
 										<h4 class="media-heading">Lara Kunis</h4>
 										<div class="media-heading-sub">
@@ -3576,7 +3606,8 @@ License: You must have a valid license purchased only from themeforest(the above
 									<div class="media-status">
 										<span class="label label-sm label-success">new</span>
 									</div>
-									<img class="media-object" src="../../assets/admin/layout/img/avatar7.jpg" alt="...">
+									<?php echo img(array('src' => 'assets/admin/layout/img/avatar7.jpg', 'alt' => '...', 'class' => 'media-object')); ?>
+									<!-- <img class="media-object" src="../../assets/admin/layout/img/avatar7.jpg" alt="..."> -->
 									<div class="media-body">
 										<h4 class="media-heading">Ernie Kyllonen</h4>
 										<div class="media-heading-sub">
@@ -3586,7 +3617,8 @@ License: You must have a valid license purchased only from themeforest(the above
 									</div>
 								</li>
 								<li class="media">
-									<img class="media-object" src="../../assets/admin/layout/img/avatar8.jpg" alt="...">
+									<?php echo img(array('src' => 'assets/admin/layout/img/avatar8.jpg', 'alt' => '...', 'class' => 'media-object')); ?>
+									<!-- <img class="media-object" src="../../assets/admin/layout/img/avatar8.jpg" alt="..."> -->
 									<div class="media-body">
 										<h4 class="media-heading">Lisa Stone</h4>
 										<div class="media-heading-sub">
@@ -3601,7 +3633,8 @@ License: You must have a valid license purchased only from themeforest(the above
 									<div class="media-status">
 										<span class="badge badge-success">7</span>
 									</div>
-									<img class="media-object" src="../../assets/admin/layout/img/avatar9.jpg" alt="...">
+									<?php echo img(array('src' => 'assets/admin/layout/img/avatar9.jpg', 'alt' => '...', 'class' => 'media-object')); ?>
+									<!-- <img class="media-object" src="../../assets/admin/layout/img/avatar9.jpg" alt="..."> -->
 									<div class="media-body">
 										<h4 class="media-heading">Deon Portalatin</h4>
 										<div class="media-heading-sub">
@@ -3610,7 +3643,8 @@ License: You must have a valid license purchased only from themeforest(the above
 									</div>
 								</li>
 								<li class="media">
-									<img class="media-object" src="../../assets/admin/layout/img/avatar10.jpg" alt="...">
+									<?php echo img(array('src' => 'assets/admin/layout/img/avatar10.jpg', 'alt' => '...', 'class' => 'media-object')); ?>
+									<!-- <img class="media-object" src="../../assets/admin/layout/img/avatar10.jpg" alt="..."> -->
 									<div class="media-body">
 										<h4 class="media-heading">Irina Savikova</h4>
 										<div class="media-heading-sub">
@@ -3622,7 +3656,8 @@ License: You must have a valid license purchased only from themeforest(the above
 									<div class="media-status">
 										<span class="badge badge-danger">4</span>
 									</div>
-									<img class="media-object" src="../../assets/admin/layout/img/avatar11.jpg" alt="...">
+									<?php echo img(array('src' => 'assets/admin/layout/img/avatar11.jpg', 'alt' => '...', 'class' => 'media-object')); ?>
+									<!-- <img class="media-object" src="../../assets/admin/layout/img/avatar11.jpg" alt="..."> -->
 									<div class="media-body">
 										<h4 class="media-heading">Maria Gomez</h4>
 										<div class="media-heading-sub">
@@ -3642,7 +3677,8 @@ License: You must have a valid license purchased only from themeforest(the above
 								</div>
 								<div class="page-quick-sidebar-chat-user-messages">
 									<div class="post out">
-										<img class="avatar" alt="" src="../../assets/admin/layout/img/avatar3.jpg"/>
+										<?php echo img(array('src' => 'assets/admin/layout/img/avatar3.jpg', 'alt' => '', 'class' => 'avatar')); ?>
+										<!-- <img class="avatar" alt="" src="../../assets/admin/layout/img/avatar3.jpg"/> -->
 										<div class="message">
 											<span class="arrow"></span>
 											<a href="#" class="name">Bob Nilson</a>
@@ -3652,7 +3688,8 @@ License: You must have a valid license purchased only from themeforest(the above
 										</div>
 									</div>
 									<div class="post in">
-										<img class="avatar" alt="" src="../../assets/admin/layout/img/avatar2.jpg"/>
+										<?php echo img(array('src' => 'assets/admin/layout/img/avatar2.jpg', 'alt' => '', 'class' => 'avatar')); ?>
+										<!-- <img class="avatar" alt="" src="../../assets/admin/layout/img/avatar2.jpg"/> -->
 										<div class="message">
 											<span class="arrow"></span>
 											<a href="#" class="name">Ella Wong</a>
@@ -3662,7 +3699,8 @@ License: You must have a valid license purchased only from themeforest(the above
 										</div>
 									</div>
 									<div class="post out">
-										<img class="avatar" alt="" src="../../assets/admin/layout/img/avatar3.jpg"/>
+										<?php echo img(array('src' => 'assets/admin/layout/img/avatar3.jpg', 'alt' => '', 'class' => 'avatar')); ?>
+										<!-- <img class="avatar" alt="" src="../../assets/admin/layout/img/avatar3.jpg"/> -->
 										<div class="message">
 											<span class="arrow"></span>
 											<a href="#" class="name">Bob Nilson</a>
@@ -3672,7 +3710,8 @@ License: You must have a valid license purchased only from themeforest(the above
 										</div>
 									</div>
 									<div class="post in">
-										<img class="avatar" alt="" src="../../assets/admin/layout/img/avatar2.jpg"/>
+										<?php echo img(array('src' => 'assets/admin/layout/img/avatar2.jpg', 'alt' => '', 'class' => 'avatar')); ?>
+										<!-- <img class="avatar" alt="" src="../../assets/admin/layout/img/avatar2.jpg"/> -->
 										<div class="message">
 											<span class="arrow"></span>
 											<a href="#" class="name">Ella Wong</a>
@@ -3682,7 +3721,8 @@ License: You must have a valid license purchased only from themeforest(the above
 										</div>
 									</div>
 									<div class="post out">
-										<img class="avatar" alt="" src="../../assets/admin/layout/img/avatar3.jpg"/>
+										<?php echo img(array('src' => 'assets/admin/layout/img/avatar3.jpg', 'alt' => '', 'class' => 'avatar')); ?>
+										<!-- <img class="avatar" alt="" src="../../assets/admin/layout/img/avatar3.jpg"/> -->
 										<div class="message">
 											<span class="arrow"></span>
 											<a href="#" class="name">Bob Nilson</a>
@@ -3692,7 +3732,8 @@ License: You must have a valid license purchased only from themeforest(the above
 										</div>
 									</div>
 									<div class="post in">
-										<img class="avatar" alt="" src="../../assets/admin/layout/img/avatar2.jpg"/>
+										<?php echo img(array('src' => 'assets/admin/layout/img/avatar2.jpg', 'alt' => '', 'class' => 'avatar')); ?>
+										<!-- <img class="avatar" alt="" src="../../assets/admin/layout/img/avatar2.jpg"/> -->
 										<div class="message">
 											<span class="arrow"></span>
 											<a href="#" class="name">Ella Wong</a>
@@ -3702,7 +3743,8 @@ License: You must have a valid license purchased only from themeforest(the above
 										</div>
 									</div>
 									<div class="post out">
-										<img class="avatar" alt="" src="../../assets/admin/layout/img/avatar3.jpg"/>
+										<?php echo img(array('src' => 'assets/admin/layout/img/avatar3.jpg', 'alt' => '', 'class' => 'avatar')); ?>
+										<!-- <img class="avatar" alt="" src="../../assets/admin/layout/img/avatar3.jpg"/> -->
 										<div class="message">
 											<span class="arrow"></span>
 											<a href="#" class="name">Bob Nilson</a>
@@ -3712,7 +3754,8 @@ License: You must have a valid license purchased only from themeforest(the above
 										</div>
 									</div>
 									<div class="post in">
-										<img class="avatar" alt="" src="../../assets/admin/layout/img/avatar2.jpg"/>
+										<?php echo img(array('src' => 'assets/admin/layout/img/avatar2.jpg', 'alt' => '', 'class' => 'avatar')); ?>
+										<!-- <img class="avatar" alt="" src="../../assets/admin/layout/img/avatar2.jpg"/> -->
 										<div class="message">
 											<span class="arrow"></span>
 											<a href="#" class="name">Ella Wong</a>
@@ -3722,7 +3765,8 @@ License: You must have a valid license purchased only from themeforest(the above
 										</div>
 									</div>
 									<div class="post out">
-										<img class="avatar" alt="" src="../../assets/admin/layout/img/avatar3.jpg"/>
+										<?php echo img(array('src' => 'assets/admin/layout/img/avatar3.jpg', 'alt' => '', 'class' => 'avatar')); ?>
+										<!-- <img class="avatar" alt="" src="../../assets/admin/layout/img/avatar3.jpg"/> -->
 										<div class="message">
 											<span class="arrow"></span>
 											<a href="#" class="name">Bob Nilson</a>

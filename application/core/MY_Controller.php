@@ -10,8 +10,15 @@ class MY_Controller extends CI_Controller {
     function _output($content)
     {
         // Load the base template with output content available as $content
-        $data['content'] = &$content;
-        echo($this->load->view('responsive', $data, true));
+    	if($this->redux_auth->logged_in()) {
+    		$data = array();
+        	$data['content'] = &$content;
+        	echo($this->load->view('responsive', $data, true));
+    	} else {
+    		$data = array();
+        	$data['content'] = &$content;
+        	echo($this->load->view('not_logged', $data, true));
+       	}
     }
 
 }
