@@ -300,6 +300,7 @@ if(($search==true) &&($filters != "")) {
 		}
 		
 		$req_param['where'] = $where;
+		$data = new stdClass();
 		if(isset($add_params) && $add_params != 'none' && $add_params['where'] != '') { if(trim($req_param['where']) != '') $req_param['where'] .= ' AND '; $req_param['where'] .= $add_params['where'];}
 		$data->page = $this->input->post( "page", TRUE );
 
@@ -385,6 +386,7 @@ public function jqgrid_list_all_generation ($add_params = NULL)
 		}
 		
 		$req_param['where'] = $where;
+		$data = new stdClass();
 		if(isset($add_params) && $add_params['where'] != '') { if(trim($req_param['where']) != '') $req_param['where'] .= ' AND '; $req_param['where'] .= $add_params['where'];}
 		$data->page = $this->input->post( "page", TRUE );
 
@@ -469,6 +471,7 @@ public function jqgrid_list_assistants ($id = NULL)
 		$where.= 'lessons_assistants.id_lesson = \''.$id.'\' AND lessons_assistants.status IN (1,2,3)';
 		$req_param['where'] = $where;
 
+		$data = new stdClass();
 		$data->page = $this->input->post( "page", TRUE );
 		$data->records = count ($this->lessons->get_AssitantsData($req_param,"all"));
 		$data->total = ceil ($data->records / $req_param['num_rows'] );
@@ -2990,8 +2993,8 @@ public function jqgrid_list_assistance ($id = NULL)
 		$drawing->setBarcode($code);
 		$drawing->draw($barcode);
 		//$drawing->finish(BCGDrawing::IMG_FORMAT_PNG);		
-		$marge_right = 290;
-		$marge_bottom = 85;
+		$marge_right = 10;
+		$marge_bottom = 95;
 		imagecopy($image, $barcode, imagesx($image) - $ancho_barcode - $marge_right, imagesy($image) - $alto_barcode - $marge_bottom, 0, 0, $ancho_barcode, $alto_barcode);
 
 		header("Content-type: image/jpeg");
