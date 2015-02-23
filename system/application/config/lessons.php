@@ -26,6 +26,7 @@ $config['lessons_profesor_group']	= array(4, 3, 2, 1);
 $config['lessons_enable_lesson_idcard']	= TRUE;
 $config['lessons_idcard_template_default']	= 'carnetIMDJ_ocio.jpg';
 $config['lessons_idcard_lessons_enabled']	= array(399, 400);
+$config['lessons_idcard_lessons_custom_template']	= array('400' => 'carnetIMDJ_ocio_abono.jpg');
 
 /* End of file lessons.php */
 /* Location: ./system/application/config/lessons.php */

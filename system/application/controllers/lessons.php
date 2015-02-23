@@ -2862,6 +2862,13 @@ public function jqgrid_list_assistance ($id = NULL)
    
 		//print_r($array_result);exit();
 		$imgPath = $this->config->item('root_path').'images/templates/'.$carnet_permission;
+		# Imagen del carnet específica para este curso
+		$curso_custom_template = $this->config->item('lessons_idcard_lessons_custom_template');
+		if(!isset($curso_custom_template) || isset($curso_custom_template[$lesson]) && $curso_custom_template[$lesson] != '') {
+			$imgPath = $this->config->item('root_path').'images/templates/'.$curso_custom_template[$lesson];
+		}
+		
+		
 		$imgStampPath = $this->config->item('root_path').'images/users/'.$array_result['avatar'];
 		$font = $this->config->item('root_path').'system/fonts/FreeSansBold.ttf';
 		if(!file_exists($imgPath) || !file_exists($font)) exit ('Fallo en la carga de las plantillas necesarias');
@@ -2938,7 +2945,9 @@ public function jqgrid_list_assistance ($id = NULL)
 		// Add some shadow to the text
 		$text_xpos = 45;
 		//imagettftext($image, $fontSize, 0, $text_xpos+1, 81, $grey, $font, $array_result['user_lastname']);
-		imagettftext($image, $fontSize, 0, $text_xpos, 80, $black, $font, $array_result['user_lastname']);
+		if(strlen($array_result['user_lastname']) > 25) imagettftext($image, ($fontSize -5), 0, $text_xpos, 80, $black, $font, $array_result['user_lastname']);
+		elseif(strlen($array_result['user_lastname']) > 20) imagettftext($image, ($fontSize -3), 0, $text_xpos, 80, $black, $font, $array_result['user_lastname']);
+		else imagettftext($image, $fontSize, 0, $text_xpos, 80, $black, $font, $array_result['user_lastname']);
 		//imagettftext($image, $fontSize, 0, $text_xpos+1, 106, $grey, $font, $array_result['user_name']);
 		imagettftext($image, $fontSize-2, 0, $text_xpos, 105, $black, $font, $array_result['user_name']);
 		//imagettftext($image, $fontSize, 0, $text_xpos+1, 131, $grey, $font, 'ID: '.$array_result['user_id']);
