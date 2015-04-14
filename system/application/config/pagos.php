@@ -51,8 +51,8 @@ $config['tpv_email_notification']	= 'juanjo.nieto@gmail.com';
 $config['payment_admin_available']	= array('reserve' => TRUE, 'cash' => TRUE, 'prepaid' => TRUE, 'creditcard' => TRUE, 'paypal' => TRUE, 'bank' => TRUE, 'tpv' => TRUE );
 $config['payment_operator_available']	= array('reserve' => TRUE, 'cash' => TRUE, 'prepaid' => FALSE, 'creditcard' => TRUE, 'paypal' => FALSE, 'bank' => TRUE, 'tpv' => FALSE );
 $config['payment_profesor_available']	= array('reserve' => FALSE, 'cash' => TRUE, 'prepaid' => TRUE, 'creditcard' => FALSE, 'paypal' => TRUE, 'bank' => FALSE, 'tpv' => TRUE );
-$config['payment_advanced_user_available']	= array('reserve' => FALSE, 'cash' => TRUE, 'prepaid' => TRUE, 'creditcard' => FALSE, 'paypal' => TRUE, 'bank' => FALSE, 'tpv' => TRUE );
-$config['payment_user_available']	= array('reserve' => FALSE, 'cash' => FALSE, 'prepaid' => TRUE, 'creditcard' => FALSE, 'paypal' => TRUE, 'bank' => FALSE, 'tpv' => TRUE );
+$config['payment_advanced_user_available']	= array('reserve' => TRUE, 'cash' => FALSE, 'prepaid' => TRUE, 'creditcard' => FALSE, 'paypal' => TRUE, 'bank' => FALSE, 'tpv' => TRUE );
+$config['payment_user_available']	= array('reserve' => TRUE, 'cash' => FALSE, 'prepaid' => TRUE, 'creditcard' => FALSE, 'paypal' => TRUE, 'bank' => FALSE, 'tpv' => TRUE );
 $config['payment_anonimo_available']	= array('reserve' => FALSE, 'cash' => FALSE, 'prepaid' => FALSE, 'creditcard' => FALSE, 'paypal' => TRUE, 'bank' => FALSE, 'tpv' => TRUE );
 
 
