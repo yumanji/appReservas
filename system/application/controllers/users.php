@@ -1826,13 +1826,16 @@ function simpleSearchFields($options=array())
 		}*/
 		$this->load->model('redux_auth_model', 'users', TRUE);
 		//$this->output->set_header($this->config->item('json_header'));
-		$usuarios = $this->users->get_data(array('where' =>"users.password is null or users.password = ''"))->result_array();
+		$usuarios = $this->users->get_data(array('where' =>"meta.nif is not null and meta.nif <>'' and meta.nif <>'0' and meta.user_id>100"))->result_array();
+		//echo '<pre>'; print_r($usuarios); exit();
 		foreach ($usuarios as $usuario) {
-			$pwd = 'usuario'.$usuario['numero_socio'];
+			//$pwd = 'usuario'.$usuario['numero_socio'];
+			$pwd = $usuario['nif'];
 			$this->users->change_password_admin($usuario['id'], $pwd);
 			echo '<br>usuario '.$usuario['id'].' con pwd '.$pwd;
 		}
-		echo '<pre>';print_r($return_array);exit();
+		exit();
+		//echo '<pre>';print_r($return_array);exit();
 		//return $return_array;
 		//$data=array('page' => 'gestion/list_users',
 			//		'array_user' => $return_array,
