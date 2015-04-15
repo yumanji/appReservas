@@ -22,7 +22,10 @@ echo '</tr>';
 //print_r($resultado);
 $total_horas=0; $maximas_horas=0;$total_facturado=0;$total_facturable=0;
 	foreach($resultado as $reserva) {
-		echo '<tr><td>'.$reserva['name'].'</td><td>'.number_format($reserva['total_horas'],1,',', '.').'</td><td>'.number_format(($reserva['total_horas']*100/$reserva['maximo_horas']),1,',', '.').'% &nbsp; <img align="absmiddle" src="http://chart.apis.google.com/chart?chs=40x20&cht=gm&chd=t:'.($reserva['total_horas']*100/$reserva['maximo_horas']).'"></td><td>'.number_format($reserva['total_facturado'],2,',', '.').'</td><td>'.number_format($reserva['total_facturable'],2,',', '.').'</td></tr>';
+		if($reserva['maximo_horas']==0) $ocupacion = 0;
+		else $ocupacion = $reserva['total_horas']*100/$reserva['maximo_horas'];
+		//echo $reserva['maximo_horas'];
+		echo '<tr><td>'.$reserva['name'].'</td><td>'.number_format($reserva['total_horas'],1,',', '.').'</td><td>'.number_format(($ocupacion),1,',', '.').'% &nbsp; <img align="absmiddle" src="http://chart.apis.google.com/chart?chs=40x20&cht=gm&chd=t:'.($ocupacion).'"></td><td>'.number_format($reserva['total_facturado'],2,',', '.').'</td><td>'.number_format($reserva['total_facturable'],2,',', '.').'</td></tr>';
 		$grafico[$reserva['name']]=$reserva['total_horas'];
 		$total_horas+=$reserva['total_horas'];
 		$maximas_horas+=$reserva['maximo_horas'];
@@ -30,7 +33,9 @@ $total_horas=0; $maximas_horas=0;$total_facturado=0;$total_facturable=0;
 		$total_facturable+=$reserva['total_facturable'];
 	}
 
-	echo '<tr><td class="total">Total</td><td class="total">'.number_format($total_horas,1,',', '.').'</td><td class="total">'.number_format(($total_horas*100/$maximas_horas),1,',', '.').'%</td><td class="total">'.number_format($total_facturado,2,',', '.').'</td><td class="total">'.number_format($total_facturable,2,',', '.').'</td></tr>';
+	if($maximas_horas==0) $ocupacion_total = 0;
+	else $ocupacion_total = $total_horas*100/$maximas_horas;
+	echo '<tr><td class="total">Total</td><td class="total">'.number_format($total_horas,1,',', '.').'</td><td class="total">'.number_format(($ocupacion_total),1,',', '.').'%</td><td class="total">'.number_format($total_facturado,2,',', '.').'</td><td class="total">'.number_format($total_facturable,2,',', '.').'</td></tr>';
 	echo '</table>&nbsp;<br>';
 	echo '<h6>Nota: La columna "Total facturable" es la suma del coste de todas las reservas realizadas en el sistema, incluyendo las que se marcaron como "sin coste" de ah&iacute; que siempre ser&aacute; igual o mayor que la "Facturaci&oacute;n"..<h6>';
 
@@ -38,7 +43,7 @@ $total_horas=0; $maximas_horas=0;$total_facturado=0;$total_facturable=0;
 	echo 'No hay resultados';
 }
 
-if(isset($grafico) && count($grafico)) {
+if(isset($grafico) && count($grafico) && $maximas_horas != 0 && $total_horas != 0) {
 	echo '</td></tr><tr><td style="border: 0px none;">'."\r\n";
 //print_r($grafico);
 

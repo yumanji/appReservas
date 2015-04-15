@@ -1967,7 +1967,7 @@ if($debug) echo "E";
 				$total_horas=0;
 				//print("c - ".$hora1.' - '.$hora2);print_r($this->availability);
 				#Sumo 1 (osea, la disponibilidad, si está disponible.. osea $valie[1], si la hora está dentro del rango
-				foreach($this->availability as $inte => $value) if($value[0] >= $hora1 && $value[0] < $hora2) {$total_horas+=$value[1]; }
+				if(isset($this->availability) && is_array($this->availability)) { foreach($this->availability as $inte => $value) if($value[0] >= $hora1 && $value[0] < $hora2) {$total_horas+=$value[1]; } }
 				//print("<pre>");print_r($this->availability);
 				//echo "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA".$total_horas;
 				$resultado[$pista['id']]['maximo_horas'] +=($total_horas/2);
