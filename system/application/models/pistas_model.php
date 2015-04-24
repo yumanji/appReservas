@@ -134,7 +134,7 @@ class Pistas_model extends Model {
     }
 
    
-    function getAvailableCourts($sport="", $type="", $group = 9) {
+    function getAvailableCourts($sport="", $type="", $group = 9, $extra = null) {
     	# Devuelve lista de los ID de las pistas disponibles en general o para un deporte dado
 
 
@@ -147,7 +147,8 @@ class Pistas_model extends Model {
 			$sql_extra = ' AND (visible = 1) ';
 		}
 
-
+		if(isset($extra) && $extra != '') $sql_extra .= ' AND '.$extra;
+		
         $result=array();
       	if($type=="") {
 	        if($sport=="") {

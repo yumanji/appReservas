@@ -1,18 +1,20 @@
 <div id="informes_search_fields">
 <?php
 # Pintado de los filtros
-
 //print("<pre>");print_r($search_fields);print("</pre>");
 
 $js1 = 'class="reportSearchButton" style="background-image: url('.base_url().'images/refresh.png);" title="'.$this->lang->line('report_search').'" alt="'.$this->lang->line('report_search').'" ';
-$js2 = 'class="reportSearchButton" style="background-image: url('.base_url().'images/pdf.png);" title="'.$this->lang->line('report_pdf').'" alt="'.$this->lang->line('report_search').'" ';
+$js2 = 'class="reportSearchButton" style="background-image: url('.base_url().'images/receipts.png);" title="'.$this->lang->line('report_pdf').'" alt="'.$this->lang->line('report_search').'" ';
 $js3 = 'class="reportSearchButton" style="background-image: url('.base_url().'images/excel.png);" title="'.$this->lang->line('report_excel').'" alt="'.$this->lang->line('report_search').'" onClick="javascript: document.getElementById(\'frmInforme\').action=\''.site_url($this->uri->uri_string().'/excel').'\'; document.getElementById(\'frmInforme\').submit();" ';
 //echo form_submit('buttonSubmit', $this->lang->line('report_search'), $js);
 
 
 echo '<fieldset>';
 //echo '<legend>'.$this->lang->line('confirmation_reserved').nbs(2).form_submit('buttonSubmit', '', $js1).nbs(2).form_submit('buttonSubmit', '', $js2).nbs(2).form_button('buttonExcel', '', $js3).nbs(2).'</legend>';
-echo '<legend>'.$this->lang->line('confirmation_reserved').nbs(2).form_submit('buttonSubmit', '', $js1).nbs(2).form_button('buttonExcel', '', $js3).nbs(2).'</legend>';
+echo '<legend>'.$this->lang->line('confirmation_reserved').nbs(2).form_submit('buttonSubmit', '', $js1).nbs(2).form_button('buttonExcel', '', $js3).nbs(2);
+//if(isset($pdf_button) && $pdf_button) 
+	//echo form_button('buttonPDF', '', $js2).nbs(2);
+echo '</legend>';
 echo '<table border=0 width="100%"><tr>';
 $i=1;
 $time_array=array(

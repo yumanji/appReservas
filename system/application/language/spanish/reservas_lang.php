@@ -1,7 +1,7 @@
 <?php
 
 # TEXTO
-$lang['reserve_index_text'] = htmlentities("Desde aquí podrás reservar pista para tu próximo partido, pudiendo saber en todo momento qué horarios están libres en cada pista. Tras seleccionar la pista y el horario deberás confirmar la reserva realizando el pago, tras lo cual recibirás una confirmación de la misma para tú tranquilidad.");
+$lang['reserve_index_text'] = htmlentities(utf8_encode("Desde aquí podrás reservar pista para tu próximo partido, pudiendo saber en todo momento qué horarios están libres en cada pista. Tras seleccionar la pista y el horario deberás confirmar la reserva realizando el pago, tras lo cual recibirás una confirmación de la misma para tú tranquilidad."));
 
 
 
@@ -17,45 +17,45 @@ $lang['next_refresh'] = "Pr&oacute;ximo refresco de pantalla ";
 
 
 #CONFIRMACION RESERVA
-$lang['confirmation_reserved_for'] = htmlentities("Reserva actual para");
-$lang['confirmation_advice_payment'] = htmlentities("Te recordamos que has realizado una reserva ");
-$lang['confirmation_advice'] = htmlentities("Vas a confirmar una reserva de ");
-$lang['confirmation_total'] = htmlentities("El importe de la reserva es de ");
-$lang['confirmation_from'] = htmlentities("desde las");
-$lang['confirmation_to'] = htmlentities("hasta las");
-$lang['confirmation_court'] = htmlentities("en la pista");
-$lang['confirmation_date'] = htmlentities("el día");
-$lang['confirmation_light_extra'] = htmlentities("Ha seleccionado el sumplemento de luz");
-$lang['confirmation_detail_intro'] = htmlentities("La información de la reserva es la siguiente:");
-$lang['confirmation_extra_user_data'] = htmlentities("Para confirmar la reserva necesitamos que completes los siguientes datos.");
-$lang['confirmation_user_data_explanation'] = htmlentities("Para confirmar la reserva necesitamos definir para quién es:");
-$lang['confirmation_no_cost'] = htmlentities("Marcar para confirmar reserva sin coste.");
-$lang['confirmation_no_cost_desc'] = htmlentities("Motivo");
-$lang['confirmation_multiuser'] = htmlentities("Marcar para reservar a nombre de otro usuario.");
-$lang['confirmation_multiuser_desc'] = htmlentities("Usuario");
-$lang['confirmation_allow_reserve'] = htmlentities("Como eres usuario registrado, puedes dejar la pista reservada y pagarla en el club.");
+$lang['confirmation_reserved_for'] = htmlentities(utf8_encode("Reserva actual para"));
+$lang['confirmation_advice_payment'] = htmlentities(utf8_encode("Te recordamos que has realizado una reserva "));
+$lang['confirmation_advice'] = htmlentities(utf8_encode("Vas a confirmar una reserva de "));
+$lang['confirmation_total'] = htmlentities(utf8_encode("El importe de la reserva es de "));
+$lang['confirmation_from'] = htmlentities(utf8_encode("desde las"));
+$lang['confirmation_to'] = htmlentities(utf8_encode("hasta las"));
+$lang['confirmation_court'] = htmlentities(utf8_encode("en la pista"));
+$lang['confirmation_date'] = htmlentities(utf8_encode("el día"));
+$lang['confirmation_light_extra'] = htmlentities(utf8_encode("Ha seleccionado el sumplemento de luz"));
+$lang['confirmation_detail_intro'] = htmlentities(utf8_encode("La información de la reserva es la siguiente:"));
+$lang['confirmation_extra_user_data'] = htmlentities(utf8_encode("Para confirmar la reserva necesitamos que completes los siguientes datos."));
+$lang['confirmation_user_data_explanation'] = htmlentities(utf8_encode("Para confirmar la reserva necesitamos definir para quién es:"));
+$lang['confirmation_no_cost'] = htmlentities(utf8_encode("Marcar para confirmar reserva sin coste."));
+$lang['confirmation_no_cost_desc'] = htmlentities(utf8_encode("Motivo"));
+$lang['confirmation_multiuser'] = htmlentities(utf8_encode("Marcar para reservar a nombre de otro usuario."));
+$lang['confirmation_multiuser_desc'] = htmlentities(utf8_encode("Usuario"));
+$lang['confirmation_allow_reserve'] = htmlentities(utf8_encode("Como eres usuario registrado, puedes dejar la pista reservada y pagarla en el club."));
 
 # PAGOS
-$lang['payment_success'] = htmlentities("Pago realizado con éxito");
-$lang['payment_reserve'] = htmlentities("Reserva realizada. Deberá pagar en el club.");
-$lang['payment_waiting'] = htmlentities("Esperando la confirmación del pago.");
+$lang['payment_success'] = htmlentities(utf8_encode("Pago realizado con éxito"));
+$lang['payment_reserve'] = htmlentities(utf8_encode("Reserva realizada. Deberá pagar en el club."));
+$lang['payment_waiting'] = htmlentities(utf8_encode("Esperando la confirmación del pago."));
 $lang['payment_error'] = "Error en la realizaci&oacute;n del pago.<br>Se ha eliminado la reserva previa que se hab&iacute;a realizado. Intente reservar de nuevo.";
 
 #MENSAJES
-$lang['session_lost_alert'] = htmlentities("La información de la reserva se perdió. Vuelva a seleccionar su reserva.");
+$lang['session_lost_alert'] = htmlentities(utf8_encode("La información de la reserva se perdió. Vuelva a seleccionar su reserva."));
 $lang['booking_lost_alert'] = "La información de la reserva se perdi&oacute; o no se localiz&oacute; una reserva con ese c&oacute;digo. Vuelva a seleccionar su reserva.";
 $lang['no_cost_reason_required'] = "Debe explicar el motivo por el que no se cobra la reserva.";
 $lang['user_info_required'] = "Debe completar la informacion personal para completar la reserva.";
 $lang['multiuser_value_required'] = "Si quieres seleccionar a nombre de otro usuario registrado, debe seleccionar cual es.";
 
 #BOTONES
-$lang['reserve_button'] = htmlentities("Reserva y paga en el club");
-$lang['paypal_button'] = htmlentities("Usa Paypal");
-$lang['cash_button'] = htmlentities("Pagar en efectivo");
-$lang['prepaid_button'] = htmlentities("Usar monedero");
-$lang['tpv_button'] = htmlentities("Usar tarjeta (TPV)");
-$lang['creditcard_button'] = htmlentities("Usar tarjeta");
-$lang['bank_button'] = htmlentities("Paga por el banco");
+$lang['reserve_button'] = htmlentities(utf8_encode("Reserva y paga en el club"));
+$lang['paypal_button'] = htmlentities(utf8_encode("Usa Paypal"));
+$lang['cash_button'] = htmlentities(utf8_encode("Pagar en efectivo"));
+$lang['prepaid_button'] = htmlentities(utf8_encode("Usar monedero"));
+$lang['tpv_button'] = htmlentities(utf8_encode("Usar tarjeta (TPV)"));
+$lang['creditcard_button'] = htmlentities(utf8_encode("Usar tarjeta"));
+$lang['bank_button'] = htmlentities(utf8_encode("Paga por el banco"));
 
 # CAMPOS
 

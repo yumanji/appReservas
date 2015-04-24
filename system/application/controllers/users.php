@@ -290,6 +290,7 @@ public function jqgrid_list_all ($option = NULL)
 			$req_param['where'].= $option['where'];
 		}
 		
+		$data  = new stdClass();
 		$data->page = $this->input->post( "page", TRUE );
 		$data->records = count ($this->users->get_data($req_param,"all")->result_array());
 		if(!isset($req_param['num_rows']) || $req_param['num_rows'] == 0 || $req_param['num_rows'] == '') $req_param['num_rows'] = 100000000;

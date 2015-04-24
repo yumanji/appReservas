@@ -753,167 +753,457 @@ class Informes extends Controller {
 
 
 
-	
 
-# -------------------------------------------------------------------
-# -------------------------------------------------------------------
-# Funcion que devuelve listado de reservas diarias
-# -------------------------------------------------------------------
+
+	# -------------------------------------------------------------------
+	# -------------------------------------------------------------------
+	# Funcion que devuelve listado de reservas diarias
+	# -------------------------------------------------------------------
 	function reserva_diaria($formato="")
 	{
 		$this->load->model('Reservas_model', 'reservas', TRUE);
 		$this->load->model('Payment_model', 'pagos', TRUE);
-		
+	
 		if($this->redux_auth->logged_in()) {
 			$profile=$this->redux_auth->profile();
 			$user_group=$profile->group;
 		}	else {
 			$this->session->set_userdata('error_message', 'Acceso a pagina no permitida');
-			redirect(site_url(), 'Location'); 
+			redirect(site_url(), 'Location');
 			exit();
 		}
-		
+	
 		####################
 		# FILTROS
 		$campos_busqueda = $this->simpleSearchFields(array('sports'=>0, 'court_type'=>0, 'court'=>0, 'status'=>0, 'paymentway'=>0, 'date1' => date($this->config->item('reserve_date_filter_format')), 'date2' => date($this->config->item('reserve_date_filter_format')), 'hora1' => '00:00:00', 'hora2' => '23:59:00'));
-		//print("<pre>");print_r($campos_busqueda);
-		//if($this->session->userdata('logged_in')) $page='reservas_user_index';
-		//if($this->redux_auth->logged_in()) $data['page']='reservas_gest/index';
+				//print("<pre>");print_r($campos_busqueda);
+				//if($this->session->userdata('logged_in')) $page='reservas_user_index';
+				//if($this->redux_auth->logged_in()) $data['page']='reservas_gest/index';
 				//booking.id as id, id_booking, id_user, session, id_court, date as fecha, intervalo, status, id_paymentway, price, no_cost, no_cost_desc, user_desc, user_phone, booking.create_user as create_user, booking.create_time as create_time, booking.modify_user as modify_user, booking.modify_time as modify_time, courts.name as court_name, meta.first_name as first_name, meta.last_name as last_name, zz_booking_status.description as status_desc, zz_paymentway.description as paymentway_desc
-		//print_r($this->reservas->get_global_list());
-		$where_arr=array();
-
-		$selected_date1=$this->input->post('date1');
-		if(!isset($selected_date1) || $selected_date1=="") $selected_date1=date($this->config->item('reserve_date_filter_format'));
-		$selected_date2=$this->input->post('date2');
-		if(!isset($selected_date2) || $selected_date2=="") $selected_date2=date($this->config->item('reserve_date_filter_format'));
-
-		if($selected_date1!="") array_push($where_arr, "`date` >= '".date($this->config->item('date_db_format'), strtotime($selected_date1))."'");
-		if($selected_date2!="") array_push($where_arr, "`date` <= '".date($this->config->item('date_db_format'), strtotime($selected_date2))."'");
-		
-		$selected_time1=$this->input->post('hora1');
-		if(!isset($selected_time1) || $selected_time1=="") $selected_time1='00:00:00';
-		$selected_time2=$this->input->post('hora2');
-		if(!isset($selected_time2) || $selected_time2=="") $selected_time2='23:59:00';
-
-		if($selected_time1!="") array_push($where_arr, "`intervalo` >= '".$selected_time1."'");
-		if($selected_time2!="") array_push($where_arr, "`intervalo` <= '".$selected_time2."'");
-		
-		$where=implode(' AND ', $where_arr);
-		$order='courts.name, booking.date, booking.intervalo ';
-		$order_way='asc';
-		$records = $this->reservas->get_global_list($where, $order, $order_way, null);
+				//print_r($this->reservas->get_global_list());
+				$where_arr=array();
 	
-		$resultado=array();
-		//print("aaaa<pre>");
-		//print_r($records['records']->result_array());
-		$trans="";
-		foreach ($records['records']->result() as $row) {
-			if($trans != $row->id_transaction) {
-				$info=$this->reservas->getBookingInfoById($row->id_transaction);
-				//echo $info['inicio']; print_r($info); print_r($row); exit();
-				//print("<pre>"); print_r($row);
-				if($row->id_user) $usuario = $row->first_name." ".$row->last_name;
-				elseif($row->user_desc) $usuario = $row->user_desc;
-				else $usuario = "Desconocido";
-				
-				if($row->id_user) $telefono = $row->phone;
-				else $telefono = $row->user_phone;
-				
-				if($row->id_paymentway == 0 ) $forma_pago = 'No pagado';
-				else $forma_pago = $row->paymentway_desc;
-
-				if($row->no_cost == 0 ) $no_cost = '';
-				else $no_cost = $row->no_cost_desc;
-				
-				
-				$resultado[] = array(
-					$row->id_transaction,
-					$row->court_name,
-					$row->fecha,
-					$info['inicio'],
-					$info['fin'],
-					$row->id_user,
-					$usuario,
-					$telefono,
-					$info['intervals'],
-					$forma_pago,
-					$no_cost
-					
+				$selected_date1=$this->input->post('date1');
+				if(!isset($selected_date1) || $selected_date1=="") $selected_date1=date($this->config->item('reserve_date_filter_format'));
+				$selected_date2=$this->input->post('date2');
+				if(!isset($selected_date2) || $selected_date2=="") $selected_date2=date($this->config->item('reserve_date_filter_format'));
+	
+				if($selected_date1!="") array_push($where_arr, "`date` >= '".date($this->config->item('date_db_format'), strtotime($selected_date1))."'");
+				if($selected_date2!="") array_push($where_arr, "`date` <= '".date($this->config->item('date_db_format'), strtotime($selected_date2))."'");
+	
+				$selected_time1=$this->input->post('hora1');
+				if(!isset($selected_time1) || $selected_time1=="") $selected_time1='00:00:00';
+				$selected_time2=$this->input->post('hora2');
+				if(!isset($selected_time2) || $selected_time2=="") $selected_time2='23:59:00';
+	
+				if($selected_time1!="") array_push($where_arr, "`intervalo` >= '".$selected_time1."'");
+				if($selected_time2!="") array_push($where_arr, "`intervalo` <= '".$selected_time2."'");
+	
+				$where=implode(' AND ', $where_arr);
+				$order='courts.name, booking.date, booking.intervalo ';
+				$order_way='asc';
+				$records = $this->reservas->get_global_list($where, $order, $order_way, null);
+	
+				$resultado=array();
+				//print("aaaa<pre>");
+				//print_r($records['records']->result_array());
+				$trans="";
+				foreach ($records['records']->result() as $row) {
+					if($trans != $row->id_transaction) {
+						$info=$this->reservas->getBookingInfoById($row->id_transaction);
+						//echo $info['inicio']; print_r($info); print_r($row); exit();
+						//print("<pre>"); print_r($row);
+						if($row->id_user) $usuario = $row->first_name." ".$row->last_name;
+						elseif($row->user_desc) $usuario = $row->user_desc;
+						else $usuario = "Desconocido";
+	
+						if($row->id_user) $telefono = $row->phone;
+						else $telefono = $row->user_phone;
+	
+						if($row->id_paymentway == 0 ) $forma_pago = 'No pagado';
+						else $forma_pago = $row->paymentway_desc;
+	
+						if($row->no_cost == 0 ) $no_cost = '';
+						else $no_cost = $row->no_cost_desc;
+	
+	
+						$resultado[] = array(
+								$row->id_transaction,
+								$row->court_name,
+								$row->fecha,
+								$info['inicio'],
+								$info['fin'],
+								$row->id_user,
+								$usuario,
+								$telefono,
+								$info['intervals'],
+								$forma_pago,
+								$no_cost
+									
+						);
+						$trans=$row->id_transaction;
+					}
+				}
+	
+				//print("<pre>");print_r($resultado);
+				if($formato=="excel") {
+					$this->output->set_header("Content-type: application/vnd.ms-excel");
+					$this->output->set_header("Content-Disposition: attachment;filename=export_".time().".xls");
+						
+					$salida="";
+					$salida='<table boder="1">'."\r\n";
+					$salida.='<tr><td>Id</td><td>Pista</td><td>Fecha</td><td>Inicio</td><td>Fin</td><td>Id Usuario</td><td>Usuario</td><td>Telefono</td><td>Intervalos</td><td>Forma Pago</td><td>Sin Coste</td></tr>';
+					foreach($resultado as $pago) {
+						$salida.='<tr>'."\r\n";
+						foreach($pago as $valor) $salida.='<td>'.$valor.'</td>'."\r\n";
+						$salida.='</tr>'."\r\n";
+					}
+					$salida.='</table>';
+					$this->output->set_output($salida);
+					return NULL;
+				}
+				//echo $salida;
+	
+	
+				$array_resultados=array();
+	
+				# Post proceso el resultado para crear un array jerarquizado por niveles donde contenga las reservas por pista
+				foreach($resultado as $reserva) {
+					$total_euro=0;
+					$total_cantidad=0;
+						
+					if(!isset($array_resultados[$reserva[1]])) {
+						# Si no existe el elemento, es que es la primera vuelta que doy en esa pista
+						$array_resultados[$reserva[1]]=array();
+					}
+						
+					array_push($array_resultados[$reserva[1]], array('id_transaction' => $reserva[0], 'id_user' => $reserva[5], 'user' => $reserva[6], 'phone' => $reserva[7], 'fecha' => $reserva[2], 'inicio' => $reserva[3], 'fin' => $reserva[4], 'intervalos' => $reserva[8], 'payment_way' => $reserva[9]));
+	
+	
+						
+						
+				}
+	
+				//print("<pre>");print_r($array_resultados);
+				$fields=array(htmlentities('Nº Socio'), 'Fecha','Inicio', 'Fin', 'Usuario', 'Telefono', 'Forma Pago');
+	
+				$contenido = $this->load->view('informes/reserva_diaria', array('resultado' => $array_resultados, 'campos' => $fields, 'filtros' => $campos_busqueda, 'search_fields' => $this->load->view('informes/search_fields', array('search_fields'=> $campos_busqueda, 'disabled' => ''), true)), TRUE);
+	
+				$data=array(
+						'meta' => $this->load->view('meta', array('extra' => link_tag(base_url().'css/informes.css')), true),
+						'header' => $this->load->view('header', array('enable_menu' => $this->redux_auth->logged_in()), true),
+						'navigation' => $this->load->view('navigation', '', true),
+						'search_fields' => $this->load->view('informes/search_fields', array('search_fieldss'=> $campos_busqueda, 'disabled' => '', 'pdf_' => '1'), true),
+						'main_content' => $contenido,
+						'form_name' => 'frmInforme',
+						'footer' => $this->load->view('footer', '', true),
+						'info_message' => $this->session->userdata('info_message'),
+						'error_message' => $this->session->userdata('error_message')
 				);
-				$trans=$row->id_transaction;
-			}
-		}
-		
-		//print("<pre>");print_r($resultado);
-		if($formato=="excel") {
-			$this->output->set_header("Content-type: application/vnd.ms-excel");
-			$this->output->set_header("Content-Disposition: attachment;filename=export_".time().".xls");
-			
-			$salida="";
-			$salida='<table boder="1">'."\r\n";
-			$salida.='<tr><td>Id</td><td>Pista</td><td>Fecha</td><td>Inicio</td><td>Fin</td><td>Id Usuario</td><td>Usuario</td><td>Telefono</td><td>Intervalos</td><td>Forma Pago</td><td>Sin Coste</td></tr>';
-			foreach($resultado as $pago) {
-				$salida.='<tr>'."\r\n";
-				foreach($pago as $valor) $salida.='<td>'.$valor.'</td>'."\r\n";
-				$salida.='</tr>'."\r\n";
-			}
-			$salida.='</table>';
-			$this->output->set_output($salida); 
-			return NULL;
-		}
-		//echo $salida;
-		
-		
-		$array_resultados=array();
-		
-		# Post proceso el resultado para crear un array jerarquizado por niveles donde contenga las reservas por pista
-		foreach($resultado as $reserva) {
-			$total_euro=0;
-			$total_cantidad=0;
-			
-			if(!isset($array_resultados[$reserva[1]])) {
-				# Si no existe el elemento, es que es la primera vuelta que doy en esa pista
-				$array_resultados[$reserva[1]]=array();				
-			}
-			
-			array_push($array_resultados[$reserva[1]], array('id_transaction' => $reserva[0], 'id_user' => $reserva[5], 'user' => $reserva[6], 'phone' => $reserva[7], 'fecha' => $reserva[2], 'inicio' => $reserva[3], 'fin' => $reserva[4], 'intervalos' => $reserva[8], 'payment_way' => $reserva[9]));
-
-
-			
-			
-		}
-		
-		//print("<pre>");print_r($array_resultados);
-		$fields=array(htmlentities('Nº Socio'), 'Fecha','Inicio', 'Fin', 'Usuario', 'Telefono', 'Forma Pago');
-		
-		$contenido = $this->load->view('informes/reserva_diaria', array('resultado' => $array_resultados, 'campos' => $fields, 'filtros' => $campos_busqueda, 'search_fields' => $this->load->view('informes/search_fields', array('search_fields'=> $campos_busqueda, 'disabled' => ''), true)), TRUE);
-		
-		$data=array(
-			'meta' => $this->load->view('meta', array('extra' => link_tag(base_url().'css/informes.css')), true),
-			'header' => $this->load->view('header', array('enable_menu' => $this->redux_auth->logged_in()), true),
-			'navigation' => $this->load->view('navigation', '', true),
-			'search_fields' => $this->load->view('informes/search_fields', array('search_fields'=> $campos_busqueda, 'disabled' => ''), true),
-			'main_content' => $contenido, 
-			'form_name' => 'frmInforme', 
-			'footer' => $this->load->view('footer', '', true),				
-				'info_message' => $this->session->userdata('info_message'),
-				'error_message' => $this->session->userdata('error_message')
-			);
-			$this->session->unset_userdata('info_message');
-			$this->session->unset_userdata('error_message');
-		
-		$this->load->view('main', $data);
+				$this->session->unset_userdata('info_message');
+				$this->session->unset_userdata('error_message');
+	
+				$this->load->view('main', $data);
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 
 
 
-
-
-
-
-
+	# -------------------------------------------------------------------
+	# -------------------------------------------------------------------
+	# Funcion que devuelve listado de reservas diarias
+	# -------------------------------------------------------------------
+	function cuadrante_diario($formato="")
+	{
+		$this->load->model('Reservas_model', 'reservas', TRUE);
+		$this->load->model('Payment_model', 'pagos', TRUE);
+	
+		if($this->redux_auth->logged_in()) {
+			$profile=$this->redux_auth->profile();
+			$user_group=$profile->group;
+		}	else {
+			$this->session->set_userdata('error_message', 'Acceso a pagina no permitida');
+			redirect(site_url(), 'Location');
+			exit();
+		}
+	
+		####################
+		# FILTROS
+		$campos_busqueda = $this->simpleSearchFields(array('sports'=>0, 'court_type'=>0, 'court'=>0, 'status'=>0, 'paymentway'=>0, 'date1' => date($this->config->item('reserve_date_filter_format')), 'date2' => date($this->config->item('reserve_date_filter_format'))));
+				//print("<pre>");print_r($campos_busqueda);
+				//if($this->session->userdata('logged_in')) $page='reservas_user_index';
+				//if($this->redux_auth->logged_in()) $data['page']='reservas_gest/index';
+				//booking.id as id, id_booking, id_user, session, id_court, date as fecha, intervalo, status, id_paymentway, price, no_cost, no_cost_desc, user_desc, user_phone, booking.create_user as create_user, booking.create_time as create_time, booking.modify_user as modify_user, booking.modify_time as modify_time, courts.name as court_name, meta.first_name as first_name, meta.last_name as last_name, zz_booking_status.description as status_desc, zz_paymentway.description as paymentway_desc
+				//print_r($this->reservas->get_global_list());
+				$where_arr=array();
+	
+				$selected_date1=$this->input->post('date1');
+				if(!isset($selected_date1) || $selected_date1=="") $selected_date1=date($this->config->item('reserve_date_filter_format'));
+				$selected_date2=$this->input->post('date2');
+				if(!isset($selected_date2) || $selected_date2=="") $selected_date2=date($this->config->item('reserve_date_filter_format'));
+	
+				if($selected_date1!="") array_push($where_arr, "`date` >= '".date($this->config->item('date_db_format'), strtotime($selected_date1))."'");
+				if($selected_date2!="") array_push($where_arr, "`date` <= '".date($this->config->item('date_db_format'), strtotime($selected_date2))."'");
+	
+				$selected_time1=$this->input->post('hora1');
+				if(!isset($selected_time1) || $selected_time1=="") $selected_time1='00:00:00';
+				$selected_time2=$this->input->post('hora2');
+				if(!isset($selected_time2) || $selected_time2=="") $selected_time2='23:59:00';
+	
+				if($selected_time1!="") array_push($where_arr, "`intervalo` >= '".$selected_time1."'");
+				if($selected_time2!="") array_push($where_arr, "`intervalo` <= '".$selected_time2."'");
+	
+				$where=implode(' AND ', $where_arr);
+				$order='courts.name, booking.date, booking.intervalo ';
+				$order_way='asc';
+				$records = $this->reservas->get_global_list($where, $order, $order_way, null);
+	
+				$resultado=array();
+				
+				$resultado = $records['records']->result_array();
+				//print("aaaa<pre>");
+				//print_r($resultado);
+				//print_r($_POST);
+				
+				if(count($_POST) > 0){
+					
+					$selected_date1=$this->input->post('date1');
+					if(!isset($selected_date1) || trim($selected_date1)=="") $selected_date1=date($this->config->item('reserve_date_filter_format'));
+					
+					$fecha1 = date($this->config->item('date_db_format'), strtotime($selected_date1));
+						
+					$pistas=$this->pistas->getAvailableCourts(null, null, null, 'courts.sport_type in (1,2)');
+					$fecha = date($this->config->item('date_db_format'), strtotime($selected_date1));
+					//echo $fecha;
+					$availability_array=array();
+						foreach($pistas as $elemento) {
+							$pista_elegida=$elemento;	// Valor de ejemplo .. Deberá ser el seleccionado
+							$this->pistas->id=$pista_elegida;			
+							$nombre_pista=$this->pistas->getDescription();			
+							$dia_elegido=$fecha;
+							$this->reservas->date=$dia_elegido;			
+							$this->reservas->court=$pista_elegida;			
+							$this->reservas->id_user=$user_id;		
+							$this->reservas->availability=NULL;	
+							//echo 'Pista '.$this->pistas->id.'<br>';
+							
+							/*
+							$this->reservas->getSpecialTimetableByCourt();
+							if(!$this->reservas->availability) $this->reservas->getSpecialTimetable();
+							if(!$this->reservas->availability) $this->reservas->availability=$this->pistas->getTimetable($dia_elegido);
+							$this->reservas->availability=$this->lessons->updateTimetable($fecha, $pista_elegida, $this->reservas->availability);
+							$this->reservas->getAvailabilityByCourt($fecha,$pista_elegida);
+							*/
+							$this->app_common->get_court_availability($pista_elegida, $dia_elegido);
+							$availability_array[$nombre_pista]=$this->reservas->availability;
+							//array_push(, $this->reservas->availability);
+						}
+					
+					foreach($availability_array as $id_pista => $pista) {
+						foreach($pista as $id_celda => $celda) {
+							if($celda[2] != '') {
+								if($celda[3] == 'l') {
+									$info=$this->calendario->getCalendarByRange($celda[2]);
+									//print_r($info); exit();
+									//echo 'celda '.$id_celda.' en pista '.$id_pista.' con valor '.$info->description.'<br>';
+									array_push($availability_array[$id_pista][$id_celda], $info->description);
+								} else {
+									$info=$this->reservas->getBookingInfoById($celda[2]);
+									//echo 'aaa:'.$id_celda; print_r($info); exit();
+									$tfno = '';
+									if(strlen($info['user_desc']) < 20 && $info['user_phone']!='') $tfno = '('.$info['user_phone'].')';
+									array_push($availability_array[$id_pista][$id_celda], substr($info['user_desc'].' '.$tfno, 0, 30));
+								}
+							}
+						}	
+						
+					}
+					//print_r($availability_array); exit();
+					
+					require($this->config->item('root_path').'system/libraries/fpdf/fpdf.php');
+					$pdf = new FPDF();
+					$pdf->AddPage('L', 'A4');
+					$pdf->SetFont('Arial','B',16);
+					//$pdf->SetLineWidth(.3);
+					$pdf->SetFont('','B');
+					
+					$pdf->Cell(270,15,'Listado de reservas para '.$selected_date1,0,0,'C',false);
+					$pdf->Ln(30);
+					
+					$pdf->SetFillColor(255,0,0);
+					$pdf->SetTextColor(255);
+					$pdf->SetDrawColor(128,0,0);
+					// Cabecera
+					$w = array(40, 35, 45, 40);
+					$pdf->Cell(30,10,'Pista',1,0,'C',true);
+					//for($i=0;$i<count($availability_array[1]);$i++)
+						foreach($availability_array as $nombrepista => $pista) {
+							foreach($pista as $id_periodo => $datos) {
+								//echo $datos[0].'<br>';
+								$pdf->Cell(30,10,htmlentities(utf8_encode($datos[0])),1,0,'C',true);
+							}
+							break;
+						}
+						//exit();
+					$pdf->Ln();
+						// Restauración de colores y fuentes
+					$pdf->SetFillColor(224,235,255);
+					$pdf->SetTextColor(0);
+					$pdf->SetFont('');
+					$pdf->SetFont('Arial','',7);
+					// Datos
+					$fill = false;
+					foreach($availability_array as $nombrepista => $pista) 	{
+						$pdf->SetFont('Arial','B',10);
+						$pdf->Cell(30,14,$nombrepista,1,0,'C',true);
+						$pdf->SetFont('Arial','B',7);
+						foreach($pista as $id_periodo => $datos) {
+							$current_y = $pdf->GetY();
+							$current_x = $pdf->GetX();							
+							$cell_width = 30;
+							
+							$texto = '-'."\r\n".' ';
+							if(isset($datos[7]) && $datos[7]!='') $texto =$datos[7];
+							//if(strlen($texto)< 20) $texto .= "\r\n ";
+							$pdf->Cell(30,14,'',1,0,'C',$fill);
+							$pdf->SetXY($current_x, $current_y);
+							$pdf->MultiCell($cell_width,7,utf8_decode($texto),0,'C',false);	
+							$pdf->SetXY($current_x + $cell_width, $current_y);							
+						}
+						$pdf->Ln(); //break;
+						$pdf->Ln(); //break;
+						$fill = !$fill;
+					}
+						// Línea de cierre
+					//$pdf->Cell(array_sum($w),0,'','T');
+					
+					
+					//$pdf->Output($this->config->item('root_path').'data/recibos/'.$desc_curso.'.pdf', 'F');
+					$pdf->Output();
+					###############################
+					#### PINTAR pdf
+					###############################
+					
+					
+					
+				}
+				//$trans="";
+				/*
+				 * foreach ($records['records']->result() as $row) {
+					if($trans != $row->id_transaction) {
+						$info=$this->reservas->getBookingInfoById($row->id_transaction);
+						//echo $info['inicio']; print_r($info); print_r($row); exit();
+						//print("<pre>"); print_r($row);
+						if($row->id_user) $usuario = $row->first_name." ".$row->last_name;
+						elseif($row->user_desc) $usuario = $row->user_desc;
+						else $usuario = "Desconocido";
+	
+						if($row->id_user) $telefono = $row->phone;
+						else $telefono = $row->user_phone;
+	
+						if($row->id_paymentway == 0 ) $forma_pago = 'No pagado';
+						else $forma_pago = $row->paymentway_desc;
+	
+						if($row->no_cost == 0 ) $no_cost = '';
+						else $no_cost = $row->no_cost_desc;
+	
+	
+						$resultado[] = array(
+								$row->id_transaction,
+								$row->court_name,
+								$row->fecha,
+								$info['inicio'],
+								$info['fin'],
+								$row->id_user,
+								$usuario,
+								$telefono,
+								$info['intervals'],
+								$forma_pago,
+								$no_cost
+									
+						);
+						$trans=$row->id_transaction;
+					}
+				}*/
+	
+				//print("<pre>");print_r($resultado);
+				if($formato=="excel") {
+					$this->output->set_header("Content-type: application/vnd.ms-excel");
+					$this->output->set_header("Content-Disposition: attachment;filename=export_".time().".xls");
+						
+					$salida="";
+					$salida='<table boder="1">'."\r\n";
+					$salida.='<tr><td>Id</td><td>Pista</td><td>Fecha</td><td>Inicio</td><td>Fin</td><td>Id Usuario</td><td>Usuario</td><td>Telefono</td><td>Intervalos</td><td>Forma Pago</td><td>Sin Coste</td></tr>';
+					foreach($resultado as $pago) {
+						$salida.='<tr>'."\r\n";
+						foreach($pago as $valor) $salida.='<td>'.$valor.'</td>'."\r\n";
+						$salida.='</tr>'."\r\n";
+					}
+					$salida.='</table>';
+					$this->output->set_output($salida);
+					return NULL;
+				}
+				//echo $salida;
+	
+	
+				$array_resultados=array();
+	
+				# Post proceso el resultado para crear un array jerarquizado por niveles donde contenga las reservas por pista
+				foreach($resultado as $reserva) {
+					$total_euro=0;
+					$total_cantidad=0;
+						
+					if(!isset($array_resultados[$reserva[1]])) {
+						# Si no existe el elemento, es que es la primera vuelta que doy en esa pista
+						$array_resultados[$reserva[1]]=array();
+					}
+						
+					array_push($array_resultados[$reserva[1]], array('id_transaction' => $reserva[0], 'id_user' => $reserva[5], 'user' => $reserva[6], 'phone' => $reserva[7], 'fecha' => $reserva[2], 'inicio' => $reserva[3], 'fin' => $reserva[4], 'intervalos' => $reserva[8], 'payment_way' => $reserva[9]));
+	
+	
+						
+						
+				}
+	
+				//print("<pre>");print_r($array_resultados);
+				$fields=array(htmlentities('Nº Socio'), 'Fecha','Inicio', 'Fin', 'Usuario', 'Telefono', 'Forma Pago');
+	
+				$contenido = $this->load->view('informes/reserva_diaria', array('resultado' => $array_resultados, 'campos' => $fields, 'filtros' => $campos_busqueda, 'search_fields' => $this->load->view('informes/search_fields', array('search_fields'=> $campos_busqueda, 'disabled' => ''), true)), TRUE);
+	
+				$data=array(
+						'meta' => $this->load->view('meta', array('extra' => link_tag(base_url().'css/informes.css')), true),
+						'header' => $this->load->view('header', array('enable_menu' => $this->redux_auth->logged_in()), true),
+						'navigation' => $this->load->view('navigation', '', true),
+						'search_fields' => $this->load->view('informes/search_fields', array('search_fieldss'=> $campos_busqueda, 'disabled' => '', 'pdf_' => '1'), true),
+						'main_content' => $contenido,
+						'form_name' => 'frmInforme',
+						'footer' => $this->load->view('footer', '', true),
+						'info_message' => $this->session->userdata('info_message'),
+						'error_message' => $this->session->userdata('error_message')
+				);
+				$this->session->unset_userdata('info_message');
+				$this->session->unset_userdata('error_message');
+	
+				$this->load->view('main', $data);
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 
 # -------------------------------------------------------------------
@@ -938,8 +1228,7 @@ class Informes extends Controller {
 		
 		####################
 		# FILTROS
-		$campos_busqueda = $this->simpleSearchFields(array('sports'=>0, 'court_type'=>0, 'court'=>0, 'status'=>0, 'paymentway'=>0, 'date1' => date($this->config->item('reserve_date_filter_format')), 'date2' => date($this->config->item('reserve_date_filter_format'))));
-		
+		$campos_busqueda = $this->simpleSearchFields(array('sports'=>'1', 'court_type'=>'0', 'court'=>'0', 'status'=>'0', 'paymentway'=>'0', 'date1' => date($this->config->item('reserve_date_filter_format')), 'date2' => date($this->config->item('reserve_date_filter_format'))));
 		//if($this->session->userdata('logged_in')) $page='reservas_user_index';
 		//if($this->redux_auth->logged_in()) $data['page']='reservas_gest/index';
 				//booking.id as id, id_booking, id_user, session, id_court, date as fecha, intervalo, status, id_paymentway, price, no_cost, no_cost_desc, user_desc, user_phone, booking.create_user as create_user, booking.create_time as create_time, booking.modify_user as modify_user, booking.modify_time as modify_time, courts.name as court_name, meta.first_name as first_name, meta.last_name as last_name, zz_booking_status.description as status_desc, zz_paymentway.description as paymentway_desc
@@ -1036,6 +1325,7 @@ function simpleSearchFields($options=array())
 				exit();
 			}
 
+			//print("<pre>");print_r($options);echo "</pre>";
 			#########################
 			## CREACION DE FILTROS 
 			######
@@ -1085,7 +1375,7 @@ function simpleSearchFields($options=array())
 			
 			
 			# Filtro de DEPORTE
-			if(!isset($options['sports']) || $options['sports']=="1") {
+			if(isset($options['sports']) && $options['sports']=="1") {
 				$options=$this->reservas->getSportsArray();
 				if(isset($options) && count($options)!=1) {
 					$equipo=array('name' => 'sports', 'desc' => $this->lang->line('sport'), 'default' => $selected_sport, 'visible' => TRUE, 'enabled'=> TRUE, 'id' => 'sports', 'type' => 'select', 'value' => $options);
@@ -1098,7 +1388,8 @@ function simpleSearchFields($options=array())
 
 			# Filtro de TIPO DE PISTA
 			
-			if(!isset($options['court_type']) || $options['court_type']=="1") {
+			if(isset($options['court_type']) && $options['court_type']=="1") {
+				//echo 'aaaaaaaaaaaaaaaaaaa';
 				$options=$this->pistas->getAvailableCourtsTypesArray($selected_sport);
 				if(isset($options) && count($options)!=1) {
 					$tipopista=array('name' => 'court_type', 'desc' => $this->lang->line('court_type'), 'default' => $selected_court_type, 'visible' => TRUE, 'enabled'=> TRUE, 'id' => 'court_type',  'type' => 'select', 'value' => array('' => $options));
@@ -1110,7 +1401,7 @@ function simpleSearchFields($options=array())
 
 
 			# Filtro de PISTAS
-			if(!isset($options['court']) || $options['court']=="1") {
+			if(isset($options['court']) && $options['court']=="1") {
 				$options=$this->pistas->getAvailableCourtsArray($selected_sport,$selected_court_type);
 				if(isset($options) && count($options)!=1) {
 					$pista=array('name' => 'court', 'desc' => $this->lang->line('court'), 'default' => $selected_court, 'visible' => TRUE, 'enabled'=> TRUE, 'id' => 'court', 'type' => 'select', 'value' => array('' => $options));
@@ -1121,7 +1412,7 @@ function simpleSearchFields($options=array())
 
 			
 			# Filtro de ESTADO DE RESERVA
-			if(!isset($options['status']) || $options['status']=="1") {
+			if(isset($options['status']) && $options['status']=="1") {
 				$options=$this->reservas->getReserveStatusArray();
 				if(isset($options) && count($options)!=1) {
 					$equipo=array('name' => 'status', 'desc' => $this->lang->line('reserve_status'), 'default' => $selected_status, 'visible' => TRUE, 'enabled'=> TRUE, 'id' => 'status', 'type' => 'select', 'value' => $options);
@@ -1132,7 +1423,7 @@ function simpleSearchFields($options=array())
 
 			
 			# Filtro de FORMA DE PAGO
-			if(!isset($options['paymentway']) || $options['paymentway']=="1") {
+			if(isset($options['paymentway']) && $options['paymentway']=="1") {
 				$options=$this->reservas->getPaymentWaysArray();
 				if(isset($options) && count($options)!=1) {
 					$equipo=array('name' => 'paymentway', 'desc' => $this->lang->line('payment_ways'), 'default' => $selected_paymentway, 'visible' => TRUE, 'enabled'=> TRUE, 'id' => 'paymentway', 'type' => 'select', 'value' => $options);
@@ -1143,7 +1434,7 @@ function simpleSearchFields($options=array())
 
 
 			# Filtro de FECHA
-			if(!isset($options['date']) || $options['date']!="0") {
+			if(isset($options['date']) || $options['date']!="0") {
 				$fecha=array('name' => 'date1', 'desc' => $this->lang->line('date1'),  'default' => $selected_date1, 'visible' => TRUE, 'enabled'=> TRUE, 'id' => 'date1', 'type' => 'date');
 				array_push($filter_array, $fecha);
 				# Filtro de FECHA
@@ -1154,7 +1445,7 @@ function simpleSearchFields($options=array())
 
 
 			# Filtro de FECHA
-			if(!isset($options['hora1']) || $options['hora1']!="0" || !isset($options['hora2']) || $options['hora2']!="0") {
+			if((isset($options['hora1']) && $options['hora1']!="0" && !isset($options['hora2']) && $options['hora2']!="0")) {
 				$fecha=array('name' => 'hora1', 'desc' => $this->lang->line('hora1'),  'default' => $selected_hour1, 'visible' => TRUE, 'enabled'=> TRUE, 'id' => 'hora1', 'type' => 'time');
 				array_push($filter_array, $fecha);
 				# Filtro de FECHA

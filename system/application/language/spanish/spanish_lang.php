@@ -17,7 +17,7 @@ $lang['mnu_notification'] = "Notificaciones";
 $lang['mnu_reservas'] = "Reservas";
 	$lang['mnu_reservas_all'] = "Listado general";
 	$lang['mnu_reservas_today'] = "Reservas de hoy";
-	$lang['mnu_reservas_status'] = htmlentities("Estado de ocupación");
+	$lang['mnu_reservas_status'] = htmlentities(utf8_encode("Estado de ocupación"));
 	$lang['mnu_reservas_canceled'] = "Reservas canceladas";
 	$lang['mnu_reservas_by_user'] = "Mis Reservas";
 	$lang['mnu_reservas_new_by_phone'] = "Reserva Telef&oacute;nica";
@@ -40,8 +40,8 @@ $lang['mnu_logout'] = "Salir";
 #WELCOME
 $lang['welcome'] = "Bienvenido";
 $lang['welcome_title'] = "Bienvenidos a Reserva Deportiva";
-$lang['welcome_text'] = htmlentities("La web a través de la cual podrás realizar reservas para jugar en tu club favorito sin necesidad de desplazarte ni esperar números telefónicos comunicando.");
-$lang['welcome_text_logged'] = htmlentities("Difruta de todos los beneficios de ser un usuario registrado en el sistema, como el bono prepago, la reserva con más anticipación y el control de tus reservas y gastos.");
+$lang['welcome_text'] = htmlentities(utf8_encode("La web a través de la cual podrás realizar reservas para jugar en tu club favorito sin necesidad de desplazarte ni esperar números telefónicos comunicando."));
+$lang['welcome_text_logged'] = htmlentities(utf8_encode("Difruta de todos los beneficios de ser un usuario registrado en el sistema, como el bono prepago, la reserva con más anticipación y el control de tus reservas y gastos."));
 
 
 
@@ -58,12 +58,12 @@ $lang['and'] = 'y';
 
 # DATOS DE USUARIO
 $lang['user_name'] = 'Nombre';
-$lang['anonymous_user'] = htmlentities('Usuario anónimo');
+$lang['anonymous_user'] = htmlentities(utf8_encode('Usuario anónimo'));
 $lang['user_id'] = 'NIF';
-$lang['user_phone'] = htmlentities('Teléfono');
-$lang['first_name'] = htmlentities('Nombre');
-$lang['last_name'] = htmlentities('Apellido');
-$lang['username'] = htmlentities('Apodo');
+$lang['user_phone'] = 'Tel&eacute;fono';
+$lang['first_name'] = htmlentities(utf8_encode('Nombre'));
+$lang['last_name'] = htmlentities(utf8_encode('Apellido'));
+$lang['username'] = htmlentities(utf8_encode('Apodo'));
 
 #BUSQUEDA PISTA
 $lang['court_search'] = "Busca tu pista!";
@@ -72,10 +72,10 @@ $lang['date_required_alert'] = "Seleccione una fecha sobre la que quiere hacer r
 
 
 #PAGINA INICIO
-$lang['login_form'] = htmlentities("Acceso a la aplicación");
-$lang['register_form'] = htmlentities("Crear una nueva cuenta de usuario");
-$lang['two_fields_mandatory'] = htmlentities("Los dos campos son obligatorios.");
-$lang['all_fields_mandatory'] = htmlentities("Todos los campos son obligatorios.");
+$lang['login_form'] = htmlentities(utf8_encode("Acceso a la aplicación"));
+$lang['register_form'] = htmlentities(utf8_encode("Crear una nueva cuenta de usuario"));
+$lang['two_fields_mandatory'] = htmlentities(utf8_encode("Los dos campos son obligatorios."));
+$lang['all_fields_mandatory'] = htmlentities(utf8_encode("Todos los campos son obligatorios."));
 
 $lang['report_search'] = "Actualizar";
 $lang['report_pdf'] = "Exportar a PDF";

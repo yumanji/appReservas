@@ -50,14 +50,14 @@ class Reservas extends Controller {
 			$profile=$this->redux_auth->profile();
 			$user_id=$profile->id;
 			$user_group=$profile->group;
-			$user_name=$profile->username;
+			$user_name=$this->usuario->getUserDesc($profile->id);
 		}	else {
 			$user_id=0;
 			$user_group=9;
 			$user_name=$this->lang->line('anonymous_user');
 		}
 		
-
+		
 		# Vacio el array de elementos seleccionados		
 		$this->session->set_userdata('bookingInterval', array());		
 
@@ -734,7 +734,7 @@ class Reservas extends Controller {
 			$profile=$this->redux_auth->profile();
 			$user_id=$profile->id;
 			$user_level=$profile->group;
-			$user_name=$profile->username;
+			$user_name=$this->usuario->getUserDesc($profile->id);
 		}	else {
 			$user_id=0;
 			$user_level=9;
@@ -1058,6 +1058,7 @@ class Reservas extends Controller {
 		$this->load->model('Reservas_model', 'reservas', TRUE);
 		$this->load->model('Pistas_model', 'pistas', TRUE);
 		$this->load->model('Lessons_model', 'lessons', TRUE);
+		$this->load->model('Redux_auth_model', 'usuario', TRUE);
 		
 		if(!isset($fecha) || !isset($dummy)) { redirect(base_url(), 'Location'); exit(); }
 
@@ -1076,7 +1077,7 @@ class Reservas extends Controller {
 			$profile=$this->redux_auth->profile();
 			$user_id=$profile->id;
 			$user_group=$profile->group;
-			$user_name=$profile->username;
+			$user_name=$this->usuario->getUserDesc($profile->id);
 		}	else {
 			$user_id=0;
 			$user_group=9;
@@ -1919,7 +1920,7 @@ class Reservas extends Controller {
 			$profile=$this->redux_auth->profile();
 			$user_id=$profile->id;
 			$user_group=$profile->group;
-			$user_name=$profile->username;
+			$user_name=$this->usuario->getUserDesc($profile->id);
 		}	else {
 			$user_id=0;
 			$user_group=9;
